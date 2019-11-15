@@ -68,7 +68,7 @@
           href="http://vue-loader.vuejs.org/"
           target="_blank"
         >
-          vue-loader
+          vue-loaderhskdj沙克拉克
         </a>
       </li>
       <li>
@@ -76,7 +76,7 @@
           href="https://github.com/vuejs/awesome-vue"
           target="_blank"
         >
-          awesome-vue并不能能不能播dksadjjsljljdjs
+          awesome-vue并不能能不能播dksadjjsljljdjsdshhjhkhjhk
         </a>
       </li>
     </ul>
