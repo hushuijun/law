@@ -76,7 +76,7 @@
           href="https://github.com/vuejs/awesome-vue"
           target="_blank"
         >
-          awesome-vue
+          awesome-vue并不能能不能播
         </a>
       </li>
     </ul>
