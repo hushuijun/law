@@ -17,7 +17,7 @@
           <router-link to="/team">团队介绍</router-link>
         </el-menu-item>
         <el-menu-item index="4" disabled>
-          <img src alt />
+          <img src="../assets/logo.png" alt />
         </el-menu-item>
         <el-menu-item index="5">
           <router-link to="/case">经典案例</router-link>
@@ -52,13 +52,23 @@ export default {
   width: 100%;
   border-bottom: 1px solid #e6e6e6;
 }
+.el-menu-item.is-disabled{
+    opacity: inherit;
+}
+.el-header{
+       height: 80px !important;
+}
+.el-menu--horizontal>.el-menu-item{
+    height: 80px;
+    line-height: 80px;
+}
 ul {
   width: 80%;
   margin: auto;
   padding: 0;
 }
 li {
-  width: 13%;
+  width: 14%;
   display: inline-block;
   list-style: none;
   text-align: center;
@@ -66,5 +76,8 @@ li {
 li a {
   /* padding: 20px 0; */
   text-decoration: none;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
 }
 </style>
