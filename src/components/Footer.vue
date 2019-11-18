@@ -105,12 +105,12 @@
 
 <script>
 export default {
-  data() {
-    return {
-      msg: "我是脚"
-    };
-  }
-};
+    data(){
+        return{
+            msg:'我是脚'
+        }
+    }
+}
 </script>
 
 <style scoped>

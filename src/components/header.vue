@@ -1,5 +1,5 @@
 <template>
-  <el-container>
+  <el-container class="nav" :class="{ 'navActive': scrollFlag }">
     <el-header>
       <el-menu
         :default-active="activeIndex"
@@ -37,10 +37,22 @@ export default {
   data() {
     return {
       activeIndex: "1",
-      activeIndex2: "1"
+      activeIndex2: "1",
+      scrollFlag:false,
     };
   },
+  mounted(){
+      window.addEventListener('scroll', this.dataScroll)
+  },
   methods: {
+     dataScroll: function () {
+        this.scroll = document.documentElement.scrollTop || document.body.scrollTop;
+        if(this.scroll>300){
+            this.scrollFlag=true
+            }else{
+              this.scrollFlag=false
+            }
+    },
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
     }
@@ -48,12 +60,25 @@ export default {
 };
 </script>
 <style scoped>
+.nav{
+  position: fixed;
+  z-index: 11;
+}
+.navActive{
+  background: white;
+}
+.navActive ul li a{
+ color: black !important;
+}
 .el-container {
   width: 100%;
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom: 1px solid #3B4350;
 }
 .el-menu-item.is-disabled{
     opacity: inherit;
+}
+.el-menu.el-menu--horizontal{
+  border: none;
 }
 .el-header{
        height: 80px !important;
@@ -62,10 +87,17 @@ export default {
     height: 80px;
     line-height: 80px;
 }
+.el-menu--horizontal>.el-menu-item:hover{
+  background: none;
+}
+.el-menu--horizontal>.el-menu-item.is-active{
+  border-bottom: 2px solid #E60013;
+}
 ul {
   width: 80%;
   margin: auto;
   padding: 0;
+ background: rgba(0, 0, 0, 0)
 }
 li {
   width: 14%;
@@ -79,5 +111,6 @@ li a {
   display: inline-block;
   width: 100%;
   height: 100%;
+  color: white !important;
 }
 </style>

@@ -7,6 +7,7 @@ import Case from '@/page/Case'
 import News from '@/page/News'
 import About from '@/page/About'
 
+
 Vue.use(Router)
 
 export default new Router({
