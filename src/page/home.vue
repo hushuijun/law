@@ -1,5 +1,9 @@
 <template>
-    <div class="Home">{{msg}}</div>
+    <div class="Home">
+        <i class="el-icon-edit"></i>
+      <div>1212</div>
+    </div>
+
 </template>
 
 <script>
@@ -14,8 +18,7 @@ export default {
 </script>
 
 <style scoped>
- .home{
-    color: #000;
-    font-size:40px;
- }
+.Home{
+
+}
 </style>
