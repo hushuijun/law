@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <div>
-      <app-header></app-header>
+      <!-- <app-header></app-header> -->
     </div>
     <div>
       <router-view></router-view>
     </div>
      <div>
-      <app-footer></app-footer>
+      <!-- <app-footer></app-footer> -->
     </div>
   </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
     <el-container class="Home">
-        <img class="mainbox" src="../assets/mainbox.png"/>
-        <div class="Home_Content">
+        <div class="Home-PC Home_Content"  v-show="show">
+            <img class="mainbox" src="../assets/mainbox.png"/>
             <div class="Home_banner">
                 <h3>京师律师事务所</h3>
                 <p><span>·</span>规模化<span>·</span>专业化<span>·</span>品牌化<span>·</span>国际化<span>·</span>电商化</p>
@@ -153,16 +153,21 @@
             <div class="Home-Cont4">
                 <div class="Home_Top">
                   <img src="../assets/icon-04.png"/>
-                  <h4>CLASSIC CASElassic Case</h4>
+                  <h4>CLASSIC CASE</h4>
                   <p>经典案例</p>
                 </div>
                 <el-row>
                   <el-col :span="6">
                     <div class="Cont4_top">
-
+                        <img  src="../assets/guohui.png"/>
+                        <p class="pand_35">中华人民共和国</p>
+                        <p class="pand_20">北京市朝阳区人民法院</p>
+                        <p class="pand_20 ft_22">民事判决书</p>
+                        <p class="pand_15 ft_24">标的额：300万</p>
                     </div>
                     <div class="Cont4_bottm">
-
+                        <p>李某与某企业货款纠纷案</p>
+                        <h4>货款纠纷</h4>
                     </div>
                   </el-col>
                   <el-col :span="6">
@@ -181,350 +186,231 @@
                   </el-col>
                 </el-row>
             </div>
+            <div class="Home-Cont5">
+                <div class="Home-Cont5_top">
+                  <el-row>
+                    <el-col :span="12">
+                      <img src="../assets/left-top1.png"/>
+                      <p>荣获新三板英雄榜最值得推荐律师事务所</p>
+                    </el-col>
+                    <el-col :span="12">
+                      <img src="../assets/right-top1.png"/>
+                      <p>荣获2015年年度最受媒体欢迎律所</p>
+                    </el-col>
+                  </el-row>
+                  <el-row>
+                    <el-col :span="12">
+                      <img src="../assets/left-bottom1.png"/>
+                      <p>2015年度十大维权打假现金法律服务机构</p>
+                    </el-col>
+                    <el-col :span="12">
+                      <img src="../assets/right-bottom1.png"/>
+                      <p>下一代教育基金会颁发的下一代教育爱心奉献奖</p>
+                    </el-col>
+                  </el-row>
+                </div>
+            </div>
+        </div>
+        <div class="Home-H5" v-show="show1">
+          <div class="swiper-container" id="swiper1">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide h5_BG1">
+                  <h3>京师律师事务所</h3>
+                  <p>规模化 · 专业化 · 品牌化</p>
+                  <p>国际化 · 电商化</p>
+                  <a>在线咨询</a>
+                  <div class="Home_bannerBT">
+                      <span><img src="../assets/h5_down.png"></span>
+                  </div>
+                </div>
+                <div class="swiper-slide h5_BG2">
+                  <div class="H5_top">
+                      <h3>关于律所</h3>
+                      <p>ABOUT JINGSH</p>
+                      <span class="line"></span>
+                  </div>
+                  <p>
+                      北京市京师律师事务所，肇造于1994年，
+                      总部设于北京市国贸CBD商圈，是一家传统与新型管理模式相结合的合伙制律师事务所。
+                      京师自成立以来，一直朝着规模化、专业化、
+                      品牌化、国际化、电商化方向不断改革，并以一流的律师团队...
+                  </p>
+                  <a>了解详情</a>
+                  <div class="Home_bannerBT">
+                      <span><img src="../assets/H5_down2.png"></span>
+                  </div>
+                </div>
+                <div class="swiper-slide h5_BG3">
+                  <div class="H5_top">
+                      <h3>京师历程</h3>
+                      <p>JINGSH HISTORY</p>
+                      <span class="line"></span>
+                  </div>
+                  <!-- <el-carousel :interval="4000" type="card" height="200px">
+                    <el-carousel-item v-for="(item ,index) of mediumlist" :key="index">
+                      <h3 class="medium">{{item.year}}</h3>
+                      <div>
+                          {{item.text}}
+                      </div>
+                    </el-carousel-item>
+                  </el-carousel> -->
+                </div>
+                <div class="swiper-slide h5_BG4">
+                    <div class="H5_top">
+                        <h3>核心服务</h3>
+                        <p>CORE BSSINESS</p>
+                        <span class="line"></span>
+                    </div>
+                </div>
+              </div>
+              <!-- Add Pagination -->
+              <div class="swiper-pagination"></div>
+            </div>
         </div>
     </el-container>
 </template>
 <script>
-
+import Swiper from 'swiper';
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.min.css';
 export default {
   name: 'Home',
   data () {
     return {
-      activeNames: ['1']
+      activeNames: ['1'],
+      show : true,
+      show1 : false,
+      mediumlist:[{year:'1994',text:'北京京师律师事务所于1994年正式成立'},
+                  {year:'2014',text:'北京京师律师事务所于2014年迁址于东四环京师律师大厦（原工美大厦）'},
+                  {year:'2015',text:'京师律师事务所第一家海外分所在澳大利亚悉尼正式成立'},
+                  {year:'2017',text:'京师海外第75家联盟所于斯里兰卡正式建立'},
+                  {year:'2018',text:'京师海外第105家联盟所于斯威士兰正式建立'},
+                  {year:'2019',text:'京师律师事务所德国分所正式成立'}]
     }
   },
-  methods: {
-      handleChange(val) {}
+  methods: {},
+  mounted : function(){		
+    //可用于设置自适应屏幕，根据获得的可视宽度（兼容性）判断是否显示		
+    let w = document.documentElement.offsetWidth || document.body.offsetWidth;		
+    if(w <= 1024){			
+      this.show = false;		
+      this.show1 = true;	
     }
+    new Swiper('#swiper1', {
+      direction: 'vertical',
+        slidesPerView: 1,
+        spaceBetween: 30,
+        mousewheel: true
+    })
+  },
 }
 </script>
 
 <style scoped>
-ul,ol,li{
-  list-style-type:none;
-  margin: 0;padding: 0;
-}
-h4,p{margin: 0;}
-.Home{
-  width:100%
-}
-.mainbox{
-  display: block;
-  width:100%;
-  position:fixed;top:0;bottom:0;right:0;left:0;z-index:-1;
-}
-.Home_Content{
-  width:100%;
-}
-.Home_banner{
-  width:100%;
-  height:995px;
-  text-align: center;
-  color: #fff;
-}
-.Home_banner h3{
-  margin: 0;
-  margin-top:340px;
-  font-size: 70px;
-}
-.Home_banner p{
-  margin-top: 30px;
-  font-size: 26px;
-}
-.Home_bannerA a{
-  display: inline-block;
-  width:198px;
-  height:43px;
-  text-align: center;
-  line-height: 45px;
-  border: 1px solid #fff;
-  font-size: 16px;
-  margin: 30px;
-  cursor: pointer;
-}
-.Home_bannerA a:hover{
-  background: #fff;
-  color:#181818;
-}
-.Home_bannerBT{
-  width: 21px;
-  text-align: center;
-  margin: auto;
-  margin-top:290px;
-}
-.Home_bannerBT div{
-  width:19px;
-  height:35px;
-  line-height: 35px;
-  text-align: 19px;
-  border-radius: 50px;
-  border: 1px solid #fff;
-  margin: auto;
-}
-.Home_bannerBT span{
-  width: 21px;
-  text-align: center;
-  display: inline-block;
-  margin: auto;
-  -webkit-animation: gogogo1 2.5s infinite linear;
-  animation: gogogo1 2.5s infinite linear;
-  -moz-animation: gogogo1 2.5s infinite linear;
-  margin-top: 18px;
-}
-.Home_bannerBT span img{
-  width: 70%;
-  margin-right: 1px;
-}
-@keyframes gogogo1 { 
-  0% {             
-      transform: translate(0px, 0px);            
-  }            
-  50% {                
-      transform: translate(0px, -10px);            
-  }            
-  100% {                
-      transform: translate(0px, 0px);
+  @import'../assets/css/home.css';
+  @import 'swiper/dist/css/swiper.min.css';
+  .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+  .h5_BG1{
+      width:100%;
+      height: 100%;
+      color:#fff;
+      text-align: center;
+      background: url('../assets/H5_BG1.png') no-repeat center;
+      background-size: cover;
   }
-}
-.Home-Cont1{
-  width:100%;
-  background: #fff;
-  height: 640px;
-}
-
-.Home_Top h4{
-  margin: 0;
-  font-size: 74px;
-  color:#ececec;
-  letter-spacing: 6px;
-}
-.Home_Top p{
-  margin: 0;
-  font-size: 35px;
-  color: #000;
-  margin-top: -59px;
-  letter-spacing: 3px;
-}
-.Home_Top{
-  padding-top:115px;
-  padding-bottom: 50px;
-}
-.Cont1_bot p{
-  text-indent: 2em;
-  width:950px;
-  margin: auto;
-  text-align: center;
-  line-height: 36px;
-}
-.Cont1_bot a{
-    display: block;
-    width: 196px;
-    height:41px;
-    text-align: center;
-    line-height: 41px;
-    border:2px solid #7f7f7f;
+  .h5_BG2{
+      width:100%;
+      height: 100%;
+      color:#fff;
+      text-align: center;
+      background: url('../assets/bg_lbsuo.png') no-repeat center;
+      background-size: cover;
+  }
+  .h5_BG3{
+      width:100%;
+      height: 100%;
+      color:#fff;
+      text-align: center;
+      background: url('../assets/bg_licheng.png') no-repeat center;
+      background-size: cover;
+  }
+  .h5_BG4{
+      width:100%;
+      height: 100%;
+      color:#fff;
+      text-align: center;
+      background: url('../assets/bg_hexin.png') no-repeat center;
+      background-size: cover;
+  }
+  .h5_BG2 p{
+    padding: 0 30px;
+    color: #000;
+    font-size: 13px;
+    line-height: 30px;
+  }
+  .h5_BG2 a{
     color:#000;
-    margin: auto;
-    margin-top: 70px;
-    font-size: 16px;
-    cursor: pointer;
-}
-.Cont1_bot a:hover{
-  background: #7f7f7f;
-  color: #fff;
-}
-.Home-Cont2{
-  background: #eee;
-  padding-bottom: 115px;
-}
-.Home-Cont2 .Home_Top h4{
-  color:#dbdada
-}
-.Cont2_bot{
-  width:1200px;
-  margin:auto;
-}
-.bg-purple .Cont2_bot_left{
-  width:240px;
-  height: 634px;
-  position: relative;
-  float: left;
-}
-.bg-purple .Cont2_bot_left .img{
-  width: 100%;
-  height: 100%;
-}
-.bot_left_bottom{
-  width: 100%;
-  height:174px;
-  background: rgba(0,0,0,0.5);
-  position: absolute;
-  left:0;
-  bottom: 0;
-}
-.bot_left_bottom p{
-  color:#b9b9b9;
-  text-align: left;
-  padding-left:36px;
-  transition: all 0.5s ease 0s;
-  cursor: pointer;
-  height: 43px;
-  line-height: 43px;
-}
-.bot_left_bottom p:hover{
-  color:#fff;
-  padding-left:52px;
-  transition: all 0.5s ease 0s;
-}
-.bot_left_bottom p img{
-  vertical-align: middle;
-  margin-left: 15px;
-}
-.Cont2_bot_right{
-  float: left;
-  padding: 0 15px;
-  width: 360px;
-  text-align: left;
-}
-.Cont2_bot_right h4{
-  font-size: 20px;
-}
-.bot_right_div1:hover h4{
-  color:#ba131a;
-}
-.Cont2_bot_right p{
-  line-height: 25px;
-  margin-top: 10px;
-}
-.bot_right_div1{
-  margin-top: 23px;
-}
-.bot_right_div1:first-child{
-  margin-top:0;
-}
-.bot_right_div2{
-  width:483px;
-  height: 342px;
-  position: relative;
-}
-.right_div2_lefc{
-  width:152px;
-  height:100%;
-  background: rgba(0,0,0,0.5);
-  color: #fff;
-  position: absolute;
-  left: 0;
-  top:0;
-}
-.right_div2_lefc ul li{
-  height:39px;
-  line-height: 39px;
-  text-align: center;
-  margin: auto;
-  border-bottom: 1px solid #333;
-}
-.right_div2_lefc ul li:hover{
-  background: #c60716;
-  cursor: pointer;
-  padding-left: 30px;
-}
-.right_div2_lefc ul .li1:hover{
-  padding-left: 0;
-  background:none;
-}
-.right_div2_lefc ul li img{
-  vertical-align: middle;
-  margin-left: 10px;
-}
-.bot_right_div2Bottm{
-  width: 483px;
-}
-.bot_right_div2Bottm li .span1{
-  float: left;
-}
-.bot_right_div2Bottm li .span2{
-  float: right;
-}
-/* .bot_right_div2Bottm li{
-  height:30px;
-  line-height: 30px;
-  border:1px solid #c7c7c7;
-  border-top:0px;
-  padding: 20px;
-} */
-.el-collapse-item__content{
-  padding: 20px;
-  padding-bottom: 0;
-}
-
-.el-collapse-item div{
-  text-align: left;
-}
-.Home-Cont3{
-  background: #fff;
-  padding-bottom:100px;
-}
-.Home-Cont3-IMG{
-  width:1200px;
-  height:530px;
-  margin: auto;
-  position: relative;
-  background: #000;
-}
-.Home-Cont3-IMG img{
-  width: 100%;
-  height: 100%;
-}
-.Home-Cont3-word{
-  width: calc(100% - 75px);
-  height:214px;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  text-align: left;
-  padding-left: 75px;
-}
-.Home-Cont3-word p{
-  font-size: 24px;
-  color: #fff;
-} 
-.Home-Cont3-word p:first-child{
-  padding-top:70px;
-}
-.Home-Cont3-word p:last-child{
-  padding-top:35px;
-  font-size: 16px;
-}
-.Home-Cont3-word p>a{
-  cursor: pointer;
-}
-.Home-Cont3-word p>a:last-child{
-padding-left:50px;
-
-}
-.Home-Cont4{
-  background: #eee;
-  width:100%;
-  margin: auto;
-}
-.Home-Cont4 .el-row{
-  width:1200px;
-  margin: auto;
-}
-.Home-Cont4 .el-row .el-col{
-  background: #fff;
-  height:428px;
-  width: 280px;
-  margin: 0 10px;
-}
-.Cont4_top{
-  height: 355px;
-  text-align: center;
-}
-.Cont4_bottm{
-  height: 74px;
-  text-align: center;
-  background: #c50c02;
-  color:#fff;
-}
+    border:1px solid #000;
+    display: inline-block;
+    padding:10px 30px;
+    margin-top:60px;
+  }
+  .h5_BG1 h3{
+    padding-top:30%;
+    font-size: 45px;
+  }
+  .H5_top{
+    width:100%;
+    text-align: center;
+  }
+  .H5_top h3{
+    font-size: 24px;
+    color:#2b2b2b;
+    margin-top:90px;
+    margin-bottom: 20px;
+  }
+  .h5_BG3 .H5_top h3{
+    color: #fff;
+  }
+  .H5_top p{
+    font-size: 22px;
+    color:#cbcbcb;
+    font-weight: 900;
+  }
+  .H5_top .line{
+    display: inline-block;
+    width:42px;
+    height:4px;
+    background: #ba131a;
+    border-radius: 25px;
+  }
+  .h5_BG1 p{
+    font-size: 20px;
+  }
+  .h5_BG1 a{
+    display: inline-block;
+    padding:10px 30px;
+    border:1px solid #fff;
+    margin-top: 116px;
+  }
+  .h5_BG1 a:hover{
+    background: #fff;
+    color:#000;
+  }
+  .h5_BG2 a:hover{
+    background: #3e3e3e;
+    color:#fff;
+  }
+  .h5_BG1 .Home_bannerBT,.h5_BG2 .Home_bannerBT{
+    width:100%;
+  }
+  .h5_BG1 .Home_bannerBT span , .h5_BG2 .Home_bannerBT span{
+    width:25px;
+  }
+  .h5_BG1 .Home_bannerBT span img,.h5_BG2 .Home_bannerBT span img{
+    width:100%;
+  }
 </style>
