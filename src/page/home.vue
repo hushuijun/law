@@ -281,5 +281,5 @@ export default {
 
 <style scoped>
   @import'../assets/css/home.css';
-  @import 'swiper/dist/css/swiper.min.css';
+  /* @import 'swiper/dist/css/swiper.min.css'; */
 </style>
