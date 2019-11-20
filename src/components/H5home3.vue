@@ -13,7 +13,7 @@
             </div>
           </el-carousel-item>
         </el-carousel> -->
-        <div class="swiper-container" id="Home3_wiper">
+        <div class="swiper-container Home3_swiper" id="Home3_swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                 11111
@@ -44,7 +44,7 @@ export default {
         }
     },
     mounted(){
-        new Swiper('#Home3_wiper', {
+        new Swiper('#Home3_swiper', {
             speed:30000,
             loop : true,
             autoplay:true
@@ -55,4 +55,8 @@ export default {
 <style scoped>
     @import'../assets/css/home.css';
     @import 'swiper/dist/css/swiper.min.css';
+    .Home3_swiper{
+        height:29px;
+        line-height: 29px;
+    }
 </style>
