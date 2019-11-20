@@ -217,14 +217,20 @@
                 <div class="swiper-slide">
                   <H5home1></H5home1>
                 </div>
-                <div class="swiper-slide ">
+                <div class="swiper-slide">
                   <H5home2></H5home2>
                 </div>
-                <div class="swiper-slide ">
+                <div class="swiper-slide">
                   <H5home3></H5home3>
                 </div>
-                <div class="swiper-slide ">
+                <div class="swiper-slide">
                     <H5home4></H5home4>
+                </div>
+                <div class="swiper-slide">
+                    <H5home5></H5home5>
+                </div>
+                <div class="swiper-slide">
+                    <H5home6></H5home6>
                 </div>
               </div>
               <!-- Add Pagination -->
@@ -235,11 +241,14 @@
 </template>
 <script>
 import Swiper from 'swiper';
+import 'swiper/dist/css/swiper.min.css';
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import H5home1 from '@/components/H5home1'
 import H5home2 from '@/components/H5home2'
 import H5home3 from '@/components/H5home3'
 import H5home4 from '@/components/H5home4'
+import H5home5 from '@/components/H5home5'
+import H5home6 from '@/components/H5home6'
 export default {
   name: 'Home',
   components:{
@@ -247,12 +256,9 @@ export default {
     H5home2,
     H5home3,
     H5home4,
+    H5home5,
+    H5home6
   },
-    
-    // 
-    // 
-    // H5home5,
-  
   data () {
     return {
       activeNames: ['1'],
@@ -269,12 +275,16 @@ export default {
       this.show = false;		
       this.show1 = true;	
     }
-    new Swiper('#swiper1', {
-      direction: 'vertical',
-        slidesPerView: 1,
-        spaceBetween: 30,
-        mousewheel: true
-    })
+    var mySwiper = new Swiper('#swiper1', {
+            pagination : '.swiper-pagination', // 分页器 小点点 
+            paginationClickable :true,    // 开启点击分页器 进行切换
+            // prevButton:'.swiper-button-prev',  // 三角形左滑动右滑动
+            // nextButton:'.swiper-button-next',  // 三角形左滑动右滑动
+            direction: 'vertical', // 开启上下滚动放向
+            slidesPerView: 1, // 1整屏切换
+            spaceBetween: 30,
+            mousewheelControl: true
+        })
   },
 }
 </script>
