@@ -17,7 +17,7 @@
           <router-link to="/team">团队介绍</router-link>
         </el-menu-item>
         <el-menu-item index="4" disabled>
-          <img src="../assets/logo.png" alt />
+          <img src="../assets/logo.png" alt  style="margin-left:25px;"/>
         </el-menu-item>
         <el-menu-item index="5">
           <router-link to="/case">经典案例</router-link>
@@ -65,10 +65,7 @@ export default {
   z-index: 11;
 }
 .navActive{
-  background: white;
-}
-.navActive ul li a{
- color: black !important;
+  background: rgba(0, 0, 0, 0.5);
 }
 .el-container {
   width: 100%;
