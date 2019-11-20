@@ -5,14 +5,6 @@
             <p>JINGSH HISTORY</p>
             <span class="line"></span>
         </div>
-        <!-- <el-carousel :interval="4000" type="card" height="200px">
-          <el-carousel-item v-for="(item ,index) of mediumlist" :key="index">
-            <h3 class="medium">{{item.year}}</h3>
-            <div>
-                {{item.text}}
-            </div>
-          </el-carousel-item>
-        </el-carousel> -->
         <div class="swiper-container Home3_swiper" id="Home3_swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide" v-for="(item,index) of mediumlist" :key="index">
