@@ -4,7 +4,7 @@
       <app-header></app-header>
     </div>
     <div>
-      <router-view></router-view>
+         <router-view></router-view>
     </div>
      <div>
       <app-footer></app-footer>
