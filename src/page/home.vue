@@ -214,53 +214,17 @@
         <div class="Home-H5" v-show="show1">
           <div class="swiper-container" id="swiper1">
               <div class="swiper-wrapper">
-                <div class="swiper-slide h5_BG1">
-                  <h3>京师律师事务所</h3>
-                  <p>规模化 · 专业化 · 品牌化</p>
-                  <p>国际化 · 电商化</p>
-                  <a>在线咨询</a>
-                  <div class="Home_bannerBT">
-                      <span><img src="../assets/h5_down.png"></span>
-                  </div>
+                <div class="swiper-slide">
+                  <H5home1></H5home1>
                 </div>
-                <div class="swiper-slide h5_BG2">
-                  <div class="H5_top">
-                      <h3>关于律所</h3>
-                      <p>ABOUT JINGSH</p>
-                      <span class="line"></span>
-                  </div>
-                  <p>
-                      北京市京师律师事务所，肇造于1994年，
-                      总部设于北京市国贸CBD商圈，是一家传统与新型管理模式相结合的合伙制律师事务所。
-                      京师自成立以来，一直朝着规模化、专业化、
-                      品牌化、国际化、电商化方向不断改革，并以一流的律师团队...
-                  </p>
-                  <a>了解详情</a>
-                  <div class="Home_bannerBT">
-                      <span><img src="../assets/H5_down2.png"></span>
-                  </div>
+                <div class="swiper-slide ">
+                  <H5home2></H5home2>
                 </div>
-                <div class="swiper-slide h5_BG3">
-                  <div class="H5_top">
-                      <h3>京师历程</h3>
-                      <p>JINGSH HISTORY</p>
-                      <span class="line"></span>
-                  </div>
-                  <!-- <el-carousel :interval="4000" type="card" height="200px">
-                    <el-carousel-item v-for="(item ,index) of mediumlist" :key="index">
-                      <h3 class="medium">{{item.year}}</h3>
-                      <div>
-                          {{item.text}}
-                      </div>
-                    </el-carousel-item>
-                  </el-carousel> -->
+                <div class="swiper-slide ">
+                  <H5home3></H5home3>
                 </div>
-                <div class="swiper-slide h5_BG4">
-                    <div class="H5_top">
-                        <h3>核心服务</h3>
-                        <p>CORE BSSINESS</p>
-                        <span class="line"></span>
-                    </div>
+                <div class="swiper-slide ">
+                    <H5home4></H5home4>
                 </div>
               </div>
               <!-- Add Pagination -->
@@ -272,20 +236,29 @@
 <script>
 import Swiper from 'swiper';
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
-import 'swiper/dist/css/swiper.min.css';
+import H5home1 from '@/components/H5home1'
+import H5home2 from '@/components/H5home2'
+import H5home3 from '@/components/H5home3'
+import H5home4 from '@/components/H5home4'
 export default {
   name: 'Home',
+  components:{
+    H5home1,
+    H5home2,
+    H5home3,
+    H5home4,
+  },
+    
+    // 
+    // 
+    // H5home5,
+  
   data () {
     return {
       activeNames: ['1'],
       show : true,
       show1 : false,
-      mediumlist:[{year:'1994',text:'北京京师律师事务所于1994年正式成立'},
-                  {year:'2014',text:'北京京师律师事务所于2014年迁址于东四环京师律师大厦（原工美大厦）'},
-                  {year:'2015',text:'京师律师事务所第一家海外分所在澳大利亚悉尼正式成立'},
-                  {year:'2017',text:'京师海外第75家联盟所于斯里兰卡正式建立'},
-                  {year:'2018',text:'京师海外第105家联盟所于斯威士兰正式建立'},
-                  {year:'2019',text:'京师律师事务所德国分所正式成立'}]
+      
     }
   },
   methods: {},
@@ -309,108 +282,4 @@ export default {
 <style scoped>
   @import'../assets/css/home.css';
   @import 'swiper/dist/css/swiper.min.css';
-  .swiper-container {
-      width: 100%;
-      height: 100%;
-    }
-  .h5_BG1{
-      width:100%;
-      height: 100%;
-      color:#fff;
-      text-align: center;
-      background: url('../assets/H5_BG1.png') no-repeat center;
-      background-size: cover;
-  }
-  .h5_BG2{
-      width:100%;
-      height: 100%;
-      color:#fff;
-      text-align: center;
-      background: url('../assets/bg_lbsuo.png') no-repeat center;
-      background-size: cover;
-  }
-  .h5_BG3{
-      width:100%;
-      height: 100%;
-      color:#fff;
-      text-align: center;
-      background: url('../assets/bg_licheng.png') no-repeat center;
-      background-size: cover;
-  }
-  .h5_BG4{
-      width:100%;
-      height: 100%;
-      color:#fff;
-      text-align: center;
-      background: url('../assets/bg_hexin.png') no-repeat center;
-      background-size: cover;
-  }
-  .h5_BG2 p{
-    padding: 0 30px;
-    color: #000;
-    font-size: 13px;
-    line-height: 30px;
-  }
-  .h5_BG2 a{
-    color:#000;
-    border:1px solid #000;
-    display: inline-block;
-    padding:10px 30px;
-    margin-top:60px;
-  }
-  .h5_BG1 h3{
-    padding-top:30%;
-    font-size: 45px;
-  }
-  .H5_top{
-    width:100%;
-    text-align: center;
-  }
-  .H5_top h3{
-    font-size: 24px;
-    color:#2b2b2b;
-    margin-top:90px;
-    margin-bottom: 20px;
-  }
-  .h5_BG3 .H5_top h3{
-    color: #fff;
-  }
-  .H5_top p{
-    font-size: 22px;
-    color:#cbcbcb;
-    font-weight: 900;
-  }
-  .H5_top .line{
-    display: inline-block;
-    width:42px;
-    height:4px;
-    background: #ba131a;
-    border-radius: 25px;
-  }
-  .h5_BG1 p{
-    font-size: 20px;
-  }
-  .h5_BG1 a{
-    display: inline-block;
-    padding:10px 30px;
-    border:1px solid #fff;
-    margin-top: 116px;
-  }
-  .h5_BG1 a:hover{
-    background: #fff;
-    color:#000;
-  }
-  .h5_BG2 a:hover{
-    background: #3e3e3e;
-    color:#fff;
-  }
-  .h5_BG1 .Home_bannerBT,.h5_BG2 .Home_bannerBT{
-    width:100%;
-  }
-  .h5_BG1 .Home_bannerBT span , .h5_BG2 .Home_bannerBT span{
-    width:25px;
-  }
-  .h5_BG1 .Home_bannerBT span img,.h5_BG2 .Home_bannerBT span img{
-    width:100%;
-  }
 </style>
