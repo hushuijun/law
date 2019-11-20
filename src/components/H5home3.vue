@@ -15,15 +15,19 @@
         </el-carousel> -->
         <div class="swiper-container Home3_swiper" id="Home3_swiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                11111
-                </div>
-                <div class="swiper-slide">
-                2222
+                <div class="swiper-slide" v-for="(item,index) of mediumlist" :key="index">
+                  {{item.year}}
                 </div>
             </div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
+        </div>
+        <div class="swiperBox">
+            <img src="../assets/duobian.png">
+            <p>{{Home3text}}</p>
+        </div>
+        <div class="Home_bannerBT">
+            <span><img src="../assets/h5_down.png"></span>
         </div>
     </div>
 </template>
@@ -40,23 +44,56 @@ export default {
                         {year:'2017',text:'京师海外第75家联盟所于斯里兰卡正式建立'},
                         {year:'2018',text:'京师海外第105家联盟所于斯威士兰正式建立'},
                         {year:'2019',text:'京师律师事务所德国分所正式成立'}
-            ]
+            ],
+            Home3text:''
         }
     },
     mounted(){
         new Swiper('#Home3_swiper', {
             speed:30000,
             loop : true,
-            autoplay:true
+            autoplay:true,
+            on: { 
+                slideChangeTransitionStart: function(){ 
+                    alert(this.activeIndex); 
+                }, 
+                },
         })
+        // var mySwiper = new Swiper('#Home3_swiper',{ 
+        //     on: { 
+        //         slideChangeTransitionStart: function(){ 
+        //             alert(this.activeIndex); 
+        //         }, 
+        //         }, 
+        // })
     }
 }
 </script>
 <style scoped>
     @import'../assets/css/home.css';
     @import 'swiper/dist/css/swiper.min.css';
-    .Home3_swiper{
-        height:29px;
-        line-height: 29px;
-    }
+.Home3_swiper{
+  height:29px;
+  line-height: 29px;
+  margin-top: 100px;
+}
+.swiperBox{
+  width: 80%;
+  height:162px;
+  margin:auto;
+  background: rgba(0, 0, 0, 0.5);
+  color:#ccc;
+  position: relative;
+}
+.swiperBox>p{
+    padding: 48px;
+    line-height: 23px;
+    margin-top:54px;
+}
+.swiperBox img{
+    position: absolute;
+    top: -43px;
+    left: 50%;
+    margin-left: -11px;
+}
 </style>
