@@ -3,11 +3,11 @@
     <div>
       <app-header></app-header>
     </div>
-    <div>
-         <router-view></router-view>
-    </div>
+      <div class="content">
+          <router-view></router-view>
+      </div>
      <div>
-      <!-- <app-footer></app-footer> -->
+      <app-footer></app-footer>
     </div>
   </div>
 </template>
@@ -26,5 +26,11 @@ export default {
 <style>
 body,p{
   margin: 0;
+}
+#app{
+  height: 100%;
+}
+.content{
+  height: 100%;
 }
 </style>
