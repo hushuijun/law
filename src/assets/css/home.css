@@ -455,6 +455,14 @@ ul,ol,li{
     background: url('../rongyu_bg.png') no-repeat;
     background-size: cover;
 }
+.h5_BG8{
+  width:100%;
+  height: 100%;
+  color:#fff;
+  text-align: center;
+  background: url('../about_bg.png') no-repeat;
+  background-size: cover;
+}
 .h5_BG2 p{
   padding: 0 30px;
   color: #000;

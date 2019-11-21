@@ -237,6 +237,9 @@
                 <div class="swiper-slide">
                   <H5home7></H5home7>
                 </div>
+                <div class="swiper-slide">
+                  <H5home8></H5home8>
+                </div>
             </div>
           </div>
         </div>
@@ -253,6 +256,7 @@ import H5home4 from '@/components/H5home4'
 import H5home5 from '@/components/H5home5'
 import H5home6 from '@/components/H5home6'
 import H5home7 from '@/components/H5home7'
+import H5home8 from '@/components/H5home8'
 export default {
   name: 'Home',
   components:{
@@ -262,7 +266,8 @@ export default {
     H5home4,
     H5home5,
     H5home6,
-    H5home7
+    H5home7,
+    H5home8
   },
   data () {
     return {
