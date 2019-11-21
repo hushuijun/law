@@ -272,6 +272,11 @@ export default {
     if(w <= 1024){			
       this.show = false;		
       this.show1 = true;	
+      document.getElementsByTagName('body')[0].style.height = 100 +'%';
+       document.getElementsByTagName('body')[0].style.position = 'relative';
+        document.getElementsByTagName('html')[0].style.height = 100 +'%';
+       document.getElementsByTagName('html')[0].style.position = 'relative';
+      console.log(document.getElementsByTagName('body')[0].style.height);
     }
   },
   methods: {},
@@ -283,9 +288,12 @@ export default {
             // nextButton:'.swiper-button-next',  // 三角形左滑动右滑动
             direction: 'vertical', // 开启上下滚动放向
             slidesPerView: 1, // 1整屏切换
-            spaceBetween: 30,
+            spaceBetween: 0,
             mousewheelControl: true
         })
+        document.getElementsByTagName('footer')[0].style.display = 'none';
+        document.getElementsByClassName('footer_bottom')[0].style.display = 'none';
+
   },
 }
 </script>
