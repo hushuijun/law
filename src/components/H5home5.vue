@@ -30,4 +30,7 @@ export default {
 
 <style scoped>
     @import'../assets/css/home.css';
+    .h5_BG5 .h5_BG5_a a{
+     margin: 30px;
+    }
 </style>
