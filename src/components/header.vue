@@ -31,13 +31,22 @@
       </el-menu>
     </el-header>
     <div class="phone_nav" v-if="show1">
-      <div>
+      <div class="phone_nav_left">
         <img src="../assets/logo.png" alt />
       </div>
-      <div>
-        <el-button @click="drawer = true" show-close='false' type="primary" style="margin-left: 16px;">点我打开</el-button>
-        <el-drawer  :visible.sync="drawer" size="50%"  >
-        
+      <div class="phone_nav_right">
+        <div class="phone_menu" @click="drawer = true" show-close="false">
+          <img src="../assets/menu_icon.png" alt />
+        </div>
+        <el-drawer class="menu_item" :visible.sync="drawer" size="50%">
+          <ul>
+            <router-link tag="li" to="/">首页</router-link>
+            <router-link tag="li" to="/major">专业领域</router-link>
+            <router-link tag="li" to="/team">团队介绍</router-link>
+            <router-link tag="li" to="/case">经典案例</router-link>
+            <router-link tag="li" to="/news">新闻资讯</router-link>
+            <router-link tag="li" to="/about">关于京师</router-link>
+          </ul>
         </el-drawer>
       </div>
     </div>
@@ -52,7 +61,7 @@ export default {
       scrollFlag: false,
       show: true,
       show1: false,
-      drawer: false,
+      drawer: false
     };
   },
   mounted() {
@@ -76,8 +85,7 @@ export default {
     },
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
-    },
-    
+    }
   }
 };
 </script>
@@ -130,5 +138,31 @@ li a {
   width: 100%;
   height: 100%;
   color: white !important;
+}
+.phone_nav {
+  position: fixed;
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  z-index: 111;
+}
+.phone_nav .phone_nav_left {
+  float: left;
+}
+.phone_nav .phone_nav_right {
+  float: right;
+}
+.phone_nav .phone_nav_right .phone_menu {
+  width: 40px;
+  margin-top: 12px;
+}
+.phone_nav .phone_nav_right .phone_menu img {
+  max-width: 100%;
+}
+.menu_item li {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
 }
 </style>
