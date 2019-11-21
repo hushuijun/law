@@ -1,8 +1,9 @@
 <template>
-    <el-container class="Home">
-        <div class="Home-PC Home_Content"  v-show="show">
-            <img class="mainbox" src="../assets/mainbox.png"/>
+    <div class="home">
+       <el-container class="Home" v-if="show">
+        <div class="Home-PC Home_Content">
             <div class="Home_banner">
+               <img class="mainbox" src="../assets/mainbox.png"/>
                 <h3>京师律师事务所</h3>
                 <p><span>·</span>规模化<span>·</span>专业化<span>·</span>品牌化<span>·</span>国际化<span>·</span>电商化</p>
                 <div class="Home_bannerA">
@@ -13,8 +14,8 @@
                     <div>|</div>
                     <span><img src="../assets/down.png"></span>
                 </div>
-              </div>
-              <div class="Home-Cont1">
+            </div>
+            <div class="Home-Cont1">
                   <div class="Home_Top">
                     <img src="../assets/icon-01.png"/>
                     <h4>ABOUT INGSHI</h4>
@@ -211,14 +212,15 @@
                 </div>
             </div>
         </div>
-        <div class="Home-H5" v-show="show1">
+       </el-container> 
+       <div class="Home-H5 " v-if="show1">
           <div class="swiper-container" id="swiper1">
-              <div class="swiper-wrapper">
+            <div class="swiper-wrapper">
                 <div class="swiper-slide">
                   <H5home1></H5home1>
                 </div>
                 <div class="swiper-slide">
-                  <H5home2></H5home2>
+                    <H5home2></H5home2>
                 </div>
                 <div class="swiper-slide">
                   <H5home3></H5home3>
@@ -232,12 +234,10 @@
                 <div class="swiper-slide">
                     <H5home6></H5home6>
                 </div>
-              </div>
-              <!-- Add Pagination -->
-              <div class="swiper-pagination"></div>
             </div>
+          </div>
         </div>
-    </el-container>
+    </div>
 </template>
 <script>
 import Swiper from 'swiper';
@@ -264,17 +264,18 @@ export default {
       activeNames: ['1'],
       show : true,
       show1 : false,
-      
     }
   },
-  methods: {},
-  mounted : function(){		
-    //可用于设置自适应屏幕，根据获得的可视宽度（兼容性）判断是否显示		
+  created(){
+    //可用于设置自适应屏幕，根据获得的可视宽度（兼容性）判断是否显示	
     let w = document.documentElement.offsetWidth || document.body.offsetWidth;		
     if(w <= 1024){			
       this.show = false;		
       this.show1 = true;	
     }
+  },
+  methods: {},
+  mounted : function(){		
     var mySwiper = new Swiper('#swiper1', {
             pagination : '.swiper-pagination', // 分页器 小点点 
             paginationClickable :true,    // 开启点击分页器 进行切换
@@ -292,4 +293,8 @@ export default {
 <style scoped>
   @import'../assets/css/home.css';
   @import 'swiper/dist/css/swiper.min.css';
+  .home,.swiper-container{
+    width: 100%;
+    height: 100%;
+  }
 </style>
