@@ -1,6 +1,6 @@
 <template>
-  <el-container class="nav" :class="{ 'navActive': scrollFlag }">
-    <el-header>
+  <el-container>
+    <el-header class="nav" :class="{ 'navActive': scrollFlag }" v-if="show">
       <el-menu
         :default-active="activeIndex"
         class="el-menu-demo"
@@ -17,7 +17,7 @@
           <router-link to="/team">团队介绍</router-link>
         </el-menu-item>
         <el-menu-item index="4" disabled>
-          <img src="../assets/logo.png" alt  style="margin-left:25px;"/>
+          <img src="../assets/logo.png" alt style="margin-left:25px;" />
         </el-menu-item>
         <el-menu-item index="5">
           <router-link to="/case">经典案例</router-link>
@@ -30,6 +30,26 @@
         </el-menu-item>
       </el-menu>
     </el-header>
+    <div class="phone_nav" v-if="show1">
+      <div class="phone_nav_left">
+        <img src="../assets/logo.png" alt />
+      </div>
+      <div class="phone_nav_right">
+        <div class="phone_menu" @click="drawer = true" show-close="false">
+          <img src="../assets/menu_icon.png" alt />
+        </div>
+        <el-drawer class="menu_item" :visible.sync="drawer" size="50%">
+          <ul>
+            <router-link tag="li" to="/">首页</router-link>
+            <router-link tag="li" to="/major">专业领域</router-link>
+            <router-link tag="li" to="/team">团队介绍</router-link>
+            <router-link tag="li" to="/case">经典案例</router-link>
+            <router-link tag="li" to="/news">新闻资讯</router-link>
+            <router-link tag="li" to="/about">关于京师</router-link>
+          </ul>
+        </el-drawer>
+      </div>
+    </div>
   </el-container>
 </template>
 <script>
@@ -38,21 +58,31 @@ export default {
     return {
       activeIndex: "1",
       activeIndex2: "1",
-      scrollFlag:false,
+      scrollFlag: false,
+      show: true,
+      show1: false,
+      drawer: false
     };
   },
-  mounted(){
-      window.addEventListener('scroll', this.dataScroll)
+  mounted() {
+    window.addEventListener("scroll", this.dataScroll);
+    //可用于设置自适应屏幕，根据获得的可视宽度（兼容性）判断是否显示
+    let w = document.documentElement.offsetWidth || document.body.offsetWidth;
+    if (w <= 1024) {
+      this.show = false;
+      this.show1 = true;
+    }
   },
   methods: {
-     dataScroll: function () {
-        this.scroll = document.documentElement.scrollTop || document.body.scrollTop;
-        if(this.scroll>300){
-            this.scrollFlag=true
-            }else{
-              this.scrollFlag=false
-            }
-    },
+    dataScroll: function() {
+      this.scroll =
+        document.documentElement.scrollTop || document.body.scrollTop;
+      if (this.scroll > 300) {
+        this.scrollFlag = true;
+      } else {
+        this.scrollFlag = false;
+      }
+    },
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
     }
@@ -60,41 +90,40 @@ export default {
 };
 </script>
 <style scoped>
-.nav{
+@import "../assets/css/base.css";
+.nav {
   position: fixed;
   z-index: 11;
+  width: 100%;
+  border-bottom: 1px solid #3b4350;
 }
-.navActive{
+.navActive {
   background: rgba(0, 0, 0, 0.5);
 }
-.el-container {
-  width: 100%;
-  border-bottom: 1px solid #3B4350;
+.el-menu-item.is-disabled {
+  opacity: inherit;
 }
-.el-menu-item.is-disabled{
-    opacity: inherit;
-}
-.el-menu.el-menu--horizontal{
+.el-menu.el-menu--horizontal {
   border: none;
 }
-.el-header{
-       height: 80px !important;
+.el-header {
+  height: 80px !important;
 }
-.el-menu--horizontal>.el-menu-item{
-    height: 80px;
-    line-height: 80px;
+.el-menu--horizontal > .el-menu-item {
+  height: 80px;
+  line-height: 80px;
 }
-.el-menu--horizontal>.el-menu-item:hover{
+.el-menu--horizontal > .el-menu-item:hover {
   background: none;
 }
-.el-menu--horizontal>.el-menu-item.is-active{
-  border-bottom: 2px solid #E60013;
+.el-menu--horizontal > .el-menu-item.is-active {
+  border-bottom: 2px solid #e60013;
 }
 ul {
   width: 80%;
   margin: auto;
   padding: 0;
- background: rgba(0, 0, 0, 0)
+  background: rgba(0, 0, 0, 0);
 }
 li {
   width: 14%;
@@ -109,5 +138,31 @@ li a {
   width: 100%;
   height: 100%;
   color: white !important;
+}
+.phone_nav {
+  position: fixed;
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  z-index: 111;
+}
+.phone_nav .phone_nav_left {
+  float: left;
+}
+.phone_nav .phone_nav_right {
+  float: right;
+}
+.phone_nav .phone_nav_right .phone_menu {
+  width: 40px;
+  margin-top: 12px;
+}
+.phone_nav .phone_nav_right .phone_menu img {
+  max-width: 100%;
+}
+.menu_item li {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
 }
 </style>
