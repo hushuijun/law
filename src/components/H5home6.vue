@@ -135,15 +135,15 @@ export default {
             if (Math.abs(slideProgress) > 1) {
               var modify = (Math.abs(slideProgress) - 1) * 0.4 + 1;
             }
-            var translate = slideProgress * modify * 223 + "px",
-              scale = 1 - Math.abs(slideProgress) / 5,
+            var translate = slideProgress * modify * 200 + "px",
+              scale = 1 - Math.abs(slideProgress) / 11,
               zIndex = 999 - Math.abs(Math.round(10 * slideProgress));
             slide.transform(
               "translateX(" + translate + ") scale(" + scale + ")"
             );
             slide.css("zIndex", zIndex);
             slide.css("opacity", 1);
-            if (Math.abs(slideProgress) > 3) {
+            if (Math.abs(slideProgress) > 1) {
               slide.css("opacity", 0);
             }
           }
