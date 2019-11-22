@@ -10,6 +10,10 @@ import About from '@/page/About'
 import SupremeCourt from '@/page/case_sort/SupremeCourt'
 import Litigation from '@/page/case_sort/Litigation'
 import Nolitigation from '@/page/case_sort/Nolitigation'
+// 新闻资讯
+import Jingshi_news from '@/page/news_sort/Jingshi_news'
+import Jingshi_party from '@/page/news_sort/Jingshi_party'
+import PublicWelfare from '@/page/news_sort/PublicWelfare'
 Vue.use(Router)
 
 export default new Router({
@@ -54,7 +58,24 @@ export default new Router({
     {
       path: '/news',
       name: 'News',
-      component: News
+      component: News,
+      children:[
+        {
+          path:'/',
+          name:'Jingshi_news',
+          component:Jingshi_news,
+        },
+        {
+          path:'/jingshi_party',
+          name:'Jingshi_party',
+          component:Jingshi_party,
+        },
+        {
+          path:'/publicWelfare',
+          name:'PublicWelfare',
+          component:PublicWelfare,
+        }
+      ]
     },
     {
       path: '/about',
