@@ -45,10 +45,11 @@ ul,ol,li{
     color:#181818;
   }
   .Home_bannerBT{
-    width: 21px;
+    width: 100%;
     text-align: center;
     margin: auto;
-    margin-top:190px;
+    position: absolute;
+    bottom:20px;
   }
   .Home_bannerBT div{
     width:19px;
@@ -468,6 +469,7 @@ ul,ol,li{
   color: #000;
   font-size: 13px;
   line-height: 30px;
+  padding-top: 60px;
 }
 .h5_BG2 a{
   color:#000;
@@ -477,7 +479,7 @@ ul,ol,li{
   margin-top:60px;
 }
 .h5_BG1 h3{
-  padding-top:30%;
+  padding-top:10rem;
   font-size: 45px;
 }
 .H5_top{
@@ -487,7 +489,7 @@ ul,ol,li{
 .H5_top h3{
   font-size: 24px;
   color:#2b2b2b;
-  padding-top:90px;
+  padding-top:100px;
   margin-bottom: 20px;
 }
 .h5_BG3 .H5_top h3{
@@ -507,12 +509,13 @@ ul,ol,li{
 }
 .h5_BG1 p{
   font-size: 20px;
+  padding-top: 10px;
 }
 .h5_BG1 a{
   display: inline-block;
   padding:10px 30px;
   border:1px solid #fff;
-  margin-top: 116px;
+  margin-top: 6rem;
 }
 .h5_BG1 a:hover{
   background: #fff;

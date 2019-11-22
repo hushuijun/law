@@ -43,7 +43,7 @@ export default {
         line-height: 75px;
         margin: auto;
         text-align: left;
-        margin-top: 15%;
+        margin-top: 9%;
     }
     .h5_BG8_p_P1{
         border:1px solid #e5e5e5;
@@ -51,7 +51,7 @@ export default {
         height: 75px;
         margin: auto;
         text-align: left;
-        margin-top: 15%;
+        margin-top: 9%;
         line-height: 25px;
     }
     .h5_BG8_p img,.h5_BG8_p_P1 img{

@@ -12,7 +12,7 @@
             <a>了解更多></a>
         </p>
         <div class="Home_bannerBT">
-            <span><img src="../assets/H5_down2.png"></span>
+            <span><img src="../assets/h5_down.png"></span>
         </div>
     </div>
 </template>
