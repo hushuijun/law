@@ -12,10 +12,31 @@
   </div>
 </template>
 <script>
+import {queryCaseList} from '@/api/api'
 export default {
+  name: 'case',
   data() {
-    return {};
+    return {
+      CaseList:'',
+      CaseId:''
+    };
+  },
+  created(){
+    this.clickCase()
+  },
+  methods: {
+    clickCase(){
+      var _this= this
+      _this.CaseId ={categoryId:this.$route.query.id,
+                      pageNo:'1',
+                      pageSize:'10'} 
+      queryCaseList(_this.CaseId).then(res=>{
+        console.log(res.data)
+       })
+    }
+    // this.CaseId= this.$route.query.id
   }
+  
 };
 </script>
 <style scoped>

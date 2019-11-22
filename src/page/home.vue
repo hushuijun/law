@@ -158,31 +158,20 @@
                   <p>经典案例</p>
                 </div>
                 <el-row>
-                  <el-col :span="6">
+                  <el-col :span="6" 
+                    v-for="(item , index) of jingDian" 
+                    :key="index"  
+                    @click.native="HomeCase(item.id)">
                     <div class="Cont4_top">
                         <img  src="../assets/guohui.png"/>
                         <p class="pand_35">中华人民共和国</p>
-                        <p class="pand_20">北京市朝阳区人民法院</p>
-                        <p class="pand_20 ft_22">民事判决书</p>
-                        <p class="pand_15 ft_24">标的额：300万</p>
+                        <p class="pand_20">{{item.courtName}}</p>
+                        <p class="pand_20 ft_22">{{item.sentenceType}}</p>
+                        <p class="pand_15 ft_24">{{item.targetAmount}}</p>
                     </div>
                     <div class="Cont4_bottm">
-                        <p>李某与某企业货款纠纷案</p>
-                        <h4>货款纠纷</h4>
-                    </div>
-                  </el-col>
-                  <el-col :span="6">
-                    <div class="grid-content bg-purple-light">
-
-                    </div>
-                  </el-col>
-                  <el-col :span="6">
-                    <div class="grid-content bg-purple">
-
-                    </div>
-                  </el-col>
-                  <el-col :span="6">
-                    <div class="grid-content bg-purple-light">
+                        <p>{{item.caseTitle}}</p>
+                        <h4>{{CAtegoryId}}</h4>
                     </div>
                   </el-col>
                 </el-row>
@@ -249,6 +238,7 @@
 import Swiper from 'swiper';
 import 'swiper/dist/css/swiper.min.css';
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import {queryCase} from '@/api/api'
 import H5home1 from '@/components/H5home1'
 import H5home2 from '@/components/H5home2'
 import H5home3 from '@/components/H5home3'
@@ -274,6 +264,8 @@ export default {
       activeNames: ['1'],
       show : true,
       show1 : false,
+      jingDian:'',
+      CAtegoryId:''
     }
   },
   beforeCreate: function () {
@@ -292,10 +284,32 @@ export default {
        document.getElementsByTagName('body')[0].style.position = 'relative';
         document.getElementsByTagName('html')[0].style.height = 100 +'%';
        document.getElementsByTagName('html')[0].style.position = 'relative';
-      console.log(document.getElementsByTagName('body')[0].style.height);
     }
+    this.homeCase()
   },
-  methods: {},
+  methods: {
+    homeCase(){
+            var that = this
+            queryCase().then(res=>{ 
+                that.jingDian = res.data
+                for( let i= 0;i<that.jingDian.length;i++){
+                  if(that.jingDian[i].categoryId == 1){
+                      that.CAtegoryId ='最高院案例'
+                  }else if (that.jingDian[i].categoryId == 2) {
+                    that.CAtegoryId ='诉讼案例'
+                  }else if (that.jingDian[i].categoryId == 3) {
+                    that.CAtegoryId ='非诉案例'
+                  }
+                }
+            })
+        },
+        HomeCase(id){
+            this.$router.push({
+                path:'/case',
+                query:{id:id}
+            }); 
+        }
+  },
   mounted : function(){		
     var mySwiper = new Swiper('#swiper1', {
             pagination : '.swiper-pagination', // 分页器 小点点 
@@ -304,13 +318,13 @@ export default {
             // nextButton:'.swiper-button-next',  // 三角形左滑动右滑动
             direction: 'vertical', // 开启上下滚动放向
             slidesPerView: 1, // 1整屏切换
-            spaceBetween: 0,
+            spaceBetween: 0,  //每个swiper-slide的间距
             mousewheelControl: true
         })
         // document.getElementsByTagName('footer')[0].style.display = 'none';
         // document.getElementsByClassName('footer_bottom')[0].style.display = 'none';
 
-  },
+  }
 }
 </script>
 

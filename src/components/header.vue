@@ -112,12 +112,14 @@ export default {
 .el-menu--horizontal > .el-menu-item {
   height: 80px;
   line-height: 80px;
+  transition: all 0.5s ease 0s;
 }
 .el-menu--horizontal > .el-menu-item:hover {
   background: none;
 }
 .el-menu--horizontal > .el-menu-item.is-active {
   border-bottom: 2px solid #e60013;
+  transition: all 0.5s ease 0s;
 }
 ul {
   width: 80%;
