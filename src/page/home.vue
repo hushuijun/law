@@ -307,8 +307,8 @@ export default {
             spaceBetween: 0,
             mousewheelControl: true
         })
-        document.getElementsByTagName('footer')[0].style.display = 'none';
-        document.getElementsByClassName('footer_bottom')[0].style.display = 'none';
+        // document.getElementsByTagName('footer')[0].style.display = 'none';
+        // document.getElementsByClassName('footer_bottom')[0].style.display = 'none';
 
   },
 }
