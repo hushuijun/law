@@ -8,8 +8,8 @@ axios.defaults.timeout = 50000
 // 相对路径设置
 
 // 根路径
-const doMian = '39.106.213.243:8099'  // 服务器环境
-// const doMian = '192.168.0.114:8099'  // 后台环境
+const doMian = '39.106.213.243:8089'  // 服务器环境
+// const doMian = '192.168.0.114:8089'  // 后台环境
 
 axios.defaults.baseURL ='http://'+doMian
 
