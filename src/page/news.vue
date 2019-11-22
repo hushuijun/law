@@ -25,7 +25,7 @@ export default {
   height: 500px;
   overflow: hidden;
   position: relative;
-  background: url("../assets/case_bg.jpg") no-repeat;
+  background: url("../assets/news_bg.png") no-repeat;
   background-size: cover;
   /* background: rgba(0, 0, 0, 0.7); */
 }
