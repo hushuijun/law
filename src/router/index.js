@@ -6,8 +6,10 @@ import Team from '@/page/Team'
 import Case from '@/page/Case'
 import News from '@/page/News'
 import About from '@/page/About'
-
-
+// 经典案例
+import SupremeCourt from '@/page/case_sort/SupremeCourt'
+import Litigation from '@/page/case_sort/Litigation'
+import Nolitigation from '@/page/case_sort/Nolitigation'
 Vue.use(Router)
 
 export default new Router({
@@ -31,7 +33,23 @@ export default new Router({
     {
       path: '/case',
       name: 'Case',
-      component: Case
+      component: Case,
+      children:[{
+        path:'/',
+        name: 'SupremeCourt',
+        component: SupremeCourt,
+      },
+      {
+        path:'/litigation',
+        name: 'Litigation',
+        component: Litigation,
+      },
+      {
+        path:'/nolitigation',
+        name: 'Nolitigation',
+        component: Nolitigation,
+      }
+    ]
     },
     {
       path: '/news',

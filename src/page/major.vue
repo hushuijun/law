@@ -279,9 +279,9 @@ h4 {
   z-index: 1;
 }
 .major .major_left_item .major_title_item div{
-  right: -71px;
+  right: -17.5%;
 }
 .major .major_right_item .major_title_item div{
-  left: -71px;
+  left: -17.5%;
 }
 </style>
