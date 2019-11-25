@@ -41,7 +41,7 @@
     </p>
     <div class="Home_bannerBT">
       <span>
-        <img src="../assets/h5_down.png" />
+        <img src="../assets/H5_down2.png" />
       </span>
     </div>
   </div>
@@ -183,7 +183,7 @@ export default {
   border: 1px solid #262626;
   display: inline-block;
   padding: 10px 30px;
-  margin-top: 60px;
+  margin-top: 40px;
 }
 .h5_BG6 .el-carousel__container {
   height: 310px !important;
@@ -245,11 +245,11 @@ export default {
   width: 91%;
   margin: auto;
   height: 45%;
-  padding-top: 59px;
+  padding-top: 6%;
 }
 #banner .swiper-slide {
   width: 200px;
-  height: 300px;
+  height: 270px;
   background: #fff;
   color: #000;
   box-shadow: 1px 10px 10px rgb(97, 103, 104);

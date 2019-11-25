@@ -9,10 +9,24 @@
         <div class="swiper-container Home7_swiper" id="Home7_swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide" >
-                 <img src="../assets/zu_3.png"/>
-                 <p>荣获新三板英雄榜</p>
-                 <p>最值得推荐律师事务所</p>
-                
+                    <img src="../assets/zu_3.png"/>
+                    <p>荣获新三板英雄榜</p>
+                    <p>最值得推荐律师事务所</p>
+                </div>
+                <div class="swiper-slide" >
+                    <img src="../assets/right-top1.png"/>
+                    <p>荣获2015年年度</p>
+                    <p>最受媒体欢迎律所</p>
+                </div>
+                <div class="swiper-slide" >
+                    <img src="../assets/left-bottom1.png"/>
+                    <p>2015年度十大维</p>
+                    <p>权打假现金法律服务机构</p>
+                </div>
+                <div class="swiper-slide" >
+                    <img src="../assets/right-bottom1.png"/>
+                    <p>下一代教育基金会</p>
+                    <p>颁发的下一代教育爱心奉献奖</p>
                 </div>
             </div>
             <div class="swiper-button-prev"></div>
@@ -37,20 +51,13 @@ export default {
     mounted(){
         let that = this
         new Swiper('#Home7_swiper', {
-            speed:800,
+            speed:1000,
             loop : true,
-            // autoplay:true,
-            nextButton: '.swiper-button-next',
-            prevButton: '.swiper-button-prev',
-            // ,
-            // onSlideChangeStart: function(swiper){
-            //     for(var i = 0 ; i<that.mediumlist.length; i++){
-            //         if(swiper.activeIndex == that.mediumlist[i].id){
-            //             that.Home3text = that.mediumlist[i].text
-            //         }
-            //     }
-                
-            // }
+            autoplay:true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
         })
     }
 }
@@ -72,7 +79,7 @@ export default {
         border: 1px solid #fff;
         display: inline-block;
         padding: 10px 30px;
-        margin-top: 60px;
+        margin-top: 5%;
     }
     .h5_BG7 .swiper-slide{
         text-align: center;
@@ -80,10 +87,10 @@ export default {
     .Home7_swiper{
         width: calc(100% - 50px);
         height:330px;
-        margin-top: 55px;
+        margin-top: 6%;
     }
     .Home7_swiper img{
-        width: 50%;
+        width: 45%;
         margin-bottom:15px;
     }
     .Home7_swiper p{
@@ -91,8 +98,5 @@ export default {
         text-align: center;
         margin: auto;
         line-height: 30px;
-    }
-    .h5_BG7 .Home_bannerBT{
-        margin-top: 75px!important;
     }
 </style>
