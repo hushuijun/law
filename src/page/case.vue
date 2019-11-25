@@ -7,61 +7,81 @@
       </div>
     </div>
     <div class="case_content">
-     <div class="top"></div>
-     <div>
-
-     </div>
-     <div>
-       <div class="text_nav">
-           <router-link :class="{active:shows==1}" @click.native="show1()" tag="a" to="/case/">最高院案例</router-link>
-           <router-link :class="{active:shows==2}" @click.native="show2()" tag="a" to="/litigation">诉讼案例</router-link>
-           <router-link :class="{active:shows==3}" @click.native="show3()" tag="a" to="/nolitigation">非诉讼案例</router-link> 
-       </div>
-       <div>
-         <router-view>
-
-         </router-view>
-       </div>
-     </div>
+      <div class="top"></div>
+      <div></div>
+      <div>
+        <div class="text_nav">
+          <router-link
+            :class="isSelect === 'SupremeCourt' ? 'active' : ''"
+            @click.native="selectNav(name)"
+            tag="a"
+            to="/case/"
+          >最高院案例</router-link>
+          <router-link
+            :class="isSelect === 'Litigation' ? 'active' : ''"
+            @click.native="selectNav(name)"
+            tag="a"
+            to="/litigation"
+          >诉讼案例</router-link>
+          <router-link
+            :class="isSelect === 'Nolitigation' ? 'active' : ''"
+            @click.native="selectNav(name)"
+            tag="a"
+            to="/nolitigation"
+          >非诉讼案例</router-link>
+        </div>
+        <div>
+          <router-view></router-view>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 <script>
-import {queryCaseList} from '@/api/api'
+import { queryCaseList } from "@/api/api";
 export default {
-  name: 'case',
+  name: "case",
   data() {
     return {
-      CaseList:'',
-      CaseId:'',
-      shows:'1',
+      CaseList: "",
+      CaseId: "",
+      isSelect: "SupremeCourt"
     };
   },
-  created(){
-    this.clickCase()
+  created() {
+    this.clickCase();
+  },
+  mounted() {
+    this.isSelect = this.$route.name;
   },
   methods: {
-    clickCase(){
-      var _this= this
-      _this.CaseId ={categoryId:this.$route.query.id,
-                      pageNo:'1',
-                      pageSize:'10'} 
-      queryCaseList(_this.CaseId).then(res=>{
-        console.log(res.data)
-       })
+    clickCase() {
+      var _this = this;
+      _this.CaseId = {
+        categoryId: this.$route.query.id,
+        pageNo: "1",
+        pageSize: "10"
+      };
+      queryCaseList(_this.CaseId).then(res => {
+        console.log(res.data);
+      });
     },
     // this.CaseId= this.$route.query.id
-    show1:function(){
-      this.shows=1
-    },
-     show2:function(){
-      this.shows=2
-    },
-     show3:function(){
-      this.shows=3
+    selectNav(name) {
+      this.isSelect = this.$route.name;
+      switch (name) {
+        case "SupremeCourt":
+          this.$router.push("/");
+          break;
+        case "Litigation":
+          this.$router.push("/litigation");
+          break;
+        case "Nolitigation":
+          this.$router.push("/nolitigation");
+          break;
+      }
     }
   }
-  
 };
 </script>
 <style scoped>
@@ -110,19 +130,19 @@ export default {
   height: 50px;
   margin: 20px auto;
 }
-.case .text_nav{
+.case .text_nav {
   text-align: center;
 }
-.case .text_nav a{
- display: inline-block;
- padding: 10px 20px;
+.case .text_nav a {
+  display: inline-block;
+  padding: 10px 20px;
 }
-.case .text_nav a:hover{
- background: #b8131b;
- color: white;
+.case .text_nav a:hover {
+  background: #b8131b;
+  color: white;
 }
-.case .active{
-   background: #b8131b;
- color: white;
+.case .active {
+  background: #b8131b;
+  color: white;
 }
 </style>
