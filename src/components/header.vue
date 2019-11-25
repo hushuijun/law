@@ -64,6 +64,40 @@ export default {
       drawer: false
     };
   },
+  created() {
+    switch (this.$route.name) {
+      case "Home":
+        this.activeIndex = "1";
+        break;
+      case "Major":
+        this.activeIndex = "2";
+        break;
+      case "Team":
+        this.activeIndex = "3";
+        break;
+      case "SupremeCourt":
+        this.activeIndex = "5";
+        break;
+        case "Litigation":
+        this.activeIndex = "5";
+        break;
+        case "Nolitigation":
+        this.activeIndex = "5";
+        break;
+      case "Jingshi_news":
+        this.activeIndex = "6";
+        break;
+         case "Jingshi_party":
+        this.activeIndex = "6";
+        break;
+         case "PublicWelfare":
+        this.activeIndex = "6";
+        break;
+      case "About":
+        this.activeIndex = "7";
+        break;
+    }
+  },
   mounted() {
     window.addEventListener("scroll", this.dataScroll);
     //可用于设置自适应屏幕，根据获得的可视宽度（兼容性）判断是否显示

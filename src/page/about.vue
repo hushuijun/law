@@ -220,7 +220,7 @@ methods: {
   color: white;
   top: 40%;
   left: 50%;
-  margin-left: -95px;
+  margin-left: -122px;
 }
 .about .header_title h1{
     font-weight: 500;

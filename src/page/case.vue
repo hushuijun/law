@@ -110,7 +110,13 @@ export default {
   color: white;
   top: 40%;
   left: 50%;
-  margin-left: -95px;
+  margin-left: -109px;
+}
+.case .header_title h1{
+  font-weight: 500;
+}
+.case .header_title p{
+  font-size: 28px;
 }
 .case .case_content {
   width: 70%;
