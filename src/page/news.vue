@@ -85,7 +85,13 @@ export default {
   color: white;
   top: 40%;
   left: 50%;
-  margin-left: -95px;
+  margin-left: -109px;
+}
+.news .header_title h1{
+  font-weight: 500;
+}
+.news .header_title p{
+  font-size: 28px;
 }
 .news .news_content {
   min-height: 800px;
