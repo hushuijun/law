@@ -92,6 +92,10 @@
 
 
           <div class="aboutCOnt3">
+             <div class="aboutCOnt1">
+                  <h2>案件咨询</h2>
+                  <p class="aboutCOnt1_p1"><span class="aboutCOnt1_line"></span></p>
+              </div>
           <el-form ref="form" :model="form" label-width="80px">
               <el-row class="aboutCOnt3_input">
                 <el-col :span="12">
@@ -138,7 +142,7 @@
             </div>
             <div class="aboutCOnt3_input aboutCOnt3_align">
               <el-form-item>
-                <el-button type="primary" @click="onSubmit">提交咨询</el-button>
+                <el-button type="primary" @click="onSubmit('form')">提交咨询</el-button>
               </el-form-item>
             </div>
           </el-form>
@@ -175,12 +179,23 @@ console.log(this.input5)
     }
   },
 methods: {
-    onSubmit() {
-      console.log('submit!');
+    onSubmit(form) {
+      console.log(this.form);
     }
   }
 }
 </script>
+<style>
+.about .aboutCOnt3_input input{
+  height: 48px;
+  border-radius: 0px;
+}
+.about .el-textarea .el-textarea__inner{ 
+  resize: none;
+  height: 200px;
+  border-radius: 0px;
+}
+</style>
 <style scoped>
 @import "../assets/css/base.css";
 .about {
@@ -226,7 +241,6 @@ methods: {
   margin: 0;
   font-weight: 500;
   padding-top:100px;
-  margin-top: 100px;
 }
 .aboutCOnt1_p1{
   text-align: center;
