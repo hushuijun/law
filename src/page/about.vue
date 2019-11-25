@@ -45,7 +45,7 @@
               </li>
             </ul>
           </div>
-          <!-- <div class="aboutCOnt3">
+          <div class="aboutCOnt3">
               <div class="aboutCOnt1">
                   <h2>案件咨询</h2>
                   <p class="aboutCOnt1_p1"><span class="aboutCOnt1_line"></span></p>
@@ -87,62 +87,62 @@
               <div class="aboutCOnt3_input aboutCOnt3_align" v-model="message">
                 <a @click="clickINPUT()">提交咨询</a>
               </div>
-          </div> -->
+          </div>
 
 
 
-          <div class="aboutCOnt3">
-          <el-form ref="form" :model="form" label-width="80px">
+          <!-- <div class="aboutCOnt3">
+            <el-form ref="form" :model="form" label-width="80px">
+                <el-row class="aboutCOnt3_input">
+                  <el-col :span="12">
+                    <el-form-item label="姓名" >
+                      <el-input v-model="form.name1" class="ASD"></el-input>
+                    </el-form-item>
+                  </el-col>
+                  <el-col :span="12">
+                    <el-form-item label="电话">
+                      <el-input v-model="form.tel"></el-input>
+                    </el-form-item>
+                  </el-col>
+                </el-row>
               <el-row class="aboutCOnt3_input">
                 <el-col :span="12">
-                  <el-form-item label="姓名" >
-                    <el-input v-model="form.name1" class="ASD"></el-input>
+                  <el-form-item label="城市">
+                    <el-input v-model="form.city"></el-input>
                   </el-form-item>
                 </el-col>
                 <el-col :span="12">
-                  <el-form-item label="电话">
-                    <el-input v-model="form.tel"></el-input>
+                  <el-form-item label="案件类型">
+                    <el-select v-model="form.region" placeholder="请选择">
+                      <el-option label="行政诉讼" value="行政诉讼"></el-option>
+                      <el-option label="劳动争议" value="劳动争议"></el-option>
+                      <el-option label="职务犯罪" value="职务犯罪"></el-option>
+                      <el-option label="婚姻纠纷" value="婚姻纠纷"></el-option>
+                      <el-option label="医疗纠纷" value="医疗纠纷"></el-option>
+                      <el-option label="工伤维权" value="工伤维权"></el-option>
+                      <el-option label="合同纠纷" value="合同纠纷"></el-option>
+                      <el-option label="遗产继承" value="遗产继承"></el-option>
+                      <el-option label="公司法律" value="公司法律"></el-option>
+                      <el-option label="知识产权" value="知识产权"></el-option>
+                      <el-option label="房产建筑" value="房产建筑"></el-option>
+                      <el-option label="涉外纠纷" value="涉外纠纷"></el-option>
+                      <el-option label="其他" value="其他"></el-option>
+                    </el-select>
                   </el-form-item>
                 </el-col>
               </el-row>
-            <el-row class="aboutCOnt3_input">
-              <el-col :span="12">
-                <el-form-item label="城市">
-                  <el-input v-model="form.city"></el-input>
+              <div class="aboutCOnt3_textarea">
+                  <el-form-item label="案件描述">
+                    <el-input type="textarea" v-model="form.desc"></el-input>
+                  </el-form-item>
+              </div>
+              <div class="aboutCOnt3_input aboutCOnt3_align">
+                <el-form-item>
+                  <el-button type="primary" @click="onSubmit">提交咨询</el-button>
                 </el-form-item>
-              </el-col>
-              <el-col :span="12">
-                <el-form-item label="案件类型">
-                  <el-select v-model="form.region" placeholder="请选择">
-                    <el-option label="行政诉讼" value="行政诉讼"></el-option>
-                    <el-option label="劳动争议" value="劳动争议"></el-option>
-                    <el-option label="职务犯罪" value="职务犯罪"></el-option>
-                    <el-option label="婚姻纠纷" value="婚姻纠纷"></el-option>
-                    <el-option label="医疗纠纷" value="医疗纠纷"></el-option>
-                    <el-option label="工伤维权" value="工伤维权"></el-option>
-                    <el-option label="合同纠纷" value="合同纠纷"></el-option>
-                    <el-option label="遗产继承" value="遗产继承"></el-option>
-                    <el-option label="公司法律" value="公司法律"></el-option>
-                    <el-option label="知识产权" value="知识产权"></el-option>
-                    <el-option label="房产建筑" value="房产建筑"></el-option>
-                    <el-option label="涉外纠纷" value="涉外纠纷"></el-option>
-                    <el-option label="其他" value="其他"></el-option>
-                  </el-select>
-                </el-form-item>
-              </el-col>
-            </el-row>
-            <div class="aboutCOnt3_textarea">
-                <el-form-item label="案件描述">
-                  <el-input type="textarea" v-model="form.desc"></el-input>
-                </el-form-item>
-            </div>
-            <div class="aboutCOnt3_input aboutCOnt3_align">
-              <el-form-item>
-                <el-button type="primary" @click="onSubmit">提交咨询</el-button>
-              </el-form-item>
-            </div>
-          </el-form>
-        </div>
+              </div>
+            </el-form>
+        </div> -->
         </div>
     </div>
 </template>
