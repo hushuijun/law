@@ -13,9 +13,9 @@
      </div>
      <div>
        <div class="text_nav">
-           <router-link tag="a" to="/case/">最高院案例</router-link>
-           <router-link tag="a" to="/litigation">诉讼案例</router-link>
-           <router-link tag="a" to="/nolitigation">非诉讼案例</router-link> 
+           <router-link :class="{active:shows==1}" @click.native="show1()" tag="a" to="/case/">最高院案例</router-link>
+           <router-link :class="{active:shows==2}" @click.native="show2()" tag="a" to="/litigation">诉讼案例</router-link>
+           <router-link :class="{active:shows==3}" @click.native="show3()" tag="a" to="/nolitigation">非诉讼案例</router-link> 
        </div>
        <div>
          <router-view>
@@ -33,7 +33,8 @@ export default {
   data() {
     return {
       CaseList:'',
-      CaseId:''
+      CaseId:'',
+      shows:'1',
     };
   },
   created(){
@@ -48,8 +49,17 @@ export default {
       queryCaseList(_this.CaseId).then(res=>{
         console.log(res.data)
        })
-    }
+    },
     // this.CaseId= this.$route.query.id
+    show1:function(){
+      this.shows=1
+    },
+     show2:function(){
+      this.shows=2
+    },
+     show3:function(){
+      this.shows=3
+    }
   }
   
 };
@@ -109,6 +119,10 @@ export default {
 }
 .case .text_nav a:hover{
  background: #b8131b;
+ color: white;
+}
+.case .active{
+   background: #b8131b;
  color: white;
 }
 </style>
