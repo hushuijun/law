@@ -10,9 +10,24 @@
       <div class="top"></div>
       <div>
         <div class="text_nav">
-          <router-link tag="a" :class="{active:shows==1}" @click.native="show1()" to="/news/">京师新闻</router-link>
-          <router-link tag="a" :class="{active:shows==2}" @click.native="show2()" to="/jingshi_party">京师党建</router-link>
-          <router-link tag="a" :class="{active:shows==3}" @click.native="show3()" to="/publicWelfare">京师公益</router-link>
+          <router-link 
+          tag="a" 
+          :class="isSelect === 'Jingshi_news' ? 'active' : ''"
+          @click.native="selectNav(name)" 
+          to="/news/"
+          >京师新闻</router-link>
+          <router-link
+            tag="a"
+          :class="isSelect === 'Jingshi_party' ? 'active' : ''"
+            @click.native="selectNav(name)"
+            to="/jingshi_party"
+          >京师党建</router-link>
+          <router-link
+            tag="a"
+             :class="isSelect === 'PublicWelfare' ? 'active' : ''"
+            @click.native="selectNav(name)"
+            to="/publicWelfare"
+          >京师公益</router-link>
         </div>
         <div>
           <router-view></router-view>
@@ -25,19 +40,26 @@
 export default {
   data() {
     return {
-      shows:'1',
+      isSelect:'Jingshi_news'
     };
   },
-  methods:{
-    show1:function(){
-      this.shows=1;
-    },
-    show2:function(){
-      console.log(this.shows);
-      this.shows=2;
-    },
-    show3:function(){
-      this.shows=3;
+  mounted(){
+     this.isSelect = this.$route.name
+  },
+  methods: {
+    selectNav(name) {
+      this.isSelect = this.$route.name;
+      switch (name) {
+        case "SupremeCourt":
+          this.$router.push("/");
+          break;
+        case "Litigation":
+          this.$router.push("/litigation");
+          break;
+        case "Nolitigation":
+          this.$router.push("/nolitigation");
+          break;
+      }
     }
   }
 };
@@ -90,12 +112,12 @@ export default {
   background: #b8131b;
   color: white;
 }
-.news .active{
-   background: #b8131b;
+.news .active {
+  background: #b8131b;
   color: white;
 }
-.news .router-link-exact-active .router-link-active{
-   background: #b8131b;
+.news .router-link-exact-active .router-link-active {
+  background: #b8131b;
   color: white;
 }
 </style>
