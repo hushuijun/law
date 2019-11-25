@@ -63,21 +63,26 @@ export default {
         console.log(this.mediumlist);
         let that = this
         new Swiper('#Home3_swiper', {
-            speed:3000,
+            // speed:3000,
             loop : true,
-            autoplay:true,
+            slidesPerView: 3,
+            centeredSlides: true,
+            // autoplay:true,
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
             },
-            onSlideChangeStart: function(swiper){
+            on:{
+               slideChangeTransitionStart: function(swiper){
                 for(var i = 0 ; i<that.mediumlist.length; i++){
-                    if(swiper.activeIndex == that.mediumlist[i].id){
+                    if(this.realIndex == that.mediumlist[i].id){
                         that.Home3text = that.mediumlist[i].text
                     }
                 }
                 
             }
+            }
+           
         })
     }
 }
@@ -108,5 +113,8 @@ export default {
     top: -43px;
     left: 50%;
     margin-left: -11px;
+}
+.swiper-slide .swiper-slide-active{
+    font-size: 25px;
 }
 </style>

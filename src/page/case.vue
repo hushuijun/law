@@ -8,6 +8,21 @@
     </div>
     <div class="case_content">
      <div class="top"></div>
+     <div>
+
+     </div>
+     <div>
+       <div class="text_nav">
+           <router-link tag="a" to="/case/">最高院案例</router-link>
+           <router-link tag="a" to="/litigation">诉讼案例</router-link>
+           <router-link tag="a" to="/nolitigation">非诉讼案例</router-link> 
+       </div>
+       <div>
+         <router-view>
+
+         </router-view>
+       </div>
+     </div>
     </div>
   </div>
 </template>
@@ -70,7 +85,7 @@ export default {
   width: 70%;
   margin: auto;
   margin-top: -80px;
-  padding-bottom: 120px;
+  padding-bottom: 20px;
   background: white;
   position: relative;
   z-index: 1;
@@ -84,5 +99,16 @@ export default {
   width: 90%;
   height: 50px;
   margin: 20px auto;
+}
+.case .text_nav{
+  text-align: center;
+}
+.case .text_nav a{
+ display: inline-block;
+ padding: 10px 20px;
+}
+.case .text_nav a:hover{
+ background: #b8131b;
+ color: white;
 }
 </style>

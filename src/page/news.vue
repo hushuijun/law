@@ -7,7 +7,17 @@
       </div>
     </div>
     <div class="news_content">
-     <div class="top"></div>
+      <div class="top"></div>
+      <div>
+        <div class="text_nav">
+          <router-link tag="a" to="/news/">京师新闻</router-link>
+          <router-link tag="a" to="/jingshi_party">京师党建</router-link>
+          <router-link tag="a" to="/publicWelfare">京师公益</router-link>
+        </div>
+        <div>
+          <router-view></router-view>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -50,8 +60,20 @@ export default {
 }
 .news .top {
   border-bottom: 2px solid #b8131b;
-  width: 90%;
+  width: 70%;
   height: 50px;
   margin: 20px auto;
+}
+.news .text_nav {
+  text-align: center;
+  margin-top: 70px;
+}
+.news .text_nav a {
+  display: inline-block;
+  padding: 10px 20px;
+}
+.news .text_nav a:hover {
+  background: #b8131b;
+  color: white;
 }
 </style>
