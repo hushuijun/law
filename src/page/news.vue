@@ -13,19 +13,19 @@
           <router-link 
           tag="a" 
           :class="isSelect === 'Jingshi_news' ? 'active' : ''"
-          @click.native="selectNav(name)" 
+          @click.native="selectNav(title)" 
           to="/news/"
           >京师新闻</router-link>
           <router-link
             tag="a"
           :class="isSelect === 'Jingshi_party' ? 'active' : ''"
-            @click.native="selectNav(name)"
+            @click.native="selectNav(title)"
             to="/jingshi_party"
           >京师党建</router-link>
           <router-link
             tag="a"
              :class="isSelect === 'PublicWelfare' ? 'active' : ''"
-            @click.native="selectNav(name)"
+            @click.native="selectNav(title)"
             to="/publicWelfare"
           >京师公益</router-link>
         </div>
@@ -40,16 +40,17 @@
 export default {
   data() {
     return {
-      isSelect:'Jingshi_news'
+      isSelect:'Jingshi_news',
+      title:''
     };
   },
   mounted(){
      this.isSelect = this.$route.name
   },
   methods: {
-    selectNav(name) {
+    selectNav(title) {
       this.isSelect = this.$route.name;
-      switch (name) {
+      switch (title) {
         case "SupremeCourt":
           this.$router.push("/");
           break;

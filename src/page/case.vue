@@ -13,19 +13,19 @@
         <div class="text_nav">
           <router-link
             :class="isSelect === 'SupremeCourt' ? 'active' : ''"
-            @click.native="selectNav(name)"
+            @click.native="selectNav(title)"
             tag="a"
             to="/case/"
           >最高院案例</router-link>
           <router-link
             :class="isSelect === 'Litigation' ? 'active' : ''"
-            @click.native="selectNav(name)"
+            @click.native="selectNav(title)"
             tag="a"
             to="/litigation"
           >诉讼案例</router-link>
           <router-link
             :class="isSelect === 'Nolitigation' ? 'active' : ''"
-            @click.native="selectNav(name)"
+            @click.native="selectNav(title)"
             tag="a"
             to="/nolitigation"
           >非诉讼案例</router-link>
@@ -45,7 +45,8 @@ export default {
     return {
       CaseList: "",
       CaseId: "",
-      isSelect: "SupremeCourt"
+      isSelect: "SupremeCourt",
+      title:''
     };
   },
   created() {
@@ -67,9 +68,9 @@ export default {
       });
     },
     // this.CaseId= this.$route.query.id
-    selectNav(name) {
+    selectNav(title) {
       this.isSelect = this.$route.name;
-      switch (name) {
+      switch (title) {
         case "SupremeCourt":
           this.$router.push("/");
           break;
