@@ -99,6 +99,9 @@ export default {
         case "Nolitigation":
         this.activeIndex = "5";
         break;
+         case "CaseDetails":
+        this.activeIndex = "5";
+        break;
       case "Jingshi_news":
         this.activeIndex = "6";
         break;

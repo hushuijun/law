@@ -2,14 +2,16 @@
   <div class="litigation">
     <ul class="article">
       <li>
-        <div class="litigation_top">
-          <h4>诉讼标题</h4>
-          <p>2019年10月19日</p>
-          <div class="clearfix"></div>
-        </div>
-        <div class="litigation_text">
-          <p>正文</p>
-        </div>
+        <router-link tag="a" target="_blank" to="/caseDetails">
+          <div class="litigation_top">
+            <h4>诉讼标题</h4>
+            <p>2019年10月19日</p>
+            <div class="clearfix"></div>
+          </div>
+          <div class="litigation_text">
+            <p>正文</p>
+          </div>
+        </router-link>
       </li>
     </ul>
     <div class="paging">
@@ -61,6 +63,10 @@ h4 {
   border-bottom: 1px solid #efefef;
   padding: 20px 5%;
 }
+.litigation .article li a{
+  color: black;
+  text-decoration: none;
+}
 .litigation .article li .litigation_top h4 {
   float: left;
 }
@@ -95,8 +101,8 @@ h4 {
   display: inline-block;
   padding: 5px 10px;
 }
-.litigation .paging ul li a:hover{
-    background: #7C7C7C;
-    color: white;
+.litigation .paging ul li a:hover {
+  background: #7c7c7c;
+  color: white;
 }
 </style>
