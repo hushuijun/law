@@ -24,7 +24,7 @@
               <p>京师：京师者何？天子之居也。京者何？大也。师者何？众也。天子之居，必以众大之辞言之。京师律师事务所处首善之都，倚知名学府，揽浩瀚资源，汇天下英才。京师人深知，不拒众流，方为江海。京师人深信，立专业之本，承君子之德，笃法律之学，守四海之义，方能使京师人文充溢，厚德载物。</p>
             </div>
             <div class="leader_more">
-              <a>了解更多></a>
+              <a @click="dialogTeamVisible = true">了解更多></a>
             </div>
           </div>
         </div>
@@ -65,6 +65,60 @@
         <router-view></router-view>
       </div>
     </div>
+    <el-dialog :visible.sync="dialogTeamVisible" width="80%">
+      <div class="details">
+        <div class="details_img">
+          <img src="../assets/leader.png" alt="">
+        </div>
+        <div class="details_text">
+          <ul>
+            <li>
+              <h3>
+                林才红/LIN&nbsp;CAIHONG
+              </h3>
+              <p>
+                合伙人律师
+              </p>
+            </li>
+            <li>
+              <h4>
+                教育背景：
+              </h4>
+              <p>
+                <span>
+                  2013.09--2016.07
+                </span>
+                <span>
+                  复旦大学
+                </span>
+                <span>
+                  专业：国际经济法
+                </span>
+                <span>
+                  学位：法学硕士
+                </span>
+              </p>
+            </li>
+            <li>
+              <h4>
+                工作经历：
+              </h4>
+              <p>
+       全程参与律师团队为某企业在“新三板”转让系统挂牌项目，参与尽调，并出具法律意见书；
+              </p>
+            </li>
+            <li>
+              <h4>
+                学术研究：
+              </h4>
+              <p>
+                2015.07在期刊《南京师范大学报》上发表文章《大陆架划界规划的新发展及其评述》
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </el-dialog>
   </div>
 </template>
 <script>
@@ -73,8 +127,9 @@ export default {
   name: "team",
   data() {
     return {
-       isSelect: "Whole",
-       title:''
+      dialogTeamVisible: false,
+      isSelect: "Whole",
+      title: "",
     };
   },
   created() {},
@@ -94,10 +149,10 @@ export default {
         case "GlobalPartners":
           this.$router.push("/globalPartners");
           break;
-          case "PartnerLawyer":
+        case "PartnerLawyer":
           this.$router.push("/partnerLawyer");
           break;
-          case "PracticingLawyer":
+        case "PracticingLawyer":
           this.$router.push("/practicingLawyer");
           break;
       }
@@ -243,9 +298,18 @@ export default {
   border: 1px solid #b8131b;
   color: white;
 }
-.team .team_member{
-   width: 94%;
+.team .team_member {
+  width: 94%;
   margin: auto;
   margin-top: 20px;
+}
+.team .details{
+  display: flex;
+}
+.team .details .details_img{
+  flex-shrink: 0;
+}
+.team .details .details_text{
+  flex: 1;
 }
 </style>
