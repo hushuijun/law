@@ -2,6 +2,7 @@
     <div class="publicWelfare">
         <ul class="article">
             <li>
+              <router-link tag="a" target="_blank" to="/newsDetails">
                 <div class="publicWelfare_content">
                     <div class="news_time">
                       <span>
@@ -20,6 +21,7 @@
                         </p>
                     </div>
                 </div>
+              </router-link>
             </li>
         </ul>
         <div class="paging">
@@ -71,6 +73,10 @@ export default {
   list-style: none;
   border-bottom: 1px solid #efefef;
   padding: 20px 0;
+}
+.publicWelfare .article li a{
+ color: black;
+ text-decoration: none;
 }
 .publicWelfare .article li:hover{
     background: rgba(0, 0, 0, 0.1);
