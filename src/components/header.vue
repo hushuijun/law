@@ -111,6 +111,9 @@ export default {
          case "PublicWelfare":
         this.activeIndex = "6";
         break;
+        case "NewsDetails":
+        this.activeIndex = "6";
+        break;
       case "About":
         this.activeIndex = "7";
         break;
