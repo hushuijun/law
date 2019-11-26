@@ -75,6 +75,21 @@ export default {
       case "Team":
         this.activeIndex = "3";
         break;
+        case "Whole":
+        this.activeIndex = "3";
+        break;
+        case "Director":
+        this.activeIndex = "3";
+        break;
+        case "GlobalPartners":
+        this.activeIndex = "3";
+        break;
+        case "PartnerLawyer":
+        this.activeIndex = "3";
+        break;
+        case "PracticingLawyer":
+        this.activeIndex = "3";
+        break;
       case "SupremeCourt":
         this.activeIndex = "5";
         break;
