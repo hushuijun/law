@@ -268,6 +268,7 @@ methods: {
   width:100%;
   height:627px;
   background: #eee;
+  margin-top: 100px;
 }
 .aboutCOnt2 ul{
   width:1200px;
