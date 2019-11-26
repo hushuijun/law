@@ -7,7 +7,14 @@
       </div>
     </div>
     <div class="caseDetails_content">
-     
+        <div class="caseDetails_title">
+           <h3>
+           李某与某企业贷款纠纷案
+           </h3>
+           <p>
+              2019年10月19日
+           </p>
+        </div>
     </div>
   </div>
 </template>
@@ -74,7 +81,13 @@ export default {
   z-index: 1;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
 }
-
+.caseDetails .caseDetails_title{
+  width: 90%;
+  margin:auto;
+  padding: 20px 0;
+  text-align: center;
+  border-bottom: 1px solid #efefef;
+}
 
 
 </style>

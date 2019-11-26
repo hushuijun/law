@@ -7,7 +7,14 @@
       </div>
     </div>
     <div class="newsDetails_content">
-     
+        <div class="newsDetails_title">
+           <h3>
+            强化企业“体验”，促进企业增值————京师律师受邀“京帆远航”项目授课
+           </h3>
+           <p>
+              2019年10月19日
+           </p>
+        </div>
     </div>
   </div>
 </template>
@@ -25,7 +32,6 @@ export default {
   },
   methods: {
     
-   
   }
 };
 </script>
@@ -73,7 +79,13 @@ export default {
   z-index: 1;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
 }
-
+.newsDetails .newsDetails_title{
+  width: 90%;
+  margin:auto;
+  padding: 20px 0;
+  text-align: center;
+  border-bottom: 1px solid #efefef;
+}
 
 
 </style>
