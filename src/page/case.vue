@@ -8,7 +8,10 @@
     </div>
     <div class="case_content">
       <div class="top"></div>
-      <div></div>
+      <div class="case_title">
+        <p>经过京师律师事务所全体律师的努力，已取得了令人瞩目的成绩，有多名律师先后为数百家知名企业提供了公司债券、股票发行相关的法律服务，为公司上市、私募等相关事宜提供了强有力的法律支持，并且担任多家知名企业、事业单位、政府机关的常年法律顾问。</p>
+        <p>京师律师成功代理了数百起有影响的合同纠纷、股权纠纷、劳动纠纷、侵权诉讼、房地产纠纷、招标投标、知识产权纠纷、刑事辩护等方面的诉讼、非诉讼案件，并且获得了客户的广泛好评。</p>
+      </div>
       <div>
         <div class="text_nav">
           <router-link
@@ -46,7 +49,7 @@ export default {
       CaseList: "",
       CaseId: "",
       isSelect: "SupremeCourt",
-      title:''
+      title: ""
     };
   },
   created() {
@@ -112,10 +115,10 @@ export default {
   left: 50%;
   margin-left: -109px;
 }
-.case .header_title h1{
+.case .header_title h1 {
   font-weight: 500;
 }
-.case .header_title p{
+.case .header_title p {
   font-size: 28px;
 }
 .case .case_content {
@@ -139,6 +142,8 @@ export default {
 }
 .case .text_nav {
   text-align: center;
+  margin-top: 80px;
+  margin-bottom: 50px;
 }
 .case .text_nav a {
   display: inline-block;
@@ -151,5 +156,15 @@ export default {
 .case .active {
   background: #b8131b;
   color: white;
+}
+.case .case_title {
+  width: 90%;
+  margin: auto;
+  margin-top: 50px;
+}
+.case .case_title p {
+  line-height: 30px;
+  margin-top: 10px;
+  text-indent: 2rem;
 }
 </style>
