@@ -2,6 +2,7 @@
   <div class="supremeCourt">
     <ul class="article">
       <li>
+         <router-link tag="a" target="_blank" to="/caseDetails">
         <div class="supremeCourt_top">
           <h4>最高院标题</h4>
           <p>2019年10月19日</p>
@@ -10,6 +11,7 @@
         <div class="supremeCourt_text">
           <p>正文</p>
         </div>
+         </router-link>
       </li>
     </ul>
     <div class="paging">
@@ -60,6 +62,10 @@ h4 {
   list-style: none;
   border-bottom: 1px solid #efefef;
   padding: 20px 5%;
+}
+.supremeCourt .article li a{
+   color: black;
+   text-decoration: none;
 }
 .supremeCourt .article li .supremeCourt_top h4 {
   float: left;

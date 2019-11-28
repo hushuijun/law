@@ -7,51 +7,85 @@
       </div>
     </div>
     <div class="case_content">
-     <div class="top"></div>
-     <div>
-
-     </div>
-     <div>
-       <div class="text_nav">
-           <router-link tag="a" to="/case/">最高院案例</router-link>
-           <router-link tag="a" to="/litigation">诉讼案例</router-link>
-           <router-link tag="a" to="/nolitigation">非诉讼案例</router-link> 
-       </div>
-       <div>
-         <router-view>
-
-         </router-view>
-       </div>
-     </div>
+      <div class="top"></div>
+      <div class="case_title">
+        <p>经过京师律师事务所全体律师的努力，已取得了令人瞩目的成绩，有多名律师先后为数百家知名企业提供了公司债券、股票发行相关的法律服务，为公司上市、私募等相关事宜提供了强有力的法律支持，并且担任多家知名企业、事业单位、政府机关的常年法律顾问。</p>
+        <p>京师律师成功代理了数百起有影响的合同纠纷、股权纠纷、劳动纠纷、侵权诉讼、房地产纠纷、招标投标、知识产权纠纷、刑事辩护等方面的诉讼、非诉讼案件，并且获得了客户的广泛好评。</p>
+      </div>
+      <div>
+        <div class="text_nav">
+          <router-link
+            :class="isSelect === 'SupremeCourt' ? 'active' : ''"
+            @click.native="selectNav(title)"
+            tag="a"
+            to="/case/"
+          >最高院案例</router-link>
+          <router-link
+            :class="isSelect === 'Litigation' ? 'active' : ''"
+            @click.native="selectNav(title)"
+            tag="a"
+            to="/litigation"
+          >诉讼案例</router-link>
+          <router-link
+            :class="isSelect === 'Nolitigation' ? 'active' : ''"
+            @click.native="selectNav(title)"
+            tag="a"
+            to="/nolitigation"
+          >非诉讼案例</router-link>
+        </div>
+        <div>
+          <router-view></router-view>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 <script>
-import {queryCaseList} from '@/api/api'
+import { queryCaseList } from "@/api/api";
 export default {
-  name: 'case',
+  name: "case",
   data() {
     return {
-      CaseList:'',
-      CaseId:''
+      CaseList: "",
+      CaseId: "",
+      isSelect: "SupremeCourt",
+      title: ""
     };
   },
-  created(){
-    this.clickCase()
+  created() {
+    this.clickCase();
+  },
+  mounted() {
+    this.isSelect = this.$route.name;
   },
   methods: {
-    clickCase(){
-      var _this= this
-      _this.CaseId ={categoryId:this.$route.query.id,
-                      pageNo:'1',
-                      pageSize:'10'} 
-      queryCaseList(_this.CaseId).then(res=>{
-        console.log(res.data)
-       })
-    }
+    clickCase() {
+      var _this = this;
+      _this.CaseId = {
+        categoryId: this.$route.query.id,
+        pageNo: "1",
+        pageSize: "10"
+      };
+      queryCaseList(_this.CaseId).then(res => {
+        console.log(res.data);
+      });
+    },
     // this.CaseId= this.$route.query.id
+    selectNav(title) {
+      this.isSelect = this.$route.name;
+      switch (title) {
+        case "SupremeCourt":
+          this.$router.push("/");
+          break;
+        case "Litigation":
+          this.$router.push("/litigation");
+          break;
+        case "Nolitigation":
+          this.$router.push("/nolitigation");
+          break;
+      }
+    }
   }
-  
 };
 </script>
 <style scoped>
@@ -79,7 +113,13 @@ export default {
   color: white;
   top: 40%;
   left: 50%;
-  margin-left: -95px;
+  margin-left: -109px;
+}
+.case .header_title h1 {
+  font-weight: 500;
+}
+.case .header_title p {
+  font-size: 28px;
 }
 .case .case_content {
   width: 70%;
@@ -100,15 +140,31 @@ export default {
   height: 50px;
   margin: 20px auto;
 }
-.case .text_nav{
+.case .text_nav {
   text-align: center;
+  margin-top: 80px;
+  margin-bottom: 50px;
 }
-.case .text_nav a{
- display: inline-block;
- padding: 10px 20px;
+.case .text_nav a {
+  display: inline-block;
+  padding: 10px 20px;
 }
-.case .text_nav a:hover{
- background: #b8131b;
- color: white;
+.case .text_nav a:hover {
+  background: #b8131b;
+  color: white;
+}
+.case .active {
+  background: #b8131b;
+  color: white;
+}
+.case .case_title {
+  width: 90%;
+  margin: auto;
+  margin-top: 50px;
+}
+.case .case_title p {
+  line-height: 30px;
+  margin-top: 10px;
+  text-indent: 2rem;
 }
 </style>

@@ -2,7 +2,7 @@
   <div class="news">
     <div class="hearder_bg">
       <div class="header_title">
-        <h1>JINGSH&nbsp;NEWS</h1>
+        <h1>JINGSHI&nbsp;NEWS</h1>
         <p>新闻资讯</p>
       </div>
     </div>
@@ -10,9 +10,24 @@
       <div class="top"></div>
       <div>
         <div class="text_nav">
-          <router-link tag="a" to="/news/">京师新闻</router-link>
-          <router-link tag="a" to="/jingshi_party">京师党建</router-link>
-          <router-link tag="a" to="/publicWelfare">京师公益</router-link>
+          <router-link 
+          tag="a" 
+          :class="isSelect === 'Jingshi_news' ? 'active' : ''"
+          @click.native="selectNav(title)" 
+          to="/news/"
+          >京师新闻</router-link>
+          <router-link
+            tag="a"
+          :class="isSelect === 'Jingshi_party' ? 'active' : ''"
+            @click.native="selectNav(title)"
+            to="/jingshi_party"
+          >京师党建</router-link>
+          <router-link
+            tag="a"
+             :class="isSelect === 'PublicWelfare' ? 'active' : ''"
+            @click.native="selectNav(title)"
+            to="/publicWelfare"
+          >京师公益</router-link>
         </div>
         <div>
           <router-view></router-view>
@@ -24,7 +39,29 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      isSelect:'Jingshi_news',
+      title:''
+    };
+  },
+  mounted(){
+     this.isSelect = this.$route.name
+  },
+  methods: {
+    selectNav(title) {
+      this.isSelect = this.$route.name;
+      switch (title) {
+        case "SupremeCourt":
+          this.$router.push("/");
+          break;
+        case "Litigation":
+          this.$router.push("/litigation");
+          break;
+        case "Nolitigation":
+          this.$router.push("/nolitigation");
+          break;
+      }
+    }
   }
 };
 </script>
@@ -48,7 +85,13 @@ export default {
   color: white;
   top: 40%;
   left: 50%;
-  margin-left: -95px;
+  margin-left: -109px;
+}
+.news .header_title h1{
+  font-weight: 500;
+}
+.news .header_title p{
+  font-size: 28px;
 }
 .news .news_content {
   min-height: 800px;
@@ -73,6 +116,14 @@ export default {
   padding: 10px 20px;
 }
 .news .text_nav a:hover {
+  background: #b8131b;
+  color: white;
+}
+.news .active {
+  background: #b8131b;
+  color: white;
+}
+.news .router-link-exact-active .router-link-active {
   background: #b8131b;
   color: white;
 }

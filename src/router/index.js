@@ -10,10 +10,21 @@ import About from '@/page/About'
 import SupremeCourt from '@/page/case_sort/SupremeCourt'
 import Litigation from '@/page/case_sort/Litigation'
 import Nolitigation from '@/page/case_sort/Nolitigation'
+//案例详情
+import CaseDetails from '@/components/CaseDetails'
 // 新闻资讯
 import Jingshi_news from '@/page/news_sort/Jingshi_news'
 import Jingshi_party from '@/page/news_sort/Jingshi_party'
 import PublicWelfare from '@/page/news_sort/PublicWelfare'
+//新闻详情
+import NewsDetails from '@/components/NewsDetails'
+//团队
+import Whole from '@/page/team/Whole'
+import Director from '@/page/team/Director'
+import GlobalPartners from '@/page/team/GlobalPartners'
+import PartnerLawyer from '@/page/team/PartnerLawyer'
+import PracticingLawyer from '@/page/team/PracticingLawyer'
+
 Vue.use(Router)
 
 export default new Router({
@@ -32,7 +43,33 @@ export default new Router({
     {
       path: '/team',
       name: 'Team',
-      component: Team
+      component: Team,
+      children:[{
+       path:'/',
+       name:'Whole',
+       component:Whole,
+      },
+      {
+        path:'/director',
+        name:'Director',
+        component:Director,
+       },
+       {
+        path:'/globalPartners',
+        name:'GlobalPartners',
+        component:GlobalPartners,
+       },
+       {
+        path:'/partnerLawyer',
+        name:'PartnerLawyer',
+        component:PartnerLawyer,
+       },
+       {
+        path:'/practicingLawyer',
+        name:'PracticingLawyer',
+        component:PracticingLawyer,
+       },
+    ]
     },
     {
       path: '/case',
@@ -52,8 +89,13 @@ export default new Router({
         path:'/nolitigation',
         name: 'Nolitigation',
         component: Nolitigation,
-      }
+      },
     ]
+    },
+    {
+      path:'/caseDetails',
+      name: 'CaseDetails',
+      component: CaseDetails,
     },
     {
       path: '/news',
@@ -76,6 +118,11 @@ export default new Router({
           component:PublicWelfare,
         }
       ]
+    },
+    {
+      path:'/newsDetails',
+      name:'NewsDetails',
+      component:NewsDetails,
     },
     {
       path: '/about',

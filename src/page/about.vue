@@ -91,6 +91,7 @@
 
 
 
+<<<<<<< HEAD
           <!-- <div class="aboutCOnt3">
             <el-form ref="form" :model="form" label-width="80px">
                 <el-row class="aboutCOnt3_input">
@@ -105,6 +106,14 @@
                     </el-form-item>
                   </el-col>
                 </el-row>
+=======
+          <div class="aboutCOnt3">
+             <div class="aboutCOnt1">
+                  <h2>案件咨询</h2>
+                  <p class="aboutCOnt1_p1"><span class="aboutCOnt1_line"></span></p>
+              </div>
+          <el-form ref="form" :model="form" label-width="80px">
+>>>>>>> a55e76881c0d456f556f26eaa96a756b28fd94ea
               <el-row class="aboutCOnt3_input">
                 <el-col :span="12">
                   <el-form-item label="城市">
@@ -140,9 +149,18 @@
                 <el-form-item>
                   <el-button type="primary" @click="onSubmit">提交咨询</el-button>
                 </el-form-item>
+
               </div>
             </el-form>
         </div> -->
+            </div>
+            <div class="aboutCOnt3_input aboutCOnt3_align">
+              <el-form-item>
+                <el-button type="primary" @click="onSubmit('form')">提交咨询</el-button>
+              </el-form-item>
+            </div>
+          </el-form>
+        </div>
         </div>
     </div>
 </template>
@@ -175,12 +193,23 @@ console.log(this.input5)
     }
   },
 methods: {
-    onSubmit() {
-      console.log('submit!');
+    onSubmit(form) {
+      console.log(this.form);
     }
   }
 }
 </script>
+<style>
+.about .aboutCOnt3_input input{
+  height: 48px;
+  border-radius: 0px;
+}
+.about .el-textarea .el-textarea__inner{ 
+  resize: none;
+  height: 200px;
+  border-radius: 0px;
+}
+</style>
 <style scoped>
 @import "../assets/css/base.css";
 .about {
@@ -205,7 +234,7 @@ methods: {
   color: white;
   top: 40%;
   left: 50%;
-  margin-left: -95px;
+  margin-left: -122px;
 }
 .about .header_title h1{
     font-weight: 500;
@@ -226,7 +255,6 @@ methods: {
   margin: 0;
   font-weight: 500;
   padding-top:100px;
-  margin-top: 100px;
 }
 .aboutCOnt1_p1{
   text-align: center;
@@ -254,6 +282,7 @@ methods: {
   width:100%;
   height:627px;
   background: #eee;
+  margin-top: 100px;
 }
 .aboutCOnt2 ul{
   width:1200px;
