@@ -31,68 +31,25 @@
                 <p class="aboutCOnt1_p1"><span class="aboutCOnt1_line"></span></p>
             </div>
             <ul>
-              <li>
+              <li @click="dialog = 0">
                 <img src="../assets/wai_jings.png"/>
                 <p>京师外景</p>
               </li>
-              <li>
+              <!-- <li @click="dialog=1">
                 <img src="../assets/qi_jings.png"/>
                 <p>京师氛围</p>
               </li>
-              <li>
+              <li  @click="dialog=2">
                 <img src="../assets/nei_jings.png"/>
                 <p>京师内景</p>
-              </li>
+              </li> -->
             </ul>
           </div>
           <div class="aboutCOnt3">
-              <div class="aboutCOnt1">
+             <div class="aboutCOnt1">
                   <h2>案件咨询</h2>
                   <p class="aboutCOnt1_p1"><span class="aboutCOnt1_line"></span></p>
               </div>
-              <div class="aboutCOnt3_input">
-                <p><label><span>姓名</span><input type="text" v-model="input1"/></label></p>
-                <p><label><span>电话</span><input type="text" v-model="input2"/></label></p>
-              </div>
-              <div class="aboutCOnt3_input">
-                <p><label><span>城市</span><input type="text"  v-model="command"/></label></p>
-                <p><label class="aboutCOnt3_label">
-                    <span>案件类型</span>
-                    <el-dropdown  trigger="click">
-                        <span class="el-dropdown-link">
-                          请选择<i class="el-icon-arrow-down el-icon--right"></i>
-                        </span>
-                        <el-dropdown-menu slot="dropdown">
-                          <el-dropdown-item command="行政诉讼" >行政诉讼</el-dropdown-item>
-                          <el-dropdown-item command="劳动争议">劳动争议</el-dropdown-item>
-                          <el-dropdown-item command="职务犯罪">职务犯罪</el-dropdown-item>
-                          <el-dropdown-item command="婚姻纠纷">婚姻纠纷</el-dropdown-item>
-                          <el-dropdown-item command="医疗纠纷">医疗纠纷</el-dropdown-item>
-                          <el-dropdown-item command="工伤维权">工伤维权</el-dropdown-item>
-                          <el-dropdown-item command="工伤维权">合同纠纷</el-dropdown-item>
-                          <el-dropdown-item command="工伤维权">遗产继承</el-dropdown-item>
-                          <el-dropdown-item command="工伤维权">公司法律</el-dropdown-item>
-                          <el-dropdown-item command="工伤维权">知识产权</el-dropdown-item>
-                          <el-dropdown-item command="工伤维权">房产建筑</el-dropdown-item>
-                          <el-dropdown-item command="工伤维权">涉外纠纷</el-dropdown-item>
-                          <el-dropdown-item command="工伤维权">其他</el-dropdown-item>
-                        </el-dropdown-menu>
-                      </el-dropdown>
-                  </label>
-              </p>
-              </div>
-              <div class="aboutCOnt3_textarea">
-                  <p><label><span>案件描述</span><textarea></textarea></label></p>
-              </div>
-              <div class="aboutCOnt3_input aboutCOnt3_align" v-model="message">
-                <a @click="clickINPUT()">提交咨询</a>
-              </div>
-          </div>
-
-
-
-<<<<<<< HEAD
-          <!-- <div class="aboutCOnt3">
             <el-form ref="form" :model="form" label-width="80px">
                 <el-row class="aboutCOnt3_input">
                   <el-col :span="12">
@@ -106,66 +63,66 @@
                     </el-form-item>
                   </el-col>
                 </el-row>
-=======
-          <div class="aboutCOnt3">
-             <div class="aboutCOnt1">
-                  <h2>案件咨询</h2>
-                  <p class="aboutCOnt1_p1"><span class="aboutCOnt1_line"></span></p>
-              </div>
-          <el-form ref="form" :model="form" label-width="80px">
->>>>>>> a55e76881c0d456f556f26eaa96a756b28fd94ea
-              <el-row class="aboutCOnt3_input">
-                <el-col :span="12">
-                  <el-form-item label="城市">
-                    <el-input v-model="form.city"></el-input>
+                <el-row class="aboutCOnt3_input">
+                  <el-col :span="12">
+                    <el-form-item label="城市">
+                      <el-input v-model="form.city"></el-input>
+                    </el-form-item>
+                  </el-col>
+                  <el-col :span="12">
+                    <el-form-item label="案件类型">
+                      <el-select v-model="form.region" placeholder="请选择">
+                        <el-option label="行政诉讼" value="行政诉讼"></el-option>
+                        <el-option label="劳动争议" value="劳动争议"></el-option>
+                        <el-option label="职务犯罪" value="职务犯罪"></el-option>
+                        <el-option label="婚姻纠纷" value="婚姻纠纷"></el-option>
+                        <el-option label="医疗纠纷" value="医疗纠纷"></el-option>
+                        <el-option label="工伤维权" value="工伤维权"></el-option>
+                        <el-option label="合同纠纷" value="合同纠纷"></el-option>
+                        <el-option label="遗产继承" value="遗产继承"></el-option>
+                        <el-option label="公司法律" value="公司法律"></el-option>
+                        <el-option label="知识产权" value="知识产权"></el-option>
+                        <el-option label="房产建筑" value="房产建筑"></el-option>
+                        <el-option label="涉外纠纷" value="涉外纠纷"></el-option>
+                        <el-option label="其他" value="其他"></el-option>
+                      </el-select>
+                    </el-form-item>
+                  </el-col>
+                </el-row>
+                <div class="aboutCOnt3_textarea">
+                    <el-form-item label="案件描述">
+                      <el-input type="textarea" v-model="form.desc"></el-input>
+                    </el-form-item>
+                </div>
+                <div class="aboutCOnt3_input aboutCOnt3_align">
+                  <el-form-item>
+                    <el-button type="primary" >提交咨询</el-button>
                   </el-form-item>
-                </el-col>
-                <el-col :span="12">
-                  <el-form-item label="案件类型">
-                    <el-select v-model="form.region" placeholder="请选择">
-                      <el-option label="行政诉讼" value="行政诉讼"></el-option>
-                      <el-option label="劳动争议" value="劳动争议"></el-option>
-                      <el-option label="职务犯罪" value="职务犯罪"></el-option>
-                      <el-option label="婚姻纠纷" value="婚姻纠纷"></el-option>
-                      <el-option label="医疗纠纷" value="医疗纠纷"></el-option>
-                      <el-option label="工伤维权" value="工伤维权"></el-option>
-                      <el-option label="合同纠纷" value="合同纠纷"></el-option>
-                      <el-option label="遗产继承" value="遗产继承"></el-option>
-                      <el-option label="公司法律" value="公司法律"></el-option>
-                      <el-option label="知识产权" value="知识产权"></el-option>
-                      <el-option label="房产建筑" value="房产建筑"></el-option>
-                      <el-option label="涉外纠纷" value="涉外纠纷"></el-option>
-                      <el-option label="其他" value="其他"></el-option>
-                    </el-select>
-                  </el-form-item>
-                </el-col>
-              </el-row>
-              <div class="aboutCOnt3_textarea">
-                  <el-form-item label="案件描述">
-                    <el-input type="textarea" v-model="form.desc"></el-input>
-                  </el-form-item>
-              </div>
-              <div class="aboutCOnt3_input aboutCOnt3_align">
-                <el-form-item>
-                  <el-button type="primary" @click="onSubmit">提交咨询</el-button>
-                </el-form-item>
-
-              </div>
+                </div>
             </el-form>
-        </div> -->
+        </div> 
+        <div class="dialog" v-show="dialog == 0">
+          <p @click="dialog = 9"><i class="el-icon-close"></i></p>
+            <div class="swiper-container" id="con3_swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" >
+                        <img src="../assets/wai_jings.png"/>
+                    </div>
+                    <div class="swiper-slide" >
+                        <img src="../assets/wai_jings.png"/>
+                    </div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
-            <div class="aboutCOnt3_input aboutCOnt3_align">
-              <el-form-item>
-                <el-button type="primary" @click="onSubmit('form')">提交咨询</el-button>
-              </el-form-item>
-            </div>
-          </el-form>
-        </div>
-        </div>
+          </div>
+      </div>
     </div>
 </template>
 <script>
 import {addConsult} from '@/api/api'
+import Swiper from 'swiper';
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
   name: 'about',
   data(){
@@ -180,41 +137,65 @@ export default {
           tel:'',
           region: '',
           desc: ''
-        }
+        },
+        dialog: '',
+        isSelect: "Whole",
+        title: "",
     }
   },
-  method:{
-    clickINPUT(){
-console.log(this.input1)
-console.log(this.input2)
-console.log(this.input3)
-console.log(this.input4)
-console.log(this.input5)
-    }
-  },
-methods: {
+  methods: {
     onSubmit(form) {
       console.log(this.form);
+    },
+  },
+  mounted(){
+        new Swiper('#con3_swiper', {
+            // speed:1000,
+            loop : true,
+            autoplay:true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        })
     }
-  }
 }
 </script>
 <style>
 .about .aboutCOnt3_input input{
-  height: 48px;
+  height: 43px;
   border-radius: 0px;
+  width: 330px;
+  border: 1px solid #b5b5b5;
 }
 .about .el-textarea .el-textarea__inner{ 
   resize: none;
-  height: 200px;
+  height: 240px;
   border-radius: 0px;
+  width: 830px;
+  margin-left: 20px;
+  border:1px solid #b5b5b5;
 }
 </style>
 <style scoped>
+@import 'swiper/dist/css/swiper.min.css';
 @import "../assets/css/base.css";
 .about {
   min-height: 1500px;
   background: #f9f9f9;
+  position: relative;
+}
+#con3_swiper{
+  width:1100px;
+  height: 600px;
+  position: absolute;
+  left:50%;
+  top:50%;
+  margin-left:-550px;
+  margin-top:-300px;
+}
+#con3_swiper .swiper-slide img{
+  width:100%;
 }
 .about .hearder_bg {
   width: 100%;
@@ -248,6 +229,7 @@ methods: {
 }
 .aboutCOnt1{
   margin:auto;
+  padding-bottom: 60px;
 }
 .aboutCOnt1 h2{
   font-size:30px;
@@ -315,10 +297,7 @@ height:48px;
 .aboutCOnt3_input{
   width:1000px;
   margin: auto;
-  margin-top:35px;
-}
-.el-input__inner{
-  height:48px!important;
+  margin-top:10px;
 }
 .aboutCOnt3_input p{
   display: inline-block;
@@ -366,7 +345,7 @@ height:48px;
 .aboutCOnt3_textarea{
   width: 1000px;
   margin: auto;
-  margin-top:35px;
+  margin-top:10px;
 }
 .aboutCOnt3_textarea p textarea{
   resize: none;
@@ -396,7 +375,7 @@ height:48px;
 }
 .aboutCOnt3_align{text-align:center}
 .aboutCOnt3_align .el-button--primary{
-  display: inline-block;
+   display: inline-block;
     width: 330px;
     height: 56px;
     text-align: center;
@@ -412,8 +391,35 @@ height:48px;
 .el-select{
   width:100%;
 }
-.aboutCOnt3_input input{
-  height: 48px;
+.aboutCOnt3_input  >>> .el-form-item__content{
+  padding-left:20px;
+}
+.aboutCOnt3 >>> .el-form-item__label{
+  font-size:16px;
+  color:#222;
+}
+.dialog{
+  width:100%;
+  height: 100%;
+  position:fixed;
+  left:0;
+  top:0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 999;
+}
+.dialog p i{
+  color:#fff;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+.dialog p{
+  margin: 0;
+  text-align: right;
+  padding: 0 90px;
+  padding-top: 50px;
 }
 @media screen and (max-width: 1024px) {
   .about .hearder_bg{
@@ -442,6 +448,7 @@ height:48px;
   .aboutCOnt2{
     height:100%;
     padding-bottom: 20px;
+    margin-top: 30px;
   }
   .aboutCOnt2 ul{
     width:calc(100% - 40px);
@@ -462,8 +469,27 @@ height:48px;
   .aboutCOnt1_line{
     width: 0;
   }
-  .aboutCOnt3_input{
-    width:calc(100% - 40px);
+  .aboutCOnt3 .el-col-12{
+    width:100%;
+  }
+  .about .aboutCOnt3_input input{
+    width:calc(100% - 45px);
+  }
+  .aboutCOnt1{
+    padding-bottom:30px;
+  }
+  .aboutCOnt3_input >>> .el-form-item__label{
+     text-align: left;
+  }
+  .aboutCOnt3_textarea >>> .el-form-item__label{
+     text-align: left;
+  }
+  .aboutCOnt3_input  >>> .el-form-item__content{
+    padding-left:0;
+    width: calc(100% - 80px);;
+  }
+  .aboutCOnt3 >>> .el-input__inner{
+    width:100%;
   }
   .aboutCOnt3_input p{
     width:100%;
@@ -498,6 +524,14 @@ height:48px;
   }
   .aboutCOnt3_input{
     margin-top:0 ;
+    width: calc(100% - 40px);
+  }
+  .aboutCOnt3_align .el-button--primary{
+      margin-left: -80px;
+    width: 150px;
+    height: 35px;
+    text-align: center;
+    margin-top: 30px;
   }
   .el-dropdown .el-dropdown-link{
     line-height: 30px;
@@ -505,6 +539,11 @@ height:48px;
   }
   .aboutCOnt3_textarea{
     width:calc(100% - 40px);
+  }
+  .aboutCOnt3_textarea >>> .el-textarea .el-textarea__inner{
+    width: 100%;
+    height: 140px;
+    margin-left: 0;
   }
   .aboutCOnt3_textarea p span{
     text-align: left;
@@ -517,14 +556,6 @@ height:48px;
     border: 1px solid #b5b5b5;
     background: #fff;
     margin-left: 0;
-  }
-  .aboutCOnt3_input a{
-    display: inline-block;
-    width: 150px;
-    height: 35px;
-    text-align: center;
-    line-height: 35px;
-    margin-top: 30px;
   }
 }
 </style>
