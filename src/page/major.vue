@@ -6,147 +6,182 @@
         <p>咨询热线：4001-666-001</p>
       </div>
     </div>
-    <div class="major_content">
+    <div class="major_content" v-if="show1">
       <div class="top"></div>
-      <div class="block">
+      <section id="cd-timeline" class="cd-container">
         <div class="major_left">
           <ul>
-            <li class="major_left_item">
-              <div class="major_title_item">
-                <h4>公司法律</h4>
-                <div>
-                  <img src="" alt="">
-                </div>
+            <li v-for="(item,index) of list1" :key="index" class="major_card">
+              <div class="card_icon">
+                <img src="" alt="img">
               </div>
-              <div class="major_item">
-                <ul>
-                  <li>
-                    <span></span>商业仲裁
-                  </li>
-                  <li>
-                    <span></span>商业仲裁
-                  </li>
-                  <li>
-                    <span></span>商业仲裁
-                  </li>
-                  <li>
-                    <span></span>商业仲裁
-                  </li>
-                  <li>
-                    <span></span>商业仲裁
-                  </li>
-                  <li>
-                    <span></span>商业仲裁
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="major_left_item">
-              <div class="major_title_item">
-                <h4>公司法律</h4>
-                <div>
-                  <img src="" alt="">
-                </div>
-              </div>
-              <div class="major_item">
-                <ul>
-                   <li>
-                    <span></span>商业仲裁
-                  </li>
-                  <li>
-                    <span></span>商业仲裁
-                  </li>
-                  <li>
-                    <span></span>商业仲裁
-                  </li>
-                  <li>
-                    <span></span>商业仲裁
-                  </li>
-                  <li>
-                    <span></span>商业仲裁
-                  </li>
-                  <li>
-                    <span></span>商业仲裁
-                  </li>
-                </ul>
-              </div>
+              <h4>{{item.title}}</h4>
+              <ul class="card_content">
+                <li v-for="(item1,index) of item.childrenList">
+                  <span></span>
+                  {{item1.item}}</li>
+              </ul>
             </li>
           </ul>
-          <div class="major_line"></div>
         </div>
-
-        <div id="major_right">
+        <div class="major_right">
           <ul>
-            <li class="major_right_item">
-              <div class="major_title_item">
-                <h4>公司法律</h4>
-                <div>
-                  <img src="" alt="">
-                </div>
+            <li v-for="(item,index) of list2" :key="index" class="major_card">
+              <div class="card_icon">
+                 <img src="" alt="img">
               </div>
-              <div class="major_item">
-                <ul>
-                   <li>
-                    <span></span>商业仲裁
-                  </li>
-                  <li>
-                    <span></span>商业仲裁
-                  </li>
-                  <li>
-                    <span></span>商业仲裁
-                  </li>
-                  <li>
-                    <span></span>商业仲裁
-                  </li>
-                  <li>
-                    <span></span>商业仲裁
-                  </li>
-                  <li>
-                    <span></span>商业仲裁
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="major_right_item">
-             <div class="major_title_item">
-                <h4>公司法律</h4>
-                <div>
-                  <img src="" alt="">
-                </div>
-              </div>
-              <div class="major_item">
-                <ul>
-                  <li>
-                    <span></span>商业仲裁
-                  </li>
-                  <li>
-                    <span></span>商业仲裁
-                  </li>
-                  <li>
-                    <span></span>商业仲裁
-                  </li>
-                  <li>
-                    <span></span>商业仲裁
-                  </li>
-                  <li>
-                    <span></span>商业仲裁
-                  </li>
-                  <li>
-                    <span></span>商业仲裁
-                  </li>
-                </ul>
-              </div>
+              <h4>{{item.title}}</h4>
+              <ul class="card_content">
+                <li v-for="(item2,index) of item.childrenList">
+                  <span></span>
+                  {{item2.item}}</li>
+              </ul>
             </li>
           </ul>
         </div>
-      </div>
+      </section>
+    </div>
+    <div v-if="show2">
+       <section id="cd-timeline" class="cd-container">
+        <div class="major_left">
+          <ul>
+            <li v-for="(item,index) of list1" :key="index" class="major_card">
+              <div class="card_icon">
+                <img src="" alt="img">
+              </div>
+              <h4>{{item.title}}</h4>
+              <ul class="card_content">
+                <li v-for="(item1,index) of item.childrenList">
+                  <span></span>
+                  {{item1.item}}</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="major_right">
+          <ul>
+            <li v-for="(item,index) of list2" :key="index" class="major_card">
+              <div class="card_icon">
+                 <img src="" alt="img">
+              </div>
+              <h4>{{item.title}}</h4>
+              <ul class="card_content">
+                <li v-for="(item2,index) of item.childrenList">
+                  <span></span>
+                  {{item2.item}}</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </section>
     </div>
   </div>
 </template>
 <script>
+import {queryTerritoryList} from '@/api/api'
 export default {
   data() {
-    return {};
+    return {
+      show1:true,
+      show2:false,
+      list1: [
+        {
+          title: "诉讼、仲裁",
+          childrenList: [
+            {
+              item: "商事1"
+            },
+            {
+              item: "法律文书"
+            },
+             {
+              item: "商事1"
+            },
+            {
+              item: "法律文书"
+            },
+            
+          ]
+        },
+        {
+          title: "国际法务",
+          childrenList: [
+            {
+              item: "商事2"
+            },
+            {
+              item: "法律文书"
+            },
+             {
+              item: "商事1"
+            },
+            {
+              item: "法律文书"
+            }
+          ]
+        }
+      ],
+      list2: [
+        {
+          title: "公司法律",
+          childrenList: [
+            {
+              item: "中小股东1"
+            },
+            {
+              item: "公司股权重组"
+            },
+            {
+              item: "中小股东1"
+            },
+            {
+              item: "公司股权重组"
+            }
+          ]
+        },
+        {
+          title: "金融资本",
+          childrenList: [
+            {
+              item: "中小股东2"
+            },
+            {
+              item: "公司股权重组"
+            },
+            {
+              item: "中小股东1"
+            },
+            {
+              item: "公司股权重组"
+            }
+          ]
+        }
+      ]
+    };
+  },
+  created(){
+     //可用于设置自适应屏幕，根据获得的可视宽度（兼容性）判断是否显示	
+    let w = document.documentElement.offsetWidth || document.body.offsetWidth;		
+    if(w <= 1024){			
+      this.show1 = false;		
+      this.show2 = true;	
+    }
+    this.fieldList();
+  },
+  methods:{
+    fieldList(){
+        queryTerritoryList().then(res=>{
+          console.log(res.data)
+          let territoryList1 = res.data.territoryList1;
+          let territoryList2 = res.data.territoryList2;
+            for(var i=0;i<territoryList1.length;i++){
+                console.log(territoryList1[i])
+            }
+            for(var i=0;i<territoryList2.length;i++){
+              console.log(territoryList2[i])
+            }
+        })
+    }
   }
 };
 </script>
@@ -178,15 +213,16 @@ export default {
   margin-left: -95px;
 }
 .major .major_content {
-  width: 70%;
+  width: 1200px;
   margin: auto;
   margin-top: -80px;
-  padding-bottom: 120px;
+  padding-bottom: 20px;
   background: white;
   position: relative;
   z-index: 1;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
 }
+
 .major .major_center {
   margin-left: 45.5%;
 }
@@ -208,80 +244,148 @@ export default {
   left: 50%;
   margin-left: -10px;
 }
-.major .block {
+
+.cd-container {
   width: 90%;
-  margin: auto;
+  max-width: 1170px;
+  margin: 0 auto;
 }
-.major .block h4 {
-  background: #ececec;
-  padding: 12px;
-}
-ul,
-h4 {
-  padding: 0;
-  margin: 0;
-}
-.major_left {
-  display: inline-block;
-  position: relative;
-  width: 45%;
-  margin: 0;
-  padding: 0;
-}
-#major_right {
-  float: right;
-  width: 45%;
-  margin: 0;
-  padding: 0;
-  padding-top: 100px;
-}
-.major .major_left .major_left_item {
-  border: 1px solid #e1e1e1;
-  box-sizing: border-box;
-  margin-top: 20px;
-}
-.major #major_right .major_right_item {
-  border: 1px solid #e1e1e1;
-  box-sizing: border-box;
-  margin-top: 20px;
+.cd-container::after {
+  /* clearfix */
+  content: "";
+  display: table;
+  clear: both;
 }
 
-.major .major_line {
+/* -------------------------------- 
+
+Main components 
+
+-------------------------------- */
+
+#cd-timeline {
+  position: relative;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+.major .major_left::before{
+  /* this is the vertical line */
+  content: "";
   position: absolute;
-  height: 95%;
-  top: 23px;
-  right: -47px;
-  border: 2px solid #e1e1e1;
+  top: 0;
+  left: 18px;
+  height: 75%;
+  width: 4px;
+  background: #d7e4ed;
+  left: 50%;
+  margin-left: -2px;
 }
-.major .major_item li {
-  display: inline-block;
-  width: 44%;
-  padding: 10px;
+
+.major ul,
+li,
+h4 {
+  margin: 0;
+  padding: 0;
 }
-.major .major_item li span {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  margin-right: 10px;
-  border-radius: 10px;
-  background: black;
+.major .major_left {
+  float: left;
+  width: 47%;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
-.major .major_title_item{
+.major .major_left .major_card {
+  border: 1px solid #ECECEC;
+  margin-top: 20px;
   position: relative;
 }
-.major .major_title_item div{
+.major .major_left .major_card .card_icon{
   position: absolute;
-  top: 0px;
+  right: -82px;
   width: 50px;
   height: 50px;
   border-radius: 50px;
   background: #b8131b;
-  z-index: 1;
+   border: 4px solid white;
 }
-.major .major_left_item .major_title_item div{
-  right: -17.5%;
+.major .major_left .major_card:first-child {
+  margin-top: 0px;
 }
-.major .major_right_item .major_title_item div{
-  left: -17.5%;
+.major .major_right {
+  float: right;
+  width: 47%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+.major .major_right .major_card {
+  border: 1px solid #ECECEC;
+  margin-top: 20px;
+  position: relative;
+}
+.major .major_right .major_card .card_icon{
+  position: absolute;
+  left: -84px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background: #b8131b;
+  border: 4px solid white;
+}
+.major .major_right .major_card:first-child {
+  margin-top: 100px;
+}
+.major .major_card h4{
+  height: 50px;
+  background: #ECECEC;
+  font-size: 16px;
+  line-height: 50px;
+  padding-left: 20px;
+}
+.major .major_card .card_content{
+  padding-bottom: 30px;
+}
+.major .major_card .card_content li{
+  display: inline-block;
+  width: 50%;
+  padding-top: 15px;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+.major .major_card .card_content li span{
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background: black;
+}
+@media screen and (max-width: 1024px) {
+.major .major_left{
+  float: initial;
+  width: auto;
+}
+.major .major_right{
+float: initial;
+width: auto;
+}
+.major .major_left .major_card .card_icon{
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  left: 5px;
+}
+.major .major_right .major_card .card_icon{
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  left: 5px;
+}
+.major .major_left::before{
+  height: 0;
+}
+.major .major_right .major_card:first-child {
+  margin-top: 20px;
+}
+.major .major_card h4{
+   padding-left: 60px;
+}
 }
 </style>

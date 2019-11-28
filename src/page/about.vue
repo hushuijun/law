@@ -35,14 +35,14 @@
                 <img src="../assets/wai_jings.png"/>
                 <p>京师外景</p>
               </li>
-              <!-- <li @click="dialog=1">
+              <li @click="dialog=1">
                 <img src="../assets/qi_jings.png"/>
                 <p>京师氛围</p>
               </li>
               <li  @click="dialog=2">
                 <img src="../assets/nei_jings.png"/>
                 <p>京师内景</p>
-              </li> -->
+              </li>
             </ul>
           </div>
           <div class="aboutCOnt3">
@@ -103,13 +103,43 @@
         </div> 
         <div class="dialog" v-show="dialog == 0">
           <p @click="dialog = 9"><i class="el-icon-close"></i></p>
-            <div class="swiper-container" id="con3_swiper">
+            <div class="swiper-container" id="con1_swiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide" >
                         <img src="../assets/wai_jings.png"/>
                     </div>
                     <div class="swiper-slide" >
                         <img src="../assets/wai_jings.png"/>
+                    </div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+          </div>
+          <div class="dialog" v-show="dialog == 1">
+          <p @click="dialog = 9"><i class="el-icon-close"></i></p>
+            <div class="swiper-container" id="con2_swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" >
+                        <img src="../assets/qi_jings.png"/>
+                    </div>
+                    <div class="swiper-slide" >
+                        <img src="../assets/qi_jings.png"/>
+                    </div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+          </div>
+          <div class="dialog" v-show="dialog == 2">
+          <p @click="dialog = 9"><i class="el-icon-close"></i></p>
+            <div class="swiper-container" id="con3_swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" >
+                        <img src="../assets/nei_jings.png"/>
+                    </div>
+                    <div class="swiper-slide" >
+                        <img src="../assets/nei_jings.png"/>
                     </div>
                 </div>
                 <div class="swiper-button-prev"></div>
@@ -138,7 +168,7 @@ export default {
           region: '',
           desc: ''
         },
-        dialog: '',
+        dialog: '3',
         isSelect: "Whole",
         title: "",
     }
@@ -149,10 +179,37 @@ export default {
     },
   },
   mounted(){
-        new Swiper('#con3_swiper', {
+        new Swiper('#con1_swiper', {
             // speed:1000,
             loop : true,
             autoplay:true,
+            initialSlide :0, 
+            observer:true,//修改swiper自己或子元素时，自动初始化swiper 
+            observeParents:true,//修改swiper的父元素时，自动初始化swiper 
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        }),
+         new Swiper('#con2_swiper', {
+            // speed:1000,
+            loop : true,
+             autoplay:true,
+            initialSlide :0, 
+            observer:true,//修改swiper自己或子元素时，自动初始化swiper 
+            observeParents:true,//修改swiper的父元素时，自动初始化swiper 
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        }),
+         new Swiper('#con3_swiper', {
+            // speed:1000,
+            loop : true,
+             autoplay:true,
+            initialSlide :0, 
+            observer:true,//修改swiper自己或子元素时，自动初始化swiper 
+            observeParents:true,//修改swiper的父元素时，自动初始化swiper 
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
@@ -184,6 +241,30 @@ export default {
   min-height: 1500px;
   background: #f9f9f9;
   position: relative;
+}
+#con1_swiper{
+  width:1100px;
+  height: 600px;
+  position: absolute;
+  left:50%;
+  top:50%;
+  margin-left:-550px;
+  margin-top:-300px;
+}
+#con1_swiper .swiper-slide img{
+  width:100%;
+}
+#con2_swiper{
+  width:1100px;
+  height: 600px;
+  position: absolute;
+  left:50%;
+  top:50%;
+  margin-left:-550px;
+  margin-top:-300px;
+}
+#con2_swiper .swiper-slide img{
+  width:100%;
 }
 #con3_swiper{
   width:1100px;
