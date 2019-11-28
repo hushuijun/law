@@ -281,9 +281,9 @@ export default {
       this.show = false;		
       this.show1 = true;	
       document.getElementsByTagName('body')[0].style.height = 100 +'%';
-       document.getElementsByTagName('body')[0].style.position = 'relative';
-        document.getElementsByTagName('html')[0].style.height = 100 +'%';
-       document.getElementsByTagName('html')[0].style.position = 'relative';
+      document.getElementsByTagName('body')[0].style.position = 'relative';
+      document.getElementsByTagName('html')[0].style.height = 100 +'%';
+      document.getElementsByTagName('html')[0].style.position = 'relative';
     }
     this.homeCase()
   },
