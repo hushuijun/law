@@ -99,4 +99,22 @@ li,h3 {
 .whole ul .whole_item div p{
    margin-top: 5px;
 }
+@media screen and (max-width: 1024px) {
+  .whole ul{
+    margin: 0 20px;
+  }
+  .whole ul li{
+    width: 160px;
+    margin: 0;
+    margin-right: 15px;
+    height: 215px;
+  }
+  .whole ul li:nth-of-type(even){
+    margin-right: 0;
+  }
+  .whole ul li img{
+    width:100%;
+    height:100%
+  }
+}
 </style>
