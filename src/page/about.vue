@@ -35,14 +35,14 @@
                 <img src="../assets/wai_jings.png"/>
                 <p>京师外景</p>
               </li>
-              <!-- <li @click="dialog=1">
+              <li @click="dialog=1">
                 <img src="../assets/qi_jings.png"/>
                 <p>京师氛围</p>
               </li>
               <li  @click="dialog=2">
                 <img src="../assets/nei_jings.png"/>
                 <p>京师内景</p>
-              </li> -->
+              </li>
             </ul>
           </div>
           <div class="aboutCOnt3">
