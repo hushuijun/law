@@ -30,39 +30,13 @@
         </div>
       </div>
       <div class="team_classification">
-        <router-link
-          tag="a"
-          to="/team/"
-          :class="isSelect === 'Whole' ? 'active' : ''"
-          @click.native="selectNav(title)"
-        >全部</router-link>
-        <router-link
-          tag="a"
-          to="/director"
-          :class="isSelect === 'Director' ? 'active' : ''"
-          @click.native="selectNav(title)"
-        >部门主任</router-link>
-        <router-link
-          tag="a"
-          to="/globalPartners"
-          :class="isSelect === 'GlobalPartners' ? 'active' : ''"
-          @click.native="selectNav(title)"
-        >全球合伙人</router-link>
-        <router-link
-          tag="a"
-          to="/partnerLawyer"
-          :class="isSelect === 'PartnerLawyer' ? 'active' : ''"
-          @click.native="selectNav(title)"
-        >合伙人律师</router-link>
-        <router-link
-          tag="a"
-          to="/practicingLawyer"
-          :class="isSelect === 'PracticingLawyer' ? 'active' : ''"
-          @click.native="selectNav(title)"
-        >执业律师</router-link>
+        <a v-for="(item ,index) of teamList" 
+        :key="index"
+        @click="team_class(2)"
+        >{{item.team}}</a>
       </div>
       <div class="team_member">
-        <router-view></router-view>
+          <Whole  :inputName.sync="detailsUL" v-if=""></Whole>
       </div>
     </div>
     <el-dialog :visible.sync="dialogTeamVisible" width="80%">
@@ -73,47 +47,25 @@
         <div class="details_text">
           <ul>
             <li>
-              <h3>
-                林才红/LIN&nbsp;CAIHONG
-              </h3>
+              <h3>林才红/LIN&nbsp;CAIHONG</h3>
+              <p>合伙人律师</p>
+            </li>
+            <li>
+              <h4>教育背景：</h4>
               <p>
-                合伙人律师
+                <span>2013.09--2016.07</span>
+                <span>复旦大学</span>
+                <span></span>
+                <span>学位：法学硕士</span>
               </p>
             </li>
             <li>
-              <h4>
-                教育背景：
-              </h4>
-              <p>
-                <span>
-                  2013.09--2016.07
-                </span>
-                <span>
-                  复旦大学
-                </span>
-                <span>
-                  专业：国际经济法
-                </span>
-                <span>
-                  学位：法学硕士
-                </span>
-              </p>
+              <h4>工作经历：</h4>
+              <p>全程参与律师团队为某企业在“新三板”转让系统挂牌项目，参与尽调，并出具法律意见书</p>
             </li>
             <li>
-              <h4>
-                工作经历：
-              </h4>
-              <p>
-       全程参与律师团队为某企业在“新三板”转让系统挂牌项目，参与尽调，并出具法律意见书；
-              </p>
-            </li>
-            <li>
-              <h4>
-                学术研究：
-              </h4>
-              <p>
-                2015.07在期刊《南京师范大学报》上发表文章《大陆架划界规划的新发展及其评述》
-              </p>
+              <h4>学术研究：</h4>
+              <p>2015.07在期刊《南京师范大学报》上发表文章《大陆架划界规划的新发展及其评述》</p>
             </li>
           </ul>
         </div>
@@ -122,43 +74,36 @@
   </div>
 </template>
 <script>
-import { queryteamList } from "@/api/api";
+import { queryResumeById } from "@/api/api";
+import Whole from '@/page/team/whole'
 export default {
   name: "team",
+  components: {Whole},
   data() {
     return {
       dialogTeamVisible: false,
       isSelect: "Whole",
       title: "",
+      teamList:[{id:'',team:'全部'},{id:'',team:'部门主任'},
+                {id:'',team:'全球合伙人'},{id:'',team:'合伙人律师'},
+                {id:'',team:'执业律师'}],
+      detailsUL:'',
     };
   },
   created() {},
   mounted() {
-    this.isSelect = this.$route.name;
   },
   methods: {
-    selectNav(title) {
-      this.isSelect = this.$route.name;
-      switch (title) {
-        case "Whole":
-          this.$router.push("/");
-          break;
-        case "Director":
-          this.$router.push("/director");
-          break;
-        case "GlobalPartners":
-          this.$router.push("/globalPartners");
-          break;
-        case "PartnerLawyer":
-          this.$router.push("/partnerLawyer");
-          break;
-        case "PracticingLawyer":
-          this.$router.push("/practicingLawyer");
-          break;
-      }
+    team_class(id){
+      this.detailsUL = id
+      console.log(this.detailsUL)
+        // this.$router.push({
+        //     path:'/Whole',
+        //     query:{id:id}
+        // }); 
     }
-  }
-};
+}
+}
 </script>
 <style scoped>
 @import "../assets/css/base.css";
@@ -194,7 +139,7 @@ export default {
   font-size: 28px;
 }
 .team .team_content {
-  width: 70%;
+  width: 1200px;
   margin: auto;
   margin-top: -80px;
   padding-bottom: 20px;
@@ -287,6 +232,7 @@ export default {
   line-height: 37px;
   margin-right: 10px;
   border: 1px solid #efefef;
+  cursor: pointer;
 }
 .team .team_classification a:hover {
   background: #b8131b;
@@ -299,7 +245,6 @@ export default {
   color: white;
 }
 .team .team_member {
-  width: 94%;
   margin: auto;
   margin-top: 20px;
 }
