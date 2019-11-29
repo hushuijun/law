@@ -275,7 +275,7 @@ export default {
   }
   .whole ul li{
     width: 143px;
-    margin-r: 0px;
+    margin-right: 0px;
   }
 }
 </style>
