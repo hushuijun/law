@@ -1,83 +1,13 @@
 <template>
   <div class="whole">
     <ul>
-      <li>
+      <li v-for="(item,index) of wholeList">
         <div class="whole_item">
-          <img src="../../assets/leader.png" alt />
+          <img :src="item.imageUrl" alt="" />
           <div>
-            <h3>林才红</h3>
-            <p>leader</p>
-            <p>北京总部</p>
-          </div>
-        </div>
-      </li>
-      <li>
-       <div class="whole_item">
-          <img src="../../assets/leader.png" alt />
-          <div>
-            <h3>林才红</h3>
-            <p>leader</p>
-            <p>北京总部</p>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="whole_item">
-          <img src="../../assets/leader.png" alt />
-          <div>
-            <h3>林才红</h3>
-            <p>leader</p>
-            <p>北京总部</p>
-          </div>
-        </div>
-      </li>
-      <li>
-       <div class="whole_item">
-          <img src="../../assets/leader.png" alt />
-          <div>
-            <h3>林才红</h3>
-            <p>leader</p>
-            <p>北京总部</p>
-          </div>
-        </div>
-      </li>
-      <li>
-       <div class="whole_item">
-          <img src="../../assets/leader.png" alt />
-          <div>
-            <h3>林才红</h3>
-            <p>leader</p>
-            <p>北京总部</p>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="whole_item">
-          <img src="../../assets/leader.png" alt />
-          <div>
-            <h3>林才红</h3>
-            <p>leader</p>
-            <p>北京总部</p>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="whole_item">
-          <img src="../../assets/leader.png" alt />
-          <div>
-            <h3>林才红</h3>
-            <p>leader</p>
-            <p>北京总部</p>
-          </div>
-        </div>
-      </li>
-      <li>
-       <div class="whole_item">
-          <img src="../../assets/leader.png" alt />
-          <div>
-            <h3>林才红</h3>
-            <p>leader</p>
-            <p>北京总部</p>
+            <h3>{{item.name}}</h3>
+            <p>{{item.recommend}}</p>
+            <p>{{item.address}}</p>
           </div>
         </div>
       </li>
@@ -88,10 +18,35 @@
   </div>
 </template>
 <script>
+import { queryResumeList } from "@/api/api";
 export default {
   name: "Whole",
+  props: ['inputName'],
   data() {
-    return {};
+    return {
+      wholeList:'',
+      wholeID:'',
+    };
+  },
+  created(){
+    this.cont();
+  },
+  mounted(){
+    this.cont();
+  },
+  methods:{
+    cont(){
+      console.log(this.inputName)
+      queryResumeList(this.wholeID).then(res=>{
+          this.wholeList = res.data;
+          console.log(this.wholeList)
+      })
+    }
+  },
+  watch: {
+      inputName(){
+        this.cont();
+      }
   }
 };
 </script>
@@ -113,29 +68,53 @@ li,h3 {
   padding: 0;
   list-style: none;
 }
+.whole ul{
+  margin: 0 40px;
+}
 .whole ul li {
   display: inline-block;
-  width: 32.9%;
+  width: 330px;
+  height:442px;
   /* margin-left: 12px; */
   overflow: hidden;
   text-align: center;
-  padding: 20px;
+  margin: 20px;
   box-sizing: border-box;
-}
-.whole ul li:first-child {
-  margin-left: 0;
+  box-shadow: 0px 5px 10px 0px #efefef;
 }
 .whole ul li img {
   display: block;
   max-width: 100%;
+  width: 330px;
+  height: 333px;
+  margin: auto;
 }
-.whole ul .whole_item{
-    box-shadow: 0px 5px 10px 0px #efefef;
+.whole ul .whole_item h3{
+  font-size:18px;
+  color: #3a3a3a;
 }
 .whole ul .whole_item div{
     padding: 15px 0;
 }
 .whole ul .whole_item div p{
    margin-top: 5px;
+}
+@media screen and (max-width: 1024px) {
+  .whole ul{
+    margin: 0 20px;
+  }
+  .whole ul li{
+    width: 160px;
+    margin: 0;
+    margin-right: 15px;
+    height: 215px;
+  }
+  .whole ul li:nth-of-type(even){
+    margin-right: 0;
+  }
+  .whole ul li img{
+    width:100%;
+    height:100%
+  }
 }
 </style>

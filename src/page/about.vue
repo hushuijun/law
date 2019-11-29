@@ -30,20 +30,67 @@
                 <h2>京师环境</h2>
                 <p class="aboutCOnt1_p1"><span class="aboutCOnt1_line"></span></p>
             </div>
-            <ul>
+            <ul class="aboutCOnt2_ul1">
               <li @click="dialog = 0">
                 <img src="../assets/wai_jings.png"/>
                 <p>京师外景</p>
               </li>
-              <li @click="dialog=1">
+              <li @click="dialog = 1">
                 <img src="../assets/qi_jings.png"/>
                 <p>京师氛围</p>
               </li>
-              <li  @click="dialog=2">
+              <li  @click="dialog= 2">
                 <img src="../assets/nei_jings.png"/>
                 <p>京师内景</p>
               </li>
             </ul>
+            <ul class="aboutCOnt2_ul2">
+                <li>
+                    <div class="swiper-container" id="con4_swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" >
+                                <img src="../assets/wai_jings.png"/>
+                            </div>
+                            <div class="swiper-slide" >
+                                <img src="../assets/wai_jings.png"/>
+                            </div>
+                        </div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                  <p>京师外景</p>
+                </li>
+                <li>
+                    <div class="swiper-container" id="con5_swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" >
+                                <img src="../assets/qi_jings.png"/>
+                            </div>
+                            <div class="swiper-slide" >
+                                <img src="../assets/qi_jings.png"/>
+                            </div>
+                        </div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                  <p>京师氛围</p>
+                </li>
+                <li>
+                    <div class="swiper-container" id="con6_swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" >
+                                <img src="../assets/nei_jings.png"/>
+                            </div>
+                            <div class="swiper-slide" >
+                                <img src="../assets/nei_jings.png"/>
+                            </div>
+                        </div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                  <p>京师内景</p>
+                </li>
+              </ul>
           </div>
           <div class="aboutCOnt3">
              <div class="aboutCOnt1">
@@ -168,9 +215,7 @@ export default {
           region: '',
           desc: ''
         },
-        dialog: '3',
-        isSelect: "Whole",
-        title: "",
+        dialog: '9',
     }
   },
   methods: {
@@ -204,6 +249,43 @@ export default {
             },
         }),
          new Swiper('#con3_swiper', {
+            // speed:1000,
+            loop : true,
+             autoplay:true,
+            initialSlide :0, 
+            observer:true,//修改swiper自己或子元素时，自动初始化swiper 
+            observeParents:true,//修改swiper的父元素时，自动初始化swiper 
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        })
+        ,
+         new Swiper('#con4_swiper', {
+            // speed:1000,
+            loop : true,
+             autoplay:true,
+            initialSlide :0, 
+            observer:true,//修改swiper自己或子元素时，自动初始化swiper 
+            observeParents:true,//修改swiper的父元素时，自动初始化swiper 
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        }),
+         new Swiper('#con5_swiper', {
+            // speed:1000,
+            loop : true,
+             autoplay:true,
+            initialSlide :0, 
+            observer:true,//修改swiper自己或子元素时，自动初始化swiper 
+            observeParents:true,//修改swiper的父元素时，自动初始化swiper 
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        }),
+         new Swiper('#con6_swiper', {
             // speed:1000,
             loop : true,
              autoplay:true,
@@ -468,6 +550,7 @@ height:48px;
     outline: none;
     border: none;
     font-size: 16px;
+    margin-top: 50px;
 }
 .el-select{
   width:100%;
@@ -502,7 +585,19 @@ height:48px;
   padding: 0 90px;
   padding-top: 50px;
 }
+.aboutCOnt2_ul1{
+  display: block;
+}
+.aboutCOnt2_ul2{
+  display:none;
+}
 @media screen and (max-width: 1024px) {
+  .aboutCOnt2_ul1{
+    display:none;
+  }
+  .aboutCOnt2_ul2{
+    display:block;
+  }
   .about .hearder_bg{
     height: 250px;
   }

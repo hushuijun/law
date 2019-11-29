@@ -30,138 +30,49 @@
         </div>
       </div>
       <div class="team_classification">
-        <router-link
-          tag="a"
-          to="/team/"
-          :class="isSelect === 'Whole' ? 'active' : ''"
-          @click.native="selectNav(title)"
-        >全部</router-link>
-        <router-link
-          tag="a"
-          to="/director"
-          :class="isSelect === 'Director' ? 'active' : ''"
-          @click.native="selectNav(title)"
-        >部门主任</router-link>
-        <router-link
-          tag="a"
-          to="/globalPartners"
-          :class="isSelect === 'GlobalPartners' ? 'active' : ''"
-          @click.native="selectNav(title)"
-        >全球合伙人</router-link>
-        <router-link
-          tag="a"
-          to="/partnerLawyer"
-          :class="isSelect === 'PartnerLawyer' ? 'active' : ''"
-          @click.native="selectNav(title)"
-        >合伙人律师</router-link>
-        <router-link
-          tag="a"
-          to="/practicingLawyer"
-          :class="isSelect === 'PracticingLawyer' ? 'active' : ''"
-          @click.native="selectNav(title)"
-        >执业律师</router-link>
+        <a v-for="(item ,index) of teamList" 
+        :key="index"
+        @click="team_class(item.id,index)"
+        :class="{active:index == curT}"
+        >{{item.team}}</a>
       </div>
       <div class="team_member">
-        <router-view></router-view>
+          <Whole  :inputName.sync="detailsUL" v-if=""></Whole>
       </div>
     </div>
-    <el-dialog :visible.sync="dialogTeamVisible" width="80%">
-      <div class="details">
-        <div class="details_img">
-          <img src="../assets/leader.png" alt="">
-        </div>
-        <div class="details_text">
-          <ul>
-            <li>
-              <h3>
-                林才红/LIN&nbsp;CAIHONG
-              </h3>
-              <p>
-                合伙人律师
-              </p>
-            </li>
-            <li>
-              <h4>
-                教育背景：
-              </h4>
-              <p>
-                <span>
-                  2013.09--2016.07
-                </span>
-                <span>
-                  复旦大学
-                </span>
-                <span>
-                  专业：国际经济法
-                </span>
-                <span>
-                  学位：法学硕士
-                </span>
-              </p>
-            </li>
-            <li>
-              <h4>
-                工作经历：
-              </h4>
-              <p>
-       全程参与律师团队为某企业在“新三板”转让系统挂牌项目，参与尽调，并出具法律意见书；
-              </p>
-            </li>
-            <li>
-              <h4>
-                学术研究：
-              </h4>
-              <p>
-                2015.07在期刊《南京师范大学报》上发表文章《大陆架划界规划的新发展及其评述》
-              </p>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </el-dialog>
+    <TeamDialog></TeamDialog>
   </div>
 </template>
 <script>
-import { queryteamList } from "@/api/api";
+import { queryResumeById } from "@/api/api"
+import Whole from '@/page/team/whole'
+import TeamDialog from '@/page/team/TeamDialog'
 export default {
   name: "team",
+  components: {Whole,TeamDialog},
   data() {
     return {
-      dialogTeamVisible: false,
-      isSelect: "Whole",
-      title: "",
+      teamList:[{id:'0',team:'全部'},{id:'1',team:'部门主任'},
+                {id:'2',team:'全球合伙人'},{id:'3',team:'合伙人律师'},
+                {id:'4',team:'执业律师'}],
+      detailsUL:'',
+      curT:0
     };
   },
   created() {},
   mounted() {
-    this.isSelect = this.$route.name;
   },
   methods: {
-    selectNav(title) {
-      this.isSelect = this.$route.name;
-      switch (title) {
-        case "Whole":
-          this.$router.push("/");
-          break;
-        case "Director":
-          this.$router.push("/director");
-          break;
-        case "GlobalPartners":
-          this.$router.push("/globalPartners");
-          break;
-        case "PartnerLawyer":
-          this.$router.push("/partnerLawyer");
-          break;
-        case "PracticingLawyer":
-          this.$router.push("/practicingLawyer");
-          break;
-      }
+    team_class(id,index){
+      this.curT = index
+      this.detailsUL = id
+      console.log(this.detailsUL)
     }
-  }
-};
+}
+}
 </script>
 <style scoped>
-@import "../assets/css/base.css";
+/* @import "../assets/css/base.css"; */
 .team {
   min-height: 1500px;
   background: #f9f9f9;
@@ -189,12 +100,13 @@ export default {
 }
 .team .header_title h1 {
   font-weight: 500;
+  font-size: 36px;
 }
 .team .header_title p {
   font-size: 28px;
 }
 .team .team_content {
-  width: 70%;
+  width: 1200px;
   margin: auto;
   margin-top: -80px;
   padding-bottom: 20px;
@@ -238,22 +150,25 @@ export default {
   text-indent: 2rem;
 }
 .team .team_title .leader {
-  display: flex;
   margin-top: 50px;
   border: 1px solid #efefef;
+  overflow: hidden;
 }
 .team .team_title .leader .leader_left {
-  flex-shrink: 0;
-  width: 400px;
-  /* overflow: hidden; */
+  height: 580px;
+  display: inline-block;
+  float: left;
 }
 .team .team_title .leader .leader_left img {
-  max-width: 100%;
+  width: 100%;
 }
 .team .team_title .leader .leader_right {
-  flex: 1;
   background: #f8f8f8;
   padding: 0 40px;
+  width: 527px;
+  display: inline-block;
+  float: left;
+  height: 580px;
 }
 .team .team_title .leader .leader_right .leader_name {
   text-align: center;
@@ -275,6 +190,11 @@ export default {
 .team .team_title .leader .leader_right .leader_more a {
   display: block;
   text-align: center;
+  font-size:16px;
+  width:80px;
+  margin: auto;
+  text-decoration:underline;
+  cursor: pointer;
 }
 .team .team_classification {
   text-align: center;
@@ -287,6 +207,7 @@ export default {
   line-height: 37px;
   margin-right: 10px;
   border: 1px solid #efefef;
+  cursor: pointer;
 }
 .team .team_classification a:hover {
   background: #b8131b;
@@ -299,7 +220,6 @@ export default {
   color: white;
 }
 .team .team_member {
-  width: 94%;
   margin: auto;
   margin-top: 20px;
 }
@@ -311,5 +231,51 @@ export default {
 }
 .team .details .details_text{
   flex: 1;
+}
+@media screen and (max-width: 1024px) {
+  .team .hearder_bg{
+    height: 250px;;
+  }
+  .team .header_title h1 {
+      font-size: 18px;
+  }
+  .team .header_title p{
+    font-size: 14px;
+  }
+  .team .header_title{
+    width: 120px;
+    margin-left: -60px;
+  }
+  .team .team_content{
+    margin-top: 20px;
+    width:100%;
+  }
+  .team .team_title .leader .leader_left{
+    display: inline;
+    width:100%;
+    height:100%;
+  }
+  .team .team_title .leader .leader_right{
+    display: inline;
+    width:100%;
+    padding: 0;
+  }
+  .team .team_title{
+    width:100%;
+  }
+  .team .team_title p{
+    padding:0 20px;
+  }
+  .team .team_title .leader .leader_right .leader_name p{
+    text-align: center;
+    text-indent: 0;
+  }
+  .whole ul{
+    margin: 0 20px;
+  }
+  .whole ul li{
+    width: 143px;
+    margin-r: 0px;
+  }
 }
 </style>
