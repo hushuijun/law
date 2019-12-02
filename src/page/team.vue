@@ -37,10 +37,27 @@
         >{{item.team}}</a>
       </div>
       <div class="team_member">
-          <Whole  :inputName.sync="detailsUL" v-if=""></Whole>
+          <Whole :inputName.sync="detailsUL" v-if="" @func='DialogID' ></Whole>
       </div>
     </div>
-    <TeamDialog></TeamDialog>
+    <el-dialog :visible.sync="dialogTeamVisible" width="80%">
+        <div class="details">
+            <div class="details_img">
+                <!-- <img :src="item.imageUrl" alt=""> -->
+            </div>
+            <div class="details_text">
+                <ul>
+                    <li>
+                        <h3>{{dialogList.name}}/{{dialogList.englishName}}</h3>
+                        <p>合伙人律师</p>
+                    </li>
+                    <li>
+                      <div v-html="dialogList.recommend"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </el-dialog>
   </div>
 </template>
 <script>
@@ -52,11 +69,14 @@ export default {
   components: {Whole,TeamDialog},
   data() {
     return {
-      teamList:[{id:'0',team:'全部'},{id:'1',team:'部门主任'},
+      teamList:[{id:'',team:'全部'},{id:'1',team:'部门主任'},
                 {id:'2',team:'全球合伙人'},{id:'3',team:'合伙人律师'},
                 {id:'4',team:'执业律师'}],
       detailsUL:'',
-      curT:0
+      curT:0,
+      dialogTeamVisible: false,
+      dialogList:'',
+      id:''
     };
   },
   created() {},
@@ -66,13 +86,29 @@ export default {
     team_class(id,index){
       this.curT = index
       this.detailsUL = id
-      console.log(this.detailsUL)
+      
+    },
+    DialogID(id){
+      this.id = {id:id}
+      if(id !== null){
+            console.log(id) 
+            this.dialogTeamVisible = true
+        }
+      queryResumeById(this.id).then(res=>{
+          this.dialogList = res.data;
+          console.log(this.dialogList)
+      })
     }
-}
+},
+  watch: {
+      '$route' (to, from) {
+          this.team_class(id,index);
+      }
+  }
 }
 </script>
 <style scoped>
-/* @import "../assets/css/base.css"; */
+@import "../assets/css/base.css";
 .team {
   min-height: 1500px;
   background: #f9f9f9;
