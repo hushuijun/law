@@ -24,7 +24,7 @@
               <p>京师：京师者何？天子之居也。京者何？大也。师者何？众也。天子之居，必以众大之辞言之。京师律师事务所处首善之都，倚知名学府，揽浩瀚资源，汇天下英才。京师人深知，不拒众流，方为江海。京师人深信，立专业之本，承君子之德，笃法律之学，守四海之义，方能使京师人文充溢，厚德载物。</p>
             </div>
             <div class="leader_more">
-              <a @click="dialogTeamVisible = true">了解更多></a>
+              <a @click="DialogID(3)">了解更多></a>
             </div>
           </div>
         </div>
@@ -86,7 +86,6 @@ export default {
     team_class(id,index){
       this.curT = index
       this.detailsUL = id
-      
     },
     DialogID(id){
       this.id = {id:id}
@@ -108,7 +107,7 @@ export default {
 }
 </script>
 <style scoped>
-@import "../assets/css/base.css";
+/* @import "../assets/css/base.css"; */
 .team {
   min-height: 1500px;
   background: #f9f9f9;

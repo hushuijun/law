@@ -14,27 +14,15 @@
       </div>
       <div>
         <div class="text_nav">
-          <router-link
-            :class="isSelect === 'SupremeCourt' ? 'active' : ''"
-            @click.native="selectNav(title)"
-            tag="a"
-            to="/case/"
-          >最高院案例</router-link>
-          <router-link
-            :class="isSelect === 'Litigation' ? 'active' : ''"
-            @click.native="selectNav(title)"
-            tag="a"
-            to="/litigation"
-          >诉讼案例</router-link>
-          <router-link
-            :class="isSelect === 'Nolitigation' ? 'active' : ''"
-            @click.native="selectNav(title)"
-            tag="a"
-            to="/nolitigation"
-          >非诉讼案例</router-link>
+          <a v-for="(item,index) in caseList" :key="index"
+          :class="{active:index == isSelect}"
+          @click="selectNav(item.id,index)"
+          >
+            {{item.caseTitle}}
+          </a>
         </div>
         <div>
-          <router-view></router-view>
+          <SupremeCourt :supremeId.sync = "SupremeId"></SupremeCourt>
         </div>
       </div>
     </div>
@@ -42,14 +30,18 @@
 </template>
 <script>
 import { queryCaseList } from "@/api/api";
+import SupremeCourt from '@/page/case_sort/supremeCourt'
 export default {
   name: "case",
+  components: {SupremeCourt},
   data() {
     return {
       CaseList: "",
       CaseId: "",
-      isSelect: "SupremeCourt",
-      title: ""
+      isSelect:0,
+      title: "",
+      caseList:[{id:'0',name:'最高院案例'},{id:'1',name:'诉讼案例'},{id:'2',name:'非诉讼案例'}],
+      SupremeId:''
     };
   },
   created() {
@@ -67,26 +59,17 @@ export default {
         pageSize: "10"
       };
       queryCaseList(_this.CaseId).then(res => {
-        console.log(res.data);
+        this.caseList = res.data.list
       });
     },
-    // this.CaseId= this.$route.query.id
-    selectNav(title) {
-      this.isSelect = this.$route.name;
-      switch (title) {
-        case "SupremeCourt":
-          this.$router.push("/");
-          break;
-        case "Litigation":
-          this.$router.push("/litigation");
-          break;
-        case "Nolitigation":
-          this.$router.push("/nolitigation");
-          break;
-      }
+    selectNav(id,index) {
+      this.isSelect = index;
+      this.SupremeId = id;
+      console.log( this.SupremeId)
+      console.log( this.isSelect)
     }
   }
-};
+}
 </script>
 <style scoped>
 @import "../assets/css/base.css";
@@ -148,6 +131,8 @@ export default {
 .case .text_nav a {
   display: inline-block;
   padding: 10px 20px;
+  cursor: pointer;
+  margin: 5px 10px;
 }
 .case .text_nav a:hover {
   background: #b8131b;

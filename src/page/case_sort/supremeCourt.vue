@@ -41,9 +41,27 @@
 <script>
 export default {
   name: "SupremeCourt",
+  props: ['SupremeId'],
   data() {
     return {};
+  },
+  created(){
+    this.SuperContent();
+  },
+  mounted(){
+    this.SuperContent();
+  },
+  methods:{
+    SuperContent(){
+      console.log(this.SupremeId)
+    }
+  },
+  watch: {
+      '$route' (to, from) {
+          console.log(this.SupremeId)
+      }
   }
+  
 };
 </script>
 <style scoped>

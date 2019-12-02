@@ -2,7 +2,7 @@
   <div class="whole">
     <ul>
       <li v-for="(item,index) of wholeList" 
-        @click = 'clickCut(item.id)'
+        @click = "clickCut(item.id)"
       >
         <div class="whole_item">
           <img :src="item.imageUrl" alt="" />
@@ -45,6 +45,8 @@ export default {
   methods:{
     cont(){
       console.log(this.inputName)
+      this.wholeID = {categoryId:this.inputName,pageNo:1,pageSize:15}
+      console.log(this.wholeID)
       queryResumeList(this.wholeID).then(res=>{
           this.wholeList = res.data;
           if(res.data<=9){
