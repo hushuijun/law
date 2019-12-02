@@ -1,6 +1,6 @@
 <template>
     <el-dialog :visible.sync="dialogTeamVisible" width="80%">
-        <div class="details">
+        <div class="details" v-for="(item,index) in dialogList">
             <div class="details_img">
                 <img :src="item.img" alt="">
             </div>
@@ -34,18 +34,44 @@
 </template>
 
 <script>
+import { queryResumeById } from "@/api/api";
 export default {
   name: "TeamDialog",
+  props: ['DialogID'],
   data(){
       return{
         dialogTeamVisible: false,
         isSelect: "Whole",
-        title: ""
+        title: "",
+        dialogList:''
       }
   },
+  created(){
+    this.details();
+  },
+  methods: {
+    details(){
+        console.log(this.inputName)
+        queryResumeById(this.wholeID).then(res=>{
+            this.dialogList = res.data;
+            console.log(this.dialogList)
+        })
+        }
+    },
+    watch: {
+        DialogID(){
+            if(this.DialogID !== null){
+                console.log(this.DialogID) 
+                this.dialogTeamVisible = true
+            }
+        }
+    }
 }
 </script>
 
 <style scoped>
 /* @import "../assets/css/base.css"; */
+.el-dialog{
+    z-index: 3000;
+}
 </style>

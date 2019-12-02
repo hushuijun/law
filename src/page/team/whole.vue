@@ -1,7 +1,9 @@
 <template>
   <div class="whole">
     <ul>
-      <li v-for="(item,index) of wholeList">
+      <li v-for="(item,index) of wholeList" 
+        @click = 'clickCut(item.id)'
+      >
         <div class="whole_item">
           <img :src="item.imageUrl" alt="" />
           <div>
@@ -12,20 +14,26 @@
         </div>
       </li>
     </ul>
-    <div class="more">
-        <el-button plain>查看更多<i class="el-icon-arrow-down"></i></el-button>
+    <div class="more"  v-if="flag">
+      <el-button plain>查看更多<i class="el-icon-arrow-down"></i></el-button>
     </div>
+    <TeamDialog :DialogID.sync="WholeDialogID" v-if="showPrise"></TeamDialog>
   </div>
 </template>
 <script>
 import { queryResumeList } from "@/api/api";
+import TeamDialog from '@/page/team/TeamDialog'
 export default {
   name: "Whole",
   props: ['inputName'],
+  components: {TeamDialog},
   data() {
     return {
       wholeList:'',
       wholeID:'',
+      showPrise:false,
+      WholeDialogID:'',
+      flag:false
     };
   },
   created(){
@@ -39,8 +47,15 @@ export default {
       console.log(this.inputName)
       queryResumeList(this.wholeID).then(res=>{
           this.wholeList = res.data;
-          console.log(this.wholeList)
+          if(res.data<=9){
+            this.flag = tfalserue
+          }
       })
+    },
+    clickCut(id){
+      this.WholeDialogID = id;
+      console.log(this.WholeDialogID)
+      this.$emit('func',this.WholeDialogID)
     }
   },
   watch: {
@@ -81,6 +96,7 @@ li,h3 {
   margin: 20px;
   box-sizing: border-box;
   box-shadow: 0px 5px 10px 0px #efefef;
+  cursor: pointer;
 }
 .whole ul li img {
   display: block;
