@@ -8,8 +8,6 @@ import News from '@/page/News'
 import About from '@/page/About'
 // 经典案例
 import SupremeCourt from '@/page/case_sort/SupremeCourt'
-import Litigation from '@/page/case_sort/Litigation'
-import Nolitigation from '@/page/case_sort/Nolitigation'
 //案例详情
 import CaseDetails from '@/components/CaseDetails'
 // 新闻资讯
@@ -49,17 +47,7 @@ export default new Router({
         path:'/',
         name: 'SupremeCourt',
         component: SupremeCourt,
-      },
-      {
-        path:'/litigation',
-        name: 'Litigation',
-        component: Litigation,
-      },
-      {
-        path:'/nolitigation',
-        name: 'Nolitigation',
-        component: Nolitigation,
-      },
+      }
     ]
     },
     {
