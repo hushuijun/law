@@ -22,8 +22,8 @@
                     <p>关于律师</p>
                   </div>
                   <div class="Cont1_bot">
-                    <p>北京市京师律师事务所，肇造于1994年，总部设于北京市国贸CBD商圈，是一家传统与新型管理模式相结合的合伙制律师事务所。
-                        京师自成立以来，一直朝着规模化、专业化、品牌化、国际化、
+                    <p>北京市京师律师事务所，肇造于1994年，总部设于北京市国贸CBD商圈，是一家传统与新型管理模式相结合的合伙制律师事务所。</p>
+                    <p> 京师自成立以来，一直朝着规模化、专业化、品牌化、国际化、
                         电商化方向不断改革，并以一流的律师团队、专业的行政服务、
                         坚韧的党建精神为依托，竭力打造一个更具影响力与号召力的律师生态圈。
                     </p>
@@ -104,8 +104,10 @@
                                 <li>
                                     国际法律<img src="../assets/sanjiao.png"/>
                                 </li>
-                                <li>
+                                <li >
+                                    <router-link to="/major">
                                     查看更多<img src="../assets/sanjiao.png"/>
+                                    </router-link>
                                 </li>
                               </ul>
                             </div>
@@ -141,13 +143,15 @@
                   <p>团队介绍</p>
                 </div>
                 <div class="Home-Cont3-IMG">
-                  <img  src="" alt="团队图片">
-                  <div class="Home-Cont3-word">
-                      <p>秉承团队合作精神，充分发挥人才优势</p>
-                      <p>
-                        <a>咨询律师 ></a>
-                        <a>了解更多 ></a>
-                      </p>
+                  <img  src="../assets/about159.jpg" alt="团队图片">
+                  <div class="Home-Cont3-mask">
+                    <div class="Home-Cont3-word">
+                        <p>秉承团队合作精神，充分发挥人才优势</p>
+                        <p>
+                          <a>咨询律师 ></a>
+                          <a>了解更多 ></a>
+                        </p>
+                    </div>
                   </div>
                 </div>
             </div>
@@ -166,8 +170,8 @@
                         <img  src="../assets/guohui.png"/>
                         <p class="pand_35">中华人民共和国</p>
                         <p class="pand_20">{{item.courtName}}</p>
-                        <p class="pand_20 ft_22">{{item.sentenceType}}</p>
-                        <p class="pand_15 ft_24">{{item.targetAmount}}</p>
+                        <p class="pand_15 ft_22">{{item.sentenceType}}</p>
+                        <p class="pand_20 ft_24">{{item.targetAmount}}</p>
                     </div>
                     <div class="Cont4_bottm">
                         <p>{{item.caseTitle}}</p>
@@ -177,28 +181,28 @@
                 </el-row>
             </div>
             <div class="Home-Cont5">
-                <div class="Home-Cont5_top">
-                  <el-row>
-                    <el-col :span="12">
-                      <img src="../assets/left-top1.png"/>
-                      <p>荣获新三板英雄榜最值得推荐律师事务所</p>
-                    </el-col>
-                    <el-col :span="12">
-                      <img src="../assets/right-top1.png"/>
-                      <p>荣获2015年年度最受媒体欢迎律所</p>
-                    </el-col>
-                  </el-row>
-                  <el-row>
-                    <el-col :span="12">
-                      <img src="../assets/left-bottom1.png"/>
-                      <p>2015年度十大维权打假现金法律服务机构</p>
-                    </el-col>
-                    <el-col :span="12">
-                      <img src="../assets/right-bottom1.png"/>
-                      <p>下一代教育基金会颁发的下一代教育爱心奉献奖</p>
-                    </el-col>
-                  </el-row>
-                </div>
+                  <div class="Home-Cont5_top" @click="HomeCont5URL()">
+                      <el-row>
+                        <el-col :span="12">
+                          <img src="../assets/left-top1.png"/>
+                          <p>荣获新三板英雄榜最值得推荐律师事务所</p>
+                        </el-col>
+                        <el-col :span="12">
+                          <img src="../assets/right-top1.png"/>
+                          <p>荣获2015年年度最受媒体欢迎律所</p>
+                        </el-col>
+                      </el-row>
+                      <el-row>
+                        <el-col :span="12">
+                          <img src="../assets/left-bottom1.png"/>
+                          <p>2015年度十大维权打假现金法律服务机构</p>
+                        </el-col>
+                        <el-col :span="12">
+                          <img src="../assets/right-bottom1.png"/>
+                          <p>下一代教育基金会颁发的下一代教育爱心奉献奖</p>
+                        </el-col>
+                      </el-row>
+                    </div>
             </div>
         </div>
        </el-container> 
@@ -292,6 +296,7 @@ export default {
             var that = this
             queryCase().then(res=>{ 
                 that.jingDian = res.data
+                console.log(that.jingDian)
                 for( let i= 0;i<that.jingDian.length;i++){
                   if(that.jingDian[i].categoryId == 1){
                       that.CAtegoryId ='最高院案例'
@@ -308,6 +313,12 @@ export default {
                 path:'/case',
                 query:{id:id}
             }); 
+        },
+        HomeCont5URL(){
+          this.$router.push({
+                path:'/honorDetails',
+                query:''
+            });
         }
   },
   mounted : function(){		

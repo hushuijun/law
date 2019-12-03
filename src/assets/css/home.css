@@ -24,10 +24,15 @@ ul,ol,li{
     margin: 0;
     margin-top:340px;
     font-size: 70px;
+    font-weight: 500;
   }
   .Home_banner p{
-    margin-top: 30px;
+    margin-top: 15px;
     font-size: 26px;
+    font-weight: 200;
+  }
+  .Home_banner p span{
+    padding:0 10px;
   }
   .Home_bannerA a{
     display: inline-block;
@@ -37,7 +42,7 @@ ul,ol,li{
     line-height: 45px;
     border: 1px solid #fff;
     font-size: 16px;
-    margin: 30px;
+    margin: 30px 10px;
     cursor: pointer;
   }
   .Home_bannerA a:hover{
@@ -88,7 +93,7 @@ ul,ol,li{
   .Home-Cont1{
     width:100%;
     background: #fff;
-    height: 640px;
+    height: 635px;
   }
   
   .Home_Top h4{
@@ -111,8 +116,7 @@ ul,ol,li{
     text-align: center;
   }
   .Cont1_bot p{
-    text-indent: 2em;
-    width:950px;
+    width:965px;
     margin: auto;
     text-align: center;
     line-height: 36px;
@@ -189,19 +193,22 @@ ul,ol,li{
   }
   .Cont2_bot_right h4{
     font-size: 20px;
+    font-weight:400;
   }
   .bot_right_div1:hover h4{
     color:#ba131a;
   }
   .Cont2_bot_right p{
-    line-height: 25px;
+    line-height: 20px;
     margin-top: 10px;
+    color: #666;
+    font-size: 15px;
   }
   .bot_right_div1{
-    margin-top: 23px;
+    margin-top: 40px;
   }
   .bot_right_div1:first-child{
-    margin-top:0;
+    margin-top: 10px;
   }
   .bot_right_div2{
     width:483px;
@@ -223,6 +230,15 @@ ul,ol,li{
     text-align: center;
     margin: auto;
     border-bottom: 1px solid #333;
+  }
+  .right_div2_lefc ul li a{
+    display: inline-block;
+    height: 39px;
+    line-height: 39px;
+    text-align: center;
+    margin: auto;
+    color: #fff;
+    text-decoration:none;
   }
   .right_div2_lefc ul li:hover{
     background: #c60716;
@@ -270,7 +286,6 @@ ul,ol,li{
     height:530px;
     margin: auto;
     position: relative;
-    background: #000;
   }
   .Home-Cont3-IMG img{
     width: 100%;
@@ -301,7 +316,14 @@ ul,ol,li{
   }
   .Home-Cont3-word p>a:last-child{
   padding-left:50px;
-  
+  }
+  .Home-Cont3-mask{
+    width: 100%;
+    height:100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background-color:rgba(0,0,0,0.1) ;
   }
   .Home-Cont4{
     background: #eee;
@@ -351,7 +373,7 @@ ul,ol,li{
     padding-top: 15px;
   }
   .Home-Cont4 .Cont4_top img{
-    margin-top:46px
+    margin-top:40px;
   }
   .Home-Cont4 .Cont4_bottm{
     height: 74px;
@@ -378,6 +400,7 @@ ul,ol,li{
     width:1200px;
     margin: auto;
     background: url('../BG.png') no-repeat center;
+    cursor: pointer;
   }
   .Home-Cont5 .el-col-12{
    text-align: center;
@@ -529,7 +552,7 @@ ul,ol,li{
   width:100%;
 }
 .Home_bannerBT span{
-  width:25px;
+  width:15px;
 }
 .Home_bannerBT span img{
   width:100%;

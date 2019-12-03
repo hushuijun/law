@@ -16,18 +16,22 @@ import Jingshi_party from '@/page/news_sort/Jingshi_party'
 import PublicWelfare from '@/page/news_sort/PublicWelfare'
 //新闻详情
 import NewsDetails from '@/components/NewsDetails'
-//团队
-import Whole from '@/page/team/Whole'
+//荣誉详情
+import honorDetails from '@/page/honorDetails'
 
 Vue.use(Router)
 
 export default new Router({
-  // mode: 'history',
+  // model: 'history',
   routes: [
     {
       path: '/',
       name: 'Home',
       component: Home
+    },
+    { path: '/honorDetails',
+      name: 'honorDetails',
+      component: honorDetails
     },
     {
       path: '/major',

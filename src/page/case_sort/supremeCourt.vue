@@ -3,14 +3,14 @@
     <ul class="article">
       <li v-for="(item ,index) in supremeCourtList">
         <router-link tag="a" target="_blank" to="{path:'/caseDetails',query: {id: item.id}}">
-        <div class="supremeCourt_top">
-          <h4>我是标题{{item.caseTitle}}</h4>
-          <p>我是日期{{item.createTime}}</p>
-          <div class="clearfix"></div>
-        </div>
-        <div class="supremeCourt_text">
-          <p>我是内容{{item.catDesc}}</p>
-        </div>
+          <div class="supremeCourt_top">
+            <h4>我是标题{{item.caseTitle}}</h4>
+            <p>我是日期{{item.createTime}}</p>
+            <div class="clearfix"></div>
+          </div>
+          <div class="supremeCourt_text">
+            <p>我是内容{{item.catDesc}}</p>
+          </div>
         </router-link>
       </li>
     </ul>
@@ -46,7 +46,7 @@ export default {
   data() {
     return {
       id:'',
-      supremeCourtList:[]
+      supremeCourtList:''
     };
   },
   created(){

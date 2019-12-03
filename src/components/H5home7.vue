@@ -32,7 +32,7 @@
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
         </div>
-        <p class="h5_BG7_p"><a>查看更多</a></p>
+        <p class="h5_BG7_p"><router-link to="/honorDetails">查看更多</router-link></p>
         <div class="Home_bannerBT">
             <span><img src="../assets/h5_down.png"></span>
         </div>

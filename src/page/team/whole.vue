@@ -8,7 +8,7 @@
           <img :src="item.imageUrl" alt="" />
           <div>
             <h3>{{item.name}}</h3>
-            <p>{{item.recommend}}</p>
+            <p>{{item.position}}</p>
             <p>{{item.address}}</p>
           </div>
         </div>
@@ -48,10 +48,41 @@ export default {
       this.wholeID = {categoryId:this.inputName,pageNo:1,pageSize:15}
       console.log(this.wholeID)
       queryResumeList(this.wholeID).then(res=>{
-          this.wholeList = res.data;
+        let  left = res.data
           if(res.data<=9){
             this.flag = tfalserue
           }
+          var b =''
+          var a = res.data.position
+          switch (a) {  //离散值判断
+            case 1 :
+                b = '部门主任'
+                break;
+            case 2 :
+                b  = '全球合伙人'
+                break;
+            case 3 :
+              b  = '合伙人律师'
+                break;
+            case 3 :
+              b  = '执业律师'
+                break;
+            default :
+                console.log("请选择性别");
+        }
+        for(var i = 0;i<res.data;i++){
+          this.wholeList={address:res.data[i].address,
+                        name:res.data[i].address,
+                        position:b,
+                        imageUrl:res.data[i].imageUrl,
+                      }
+        }
+        // this.wholeList={address:res.data.address,
+        //                 name:res.data.address,
+        //                 position:b,
+        //                 imageUrl:res.data.imageUrl,
+        //               }
+        console.log(this.wholeList)
       })
     },
     clickCut(id){

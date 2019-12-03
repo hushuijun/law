@@ -101,49 +101,49 @@
                 <el-row class="aboutCOnt3_input">
                   <el-col :span="12">
                     <el-form-item label="姓名" >
-                      <el-input v-model="form.name1" class="ASD"></el-input>
+                      <el-input v-model="form.name" class="ASD"></el-input>
                     </el-form-item>
                   </el-col>
                   <el-col :span="12">
                     <el-form-item label="电话">
-                      <el-input v-model="form.tel"></el-input>
+                      <el-input v-model="form.mobile" type="number" maxlength="11"></el-input>
                     </el-form-item>
                   </el-col>
                 </el-row>
                 <el-row class="aboutCOnt3_input">
                   <el-col :span="12">
                     <el-form-item label="城市">
-                      <el-input v-model="form.city"></el-input>
+                      <el-input v-model="form.address"></el-input>
                     </el-form-item>
                   </el-col>
                   <el-col :span="12">
                     <el-form-item label="案件类型">
-                      <el-select v-model="form.region" placeholder="请选择">
-                        <el-option label="行政诉讼" value="行政诉讼"></el-option>
-                        <el-option label="劳动争议" value="劳动争议"></el-option>
-                        <el-option label="职务犯罪" value="职务犯罪"></el-option>
-                        <el-option label="婚姻纠纷" value="婚姻纠纷"></el-option>
-                        <el-option label="医疗纠纷" value="医疗纠纷"></el-option>
-                        <el-option label="工伤维权" value="工伤维权"></el-option>
-                        <el-option label="合同纠纷" value="合同纠纷"></el-option>
-                        <el-option label="遗产继承" value="遗产继承"></el-option>
-                        <el-option label="公司法律" value="公司法律"></el-option>
-                        <el-option label="知识产权" value="知识产权"></el-option>
-                        <el-option label="房产建筑" value="房产建筑"></el-option>
-                        <el-option label="涉外纠纷" value="涉外纠纷"></el-option>
-                        <el-option label="其他" value="其他"></el-option>
+                      <el-select v-model="form.category" placeholder="请选择">
+                        <el-option label="行政诉讼" value="1"></el-option>
+                        <el-option label="劳动争议" value="2"></el-option>
+                        <el-option label="职务犯罪" value="3"></el-option>
+                        <el-option label="婚姻纠纷" value="4"></el-option>
+                        <el-option label="医疗纠纷" value="5"></el-option>
+                        <el-option label="工伤维权" value="6"></el-option>
+                        <el-option label="合同纠纷" value="7"></el-option>
+                        <el-option label="遗产继承" value="8"></el-option>
+                        <el-option label="公司法律" value="9"></el-option>
+                        <el-option label="知识产权" value="10"></el-option>
+                        <el-option label="房产建筑" value="11"></el-option>
+                        <el-option label="涉外纠纷" value="12"></el-option>
+                        <el-option label="其他" value="13"></el-option>
                       </el-select>
                     </el-form-item>
                   </el-col>
                 </el-row>
                 <div class="aboutCOnt3_textarea">
                     <el-form-item label="案件描述">
-                      <el-input type="textarea" v-model="form.desc"></el-input>
+                      <el-input type="textarea" v-model="form.consultDescribe"></el-input>
                     </el-form-item>
                 </div>
                 <div class="aboutCOnt3_input aboutCOnt3_align">
                   <el-form-item>
-                    <el-button type="primary" >提交咨询</el-button>
+                    <el-button type="primary" @click="onSubmit">提交咨询</el-button>
                   </el-form-item>
                 </div>
             </el-form>
@@ -194,6 +194,9 @@
             </div>
           </div>
       </div>
+      <div class="mask" v-for="(item,index) in mask">
+          {{item.msg}}
+      </div>
     </div>
 </template>
 <script>
@@ -210,17 +213,24 @@ export default {
       input4:'',
       input5:'',
       form: {
-          name1: '',
-          tel:'',
-          region: '',
-          desc: ''
+          address:'',
+          name: '',
+          mobile:'',
+          category: '',
+          consultDescribe: ''
         },
         dialog: '9',
+        mask:''
     }
   },
   methods: {
     onSubmit(form) {
       console.log(this.form);
+      addConsult(this.form).then(res=>{
+        console.log(this.mask);
+        alert(this.mask)
+        this.mask = res.msg
+      })
     },
   },
   mounted(){
@@ -590,6 +600,20 @@ height:48px;
 }
 .aboutCOnt2_ul2{
   display:none;
+}
+.about >>> .el-input  input::-webkit-outer-spin-button,
+.about >>> .el-input  input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+.mask{
+  width:300px;
+  height:200px;
+  background: #fff;
+  position: fixed;
+  left:50%;
+  top:50%;
+  margin-left:-150px;
+  margin-top:-100%;
 }
 @media screen and (max-width: 1024px) {
   .aboutCOnt2_ul1{

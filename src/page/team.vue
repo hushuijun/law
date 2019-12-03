@@ -95,6 +95,24 @@ export default {
         }
       queryResumeById(this.id).then(res=>{
           this.dialogList = res.data;
+          var a = this.dialogList.position
+          switch (a) {  //离散值判断
+            case 1 :
+                this.dialogList.position = '部门主任'
+                break;
+            case 2 :
+            this.dialogList.position = '全球合伙人'
+                break;
+            case 3 :
+            this.dialogList.position = '合伙人律师'
+                break;
+            case 3 :
+            this.dialogList.position = '执业律师'
+                break;
+            default :
+                console.log("请选择性别");
+        }
+
           console.log(this.dialogList)
       })
     }
