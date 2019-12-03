@@ -30,7 +30,7 @@
         </div>
       </div>
       <div class="team_classification">
-        <a v-for="(item ,index) of teamList" 
+        <a v-for="(item ,index) in teamList" 
         :key="index"
         @click="team_class(item.id,index)"
         :class="{active:index == curT}"

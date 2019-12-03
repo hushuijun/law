@@ -15,14 +15,13 @@
       <div>
         <div class="text_nav">
           <a v-for="(item,index) in caseList" :key="index"
-          :class="{active:index == isSelect}"
-          @click="selectNav(item.id,index)"
-          >
-            {{item.caseTitle}}
+             :class="{active:index == isSelect}"
+             @click="selectNav(item.id,index)">
+            {{item.name}}
           </a>
         </div>
         <div>
-          <SupremeCourt :supremeId.sync = "SupremeId"></SupremeCourt>
+          <SupremeCourt v-bind:SupremeId = "remeId"></SupremeCourt>
         </div>
       </div>
     </div>
@@ -40,34 +39,36 @@ export default {
       CaseId: "",
       isSelect:0,
       title: "",
-      caseList:[{id:'0',name:'最高院案例'},{id:'1',name:'诉讼案例'},{id:'2',name:'非诉讼案例'}],
-      SupremeId:''
+      caseList:[{id:'1',name:'最高院案例'},{id:'2',name:'诉讼案例'},{id:'3',name:'非诉讼案例'}],
+      remeId:''
     };
   },
   created() {
-    this.clickCase();
+    this.selectNav(1,0);
   },
   mounted() {
-    this.isSelect = this.$route.name;
+    // this.selectNav(id,index);
   },
   methods: {
-    clickCase() {
+    selectNav(id,index){
       var _this = this;
+      _this.isSelect = index;
+      this.remeId = id;
       _this.CaseId = {
-        categoryId: this.$route.query.id,
+        categoryId:id,
         pageNo: "1",
         pageSize: "10"
-      };
+      }
+      console.log( _this.CaseId)
       queryCaseList(_this.CaseId).then(res => {
-        this.caseList = res.data.list
-      });
-    },
-    selectNav(id,index) {
-      this.isSelect = index;
-      this.SupremeId = id;
-      console.log( this.SupremeId)
-      console.log( this.isSelect)
+        _this.supremeCourtList = res.data.list
+      })
     }
+  },
+  watch: {
+      '$route' (to, from) {
+          this.selectNav(id,index);
+      }
   }
 }
 </script>
@@ -105,7 +106,7 @@ export default {
   font-size: 28px;
 }
 .case .case_content {
-  width: 70%;
+  width: 1200px;
   margin: auto;
   margin-top: -80px;
   padding-bottom: 20px;

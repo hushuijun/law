@@ -1,17 +1,17 @@
 <template>
   <div class="supremeCourt">
     <ul class="article">
-      <li>
-         <router-link tag="a" target="_blank" to="/caseDetails">
+      <li v-for="(item ,index) in supremeCourtList">
+        <router-link tag="a" target="_blank" to="{path:'/caseDetails',query: {id: item.id}}">
         <div class="supremeCourt_top">
-          <h4>最高院标题</h4>
-          <p>2019年10月19日</p>
+          <h4>我是标题{{item.caseTitle}}</h4>
+          <p>我是日期{{item.createTime}}</p>
           <div class="clearfix"></div>
         </div>
         <div class="supremeCourt_text">
-          <p>正文</p>
+          <p>我是内容{{item.catDesc}}</p>
         </div>
-         </router-link>
+        </router-link>
       </li>
     </ul>
     <div class="paging">
@@ -39,29 +39,39 @@
   </div>
 </template>
 <script>
+import { queryCaseDet } from "@/api/api";
 export default {
   name: "SupremeCourt",
-  props: ['SupremeId'],
+  props:['SupremeId'],
   data() {
-    return {};
+    return {
+      id:'',
+      supremeCourtList:[]
+    };
   },
   created(){
-    this.SuperContent();
+   
   },
   mounted(){
-    this.SuperContent();
+   
+    // this.SuperContent();
   },
   methods:{
     SuperContent(){
-      console.log(this.SupremeId)
+      this.id={id:this.SupremeId}
+      console.log(this.id)
+      queryCaseDet(this.id).then(res=>{
+        console.log(res.data)
+        this.supremeCourtList = res.data
+      })
     }
   },
   watch: {
-      '$route' (to, from) {
-          console.log(this.SupremeId)
+    SupremeId(){
+      console.log(this.SupremeId)
+        this.SuperContent();
       }
   }
-  
 };
 </script>
 <style scoped>
@@ -80,6 +90,7 @@ h4 {
   list-style: none;
   border-bottom: 1px solid #efefef;
   padding: 20px 5%;
+  cursor: pointer;
 }
 .supremeCourt .article li a{
    color: black;
