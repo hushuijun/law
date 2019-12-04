@@ -7,8 +7,8 @@
                 <h3>京师律师事务所</h3>
                 <p><span>·</span>规模化<span>·</span>专业化<span>·</span>品牌化<span>·</span>国际化<span>·</span>电商化</p>
                 <div class="Home_bannerA">
-                  <a>在线咨询</a>
-                  <a>了解详情</a>
+                  <a target="_blank" href="http://p.qiao.baidu.com/cps/chat?siteId=10455521&userId=1886665">在线咨询</a>
+                  <a target="_blank" href="http://p.qiao.baidu.com/cps/chat?siteId=10455521&userId=1886665">了解详情</a>
                 </div>
                 <div class="Home_bannerBT">
                     <div>|</div>
@@ -27,7 +27,7 @@
                         电商化方向不断改革，并以一流的律师团队、专业的行政服务、
                         坚韧的党建精神为依托，竭力打造一个更具影响力与号召力的律师生态圈。
                     </p>
-                    <a>了解详情</a>
+                    <router-link to="/about">了解详情</router-link>
                   </div>
               </div>
               <div class="Home-Cont2">
@@ -43,10 +43,10 @@
                           <div class="Cont2_bot_left">
                             <img class="img" src="../assets/pic_01.png">
                             <div class="bot_left_bottom">
-                              <p>咨询法律<img src="../assets/icon-5.png"/></p>
-                              <p>咨询律师<img src="../assets/icon-5.png"/></p>
-                              <p>咨询案件<img src="../assets/icon-5.png"/></p>
-                              <p>联系我们<img src="../assets/icon-5.png"/></p>
+                              <p><a target="_blank" href="http://p.qiao.baidu.com/cps/chat?siteId=10455521&userId=1886665">咨询法律<img src="../assets/icon-5.png"/></a></p>
+                              <p><a target="_blank" href="http://p.qiao.baidu.com/cps/chat?siteId=10455521&userId=1886665">咨询律师<img src="../assets/icon-5.png"/></a></p>
+                              <p><a target="_blank" href="http://p.qiao.baidu.com/cps/chat?siteId=10455521&userId=1886665">咨询案件<img src="../assets/icon-5.png"/></a></p>
+                              <p><a target="_blank" href="http://p.qiao.baidu.com/cps/chat?siteId=10455521&userId=1886665">联系我们<img src="../assets/icon-5.png"/></a></p>
                             </div>
                           </div>
                           <div class="Cont2_bot_right">
@@ -148,8 +148,8 @@
                     <div class="Home-Cont3-word">
                         <p>秉承团队合作精神，充分发挥人才优势</p>
                         <p>
-                          <a>咨询律师 ></a>
-                          <a>了解更多 ></a>
+                          <a target="_blank" href="http://p.qiao.baidu.com/cps/chat?siteId=10455521&userId=1886665">咨询律师 ></a>
+                          <router-link to="/team">了解更多 ></router-link>
                         </p>
                     </div>
                   </div>
@@ -288,6 +288,7 @@ export default {
       document.getElementsByTagName('body')[0].style.position = 'relative';
       document.getElementsByTagName('html')[0].style.height = 100 +'%';
       document.getElementsByTagName('html')[0].style.position = 'relative';
+      // document.getElementsByClassName('footer')[0].style.display = 'none';
     }
     this.homeCase()
   },
@@ -340,10 +341,16 @@ export default {
 </script>
 
 <style scoped>
+  @import'../assets/css/base.css';
   @import'../assets/css/home.css';
   @import 'swiper/dist/css/swiper.min.css';
   .home,.swiper-container{
     width: 100%;
     height: 100%;
+  }
+  @media screen and (max-width: 1024px) {
+   .Home-H5 .footer{
+      display: none;
+    }
   }
 </style>

@@ -44,6 +44,7 @@ ul,ol,li{
     font-size: 16px;
     margin: 30px 10px;
     cursor: pointer;
+    color:#fff;
   }
   .Home_bannerA a:hover{
     background: #fff;
@@ -175,6 +176,9 @@ ul,ol,li{
     cursor: pointer;
     height: 43px;
     line-height: 43px;
+  }
+  .bot_left_bottom p a{
+    color:#fff;
   }
   .bot_left_bottom p:hover{
     color:#fff;
@@ -313,6 +317,7 @@ ul,ol,li{
   }
   .Home-Cont3-word p>a{
     cursor: pointer;
+    color: #fff;
   }
   .Home-Cont3-word p>a:last-child{
   padding-left:50px;
@@ -539,6 +544,7 @@ ul,ol,li{
   padding:10px 30px;
   border:1px solid #fff;
   margin-top: 6rem;
+  color: #fff;
 }
 .h5_BG1 a:hover{
   background: #fff;

@@ -19,7 +19,7 @@
                     </div>
                 </div>
             </div>
-            <div class="BG4_BG" style="margin-top: -116px;margin-left:19px;">
+            <div class="BG4_BG" style="margin-top: -116px;margin-left: 28px;">
                 <div class="BG4_div1">
                     <div class="BG4_BG_cont">
                         <img src="../assets/zhongcai.png"/>
@@ -33,7 +33,7 @@
                     </div>
                 </div>
             </div>
-            <div class="BG4_BG" style="margin-top: -116px;margin-left:88px;">
+            <div class="BG4_BG" style="margin-top: -116px;margin-left:95px;">
                 <div class="BG4_div1">
                     <div class="BG4_BG_cont">
                         <img src="../assets/guoji.png"/>
@@ -47,7 +47,7 @@
                     </div>
                 </div>
             </div>
-            <div class="BG4_BG" style="margin-top: -116px;margin-left:19px;">
+            <div class="BG4_BG" style="margin-top: -116px;margin-left:28px;">
                 <div class="BG4_div1">
                     <div class="BG4_BG_cont">
                         <img src="../assets/fangchan.png"/>
@@ -76,6 +76,7 @@ export default {
 }
 </script>
 <style scoped>
+@import'../assets/css/base.css';
 @import'../assets/css/home.css';
 .BG4_BG{
     overflow: hidden;

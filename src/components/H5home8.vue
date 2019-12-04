@@ -28,6 +28,7 @@ export default {
 }
 </script>
 <style scoped>
+    @import'../assets/css/base.css';
     @import'../assets/css/home.css';
     .h5_BG8_span{
         color:#646464;

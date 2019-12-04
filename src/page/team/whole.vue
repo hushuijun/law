@@ -2,13 +2,14 @@
   <div class="whole">
     <ul>
       <li v-for="(item,index) of wholeList" 
-        @click = "clickCut(item.id)"
-      >
+        @click = "clickCut(item.id)">
         <div class="whole_item">
-          <img :src="item.imageUrl" alt="" />
+          <div class="whole_item_Img">
+              <img v-bind:src="item.imageUrl"/>
+          </div>
           <div>
             <h3>{{item.name}}</h3>
-            <p>{{item.position}}</p>
+            <p>{{item.positionName}}</p>
             <p>{{item.address}}</p>
           </div>
         </div>
@@ -45,44 +46,15 @@ export default {
   methods:{
     cont(){
       console.log(this.inputName)
-      this.wholeID = {categoryId:this.inputName,pageNo:1,pageSize:15}
+      this.wholeID = {position:this.inputName}
       console.log(this.wholeID)
       queryResumeList(this.wholeID).then(res=>{
+        this.wholeList =  res.data
+        console.log(this.wholeList)
         let  left = res.data
           if(res.data<=9){
-            this.flag = tfalserue
+            this.flag = false
           }
-          var b =''
-          var a = res.data.position
-          switch (a) {  //离散值判断
-            case 1 :
-                b = '部门主任'
-                break;
-            case 2 :
-                b  = '全球合伙人'
-                break;
-            case 3 :
-              b  = '合伙人律师'
-                break;
-            case 3 :
-              b  = '执业律师'
-                break;
-            default :
-                console.log("请选择性别");
-        }
-        for(var i = 0;i<res.data;i++){
-          this.wholeList={address:res.data[i].address,
-                        name:res.data[i].address,
-                        position:b,
-                        imageUrl:res.data[i].imageUrl,
-                      }
-        }
-        // this.wholeList={address:res.data.address,
-        //                 name:res.data.address,
-        //                 position:b,
-        //                 imageUrl:res.data.imageUrl,
-        //               }
-        console.log(this.wholeList)
       })
     },
     clickCut(id){
@@ -131,12 +103,17 @@ li,h3 {
   box-shadow: 0px 5px 10px 0px #efefef;
   cursor: pointer;
 }
-.whole ul li img {
-  display: block;
+.whole_item_Img{
+  padding: 0!important;
   max-width: 100%;
   width: 330px;
   height: 333px;
   margin: auto;
+  overflow: hidden;
+}
+.whole ul li img {
+  display: block;
+  width: 100%;
 }
 .whole ul .whole_item h3{
   font-size:18px;
@@ -148,22 +125,37 @@ li,h3 {
 .whole ul .whole_item div p{
    margin-top: 5px;
 }
+
 @media screen and (max-width: 1024px) {
   .whole ul{
     margin: 0 20px;
   }
   .whole ul li{
-    width: 160px;
+    width: 47%;
     margin: 0;
     margin-right: 15px;
     height: 215px;
+  }
+  .whole ul .whole_item_Img{
+    height: 150px;
+  }
+  .whole ul .whole_item div{
+    padding:5px 0;
+  }
+  .whole ul .whole_item div p{
+    margin-top: 0;
+    font-size: 13px;
+  }
+  .whole ul .whole_item h3{
+    font-size: 14px;
   }
   .whole ul li:nth-of-type(even){
     margin-right: 0;
   }
   .whole ul li img{
     width:100%;
-    height:100%
+  }
+  .team .details{
   }
 }
 </style>

@@ -153,4 +153,18 @@ export default {
   margin-top: 10px;
   text-indent: 2rem;
 }
+@media screen and (max-width: 1024px) {
+  .case .hearder_bg{
+    height: 250px;
+  }
+  .about .header_title h1{
+    font-size: 18px;
+  }
+  .about .header_title p{
+    font-size: 14px;
+  }
+  .case .case_content{
+    width:100%;
+  }
+}
 </style>

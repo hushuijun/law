@@ -40,10 +40,13 @@
           <Whole :inputName.sync="detailsUL" v-if="" @func='DialogID' ></Whole>
       </div>
     </div>
-    <el-dialog :visible.sync="dialogTeamVisible" width="80%">
+    <!-- <div>
+
+    </div> -->
+    <el-dialog :visible.sync="dialogTeamVisible" width="100%">
         <div class="details">
             <div class="details_img">
-                <!-- <img :src="item.imageUrl" alt=""> -->
+                <img :src="dialogList.imageUrl" alt="">
             </div>
             <div class="details_text">
                 <ul>
@@ -52,7 +55,7 @@
                         <p>合伙人律师</p>
                     </li>
                     <li>
-                      <div v-html="dialogList.recommend"></div>
+                      <div class="div" v-html="dialogList.recommend"></div>
                     </li>
                 </ul>
             </div>
@@ -79,7 +82,8 @@ export default {
       id:''
     };
   },
-  created() {},
+  created(){
+  },
   mounted() {
   },
   methods: {
@@ -95,37 +99,19 @@ export default {
         }
       queryResumeById(this.id).then(res=>{
           this.dialogList = res.data;
-          var a = this.dialogList.position
-          switch (a) {  //离散值判断
-            case 1 :
-                this.dialogList.position = '部门主任'
-                break;
-            case 2 :
-            this.dialogList.position = '全球合伙人'
-                break;
-            case 3 :
-            this.dialogList.position = '合伙人律师'
-                break;
-            case 3 :
-            this.dialogList.position = '执业律师'
-                break;
-            default :
-                console.log("请选择性别");
-        }
-
           console.log(this.dialogList)
       })
     }
 },
   watch: {
-      '$route' (to, from) {
-          this.team_class(id,index);
-      }
+    '$route' (to, from) {
+        this.team_class(id,index);
+    }
   }
 }
 </script>
 <style scoped>
-/* @import "../assets/css/base.css"; */
+@import "../assets/css/base.css";
 .team {
   min-height: 1500px;
   background: #f9f9f9;
@@ -262,28 +248,61 @@ export default {
   border: 1px solid #efefef;
   cursor: pointer;
 }
-.team .team_classification a:hover {
-  background: #b8131b;
-  border: 1px solid #b8131b;
-  color: white;
-}
-.team .team_classification .active {
-  background: #b8131b;
-  border: 1px solid #b8131b;
-  color: white;
-}
+
 .team .team_member {
   margin: auto;
   margin-top: 20px;
 }
 .team .details{
-  display: flex;
+  width: 1200px;
+  margin: auto;
 }
 .team .details .details_img{
-  flex-shrink: 0;
+  display: inline-block;
+  width: 40%;
+  vertical-align: top;
+}
+.team .details .details_img img{
+  width: 100%;
 }
 .team .details .details_text{
-  flex: 1;
+  display: inline-block;
+  width: 50%;
+  line-height: 30px;
+}
+.team >>> .el-dialog__headerbtn .el-dialog__close{
+  width:40px;
+  height:40px;
+  background: url('../assets/close.png');
+  background-size:contain ;
+}
+.team >>> .el-icon-close:before{
+  content:none;
+}
+.team >>> .el-dialog__body{
+  padding:0;
+}
+.team .details_text li p span{
+  padding-bottom:26px;
+}
+@media screen and (min-width: 1025px){
+  .team >>> .el-dialog{
+    margin: 0;
+    margin-top:0!important;
+    left: 0;
+    top: 0;
+    height: 100%;
+  }
+  .team .team_classification a:hover {
+    background: #b8131b;
+    border: 1px solid #b8131b;
+    color: white;
+  }
+  .team .team_classification .active {
+    background: #b8131b;
+    border: 1px solid #b8131b;
+    color: white;
+  }
 }
 @media screen and (max-width: 1024px) {
   .team .hearder_bg{
@@ -329,6 +348,42 @@ export default {
   .whole ul li{
     width: 143px;
     margin-right: 0px;
+  }
+  .team .team_classification a{
+    border:none;
+    width: 20%;
+    margin-right:0;
+    font-size: 15px;
+  }
+  .team{
+    padding-bottom: 0;
+  }
+  .team .team_classification .active{
+    background: none!important;
+    border:none!important;
+    color: #b8131b!important;
+  }
+  .team .details{
+    width:calc(100% - 40px);
+  }
+  .team .details .details_img,.team .details .details_text{
+    width:100%;
+  }
+  .details_text ul{
+    padding-left:0;
+  }
+  .team >>> .el-dialog__headerbtn .el-dialog__close{
+    width: 28px;
+    height:28px;
+  }
+  .team >>> .el-dialog__body{
+    padding-top: 40px;
+  }
+  .team >>> .el-dialog{
+    margin: 0;
+    margin-top:0!important;
+    left: 0;
+    top: 0;
   }
 }
 </style>

@@ -11,7 +11,7 @@
             京师自成立以来，一直朝着规模化、专业化、
             品牌化、国际化、电商化方向不断改革，并以一流的律师团队...
         </p>
-        <a>了解详情</a>
+        <router-link to="/about">了解详情</router-link>
         <div class="Home_bannerBT">
             <span><img src="../assets/H5_down2.png"></span>
         </div>
@@ -26,5 +26,6 @@ export default {
 }
 </script>
 <style scoped>
+    @import'../assets/css/base.css';
     @import'../assets/css/home.css';
 </style>
