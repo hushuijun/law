@@ -3,7 +3,7 @@
         <h3>京师律师事务所</h3>
         <p>规模化 · 专业化 · 品牌化</p>
         <p>国际化 · 电商化</p>
-        <a>在线咨询</a>
+        <a target="_blank" href="http://p.qiao.baidu.com/cps/chat?siteId=10455521&userId=1886665">在线咨询</a>
         <div class="Home_bannerBT">
             <span><img src="../assets/h5_down.png"></span>
         </div>
@@ -18,5 +18,6 @@ export default {
 }
 </script>
 <style scoped>
+    @import'../assets/css/base.css';
     @import'../assets/css/home.css';
 </style>

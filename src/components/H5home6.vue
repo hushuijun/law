@@ -5,39 +5,24 @@
       <p>CLASSIC CASE</p>
       <span class="line"></span>
     </div>
-    <!-- <el-carousel :autoplay= "false" :interval="4000" type="card" height="300px" ref="carousel">
-            <el-carousel-item v-for="(item,index) of BG6List" :key="index" name="item.id" >
-                <div @click="setActiveItem(index,item.id)">
-                    <img src="../assets/guohui.png">
-                    <p class="el_p1">中华人民共和国</p>
-                    <p class="el_p2">{{item.num}}</p>
-                    <p class="el_p3">民事判决书</p>
-                    <p class="el_p4">{{item.txt}}</p>
-                    <div class="Cont4_bottm">
-                        <p>{{item.text1}}</p>
-                        <h4>{{item.text2}}</h4>
-                    </div>
-                </div>
-            </el-carousel-item>
-    </el-carousel>-->
     <div class="swiper-container" id="banner">
       <div class="swiper-wrapper">
         <div class="swiper-slide" v-for="item of BG6List">
           <img src="../assets/guohui.png" />
           <p class="el_p1">中华人民共和国</p>
-          <p class="el_p2">{{item.num}}</p>
-          <p class="el_p3">民事判决书</p>
-          <p class="el_p4">{{item.txt}}</p>
+          <p class="el_p2">{{item.courtName}}</p>
+          <p class="el_p3">{{item.sentenceType}}</p>
+          <p class="el_p4">{{item.targetAmount}}</p>
           <div class="Cont4_bottm">
-            <p>{{item.text1}}</p>
-            <h4>{{item.text2}}</h4>
+            <p>{{item.caseTitle}}</p>
+            <h4>{{CAtegoryId}}</h4>
           </div>
           <div class="mask"></div>
         </div>
       </div>
     </div>
     <p class="h5_BG6_p">
-      <a>更多案例</a>
+        <router-link to="/case">更多案例</router-link>
     </p>
     <div class="Home_bannerBT">
       <span>
@@ -52,69 +37,22 @@
 // import "swiper/dist/css/swiper.css";
 import Swiper from "swiper";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
+import {queryCase} from '@/api/api'
 import $ from "jquery";
 export default {
   name: "H5home6",
   components: {
     swiper,
-    swiperSlide
+    swiperSlide,
+    CAtegoryId:''
   },
   data() {
     return {
-      BG6List: [
-        {
-          id: 7,
-          num: "1北京市朝阳区人民法院",
-          txt: "标的额：30万",
-          text1: "1李某与某企业货款纠纷案",
-          text2: "货款纠纷"
-        },
-        {
-          id: 8,
-          num: "2北京市朝阳区人民法院",
-          txt: "标的额：300万",
-          text1: "2李某与某企业货款纠纷案",
-          text2: "货款纠纷"
-        },
-        {
-          id: 9,
-          num: "3北京市朝阳区人民法院",
-          txt: "标的额：300万",
-          text1: "3李某与某企业货款纠纷案",
-          text2: "货款纠纷"
-        },
-        {
-          id: 10,
-          num: "4北京市朝阳区人民法院",
-          txt: "标的额：300万",
-          text1: "4李某与某企业货款纠纷案",
-          text2: "货款纠纷"
-        },
-        {
-          id: 11,
-          num: "5北京市朝阳区人民法院",
-          txt: "标的额：300万",
-          text1: "5李某与某企业货款纠纷案",
-          text2: "货款纠纷"
-        },
-        {
-          id: 12,
-          num: "6北京市朝阳区人民法院",
-          txt: "标的额：030万",
-          text1: "6李某与某企业货款纠纷案",
-          text2: "货款纠纷"
-        },
-        {
-          id: 13,
-          num: "7北京市朝阳区人民法院",
-          txt: "标的额：300万",
-          text1: "7李某与某企业货款纠纷案",
-          text2: "货款纠纷"
-        }
-      ]
+      BG6List: ''
     };
   },
   mounted() {
+    this.homeCase()
     new Swiper("#banner", {
       loop: true,
       loopedSlides: 5,
@@ -158,20 +96,27 @@ export default {
     });
   },
   methods: {
-    // setActiveItem:function(index,id){
-    //     console.log(index,id)
-    //     if(index == 0){
-    //         this.$ref.carousel.setActiveItem(1)
-    //     }else if(index == 1){
-    //         this.carouselShow = 2
-    //     }
-    // }
+        homeCase(){
+            var that = this
+            queryCase().then(res=>{ 
+                that.BG6List = res.data
+                for( let i= 0;i<that.BG6List.length;i++){
+                  if(that.BG6List[i].categoryId == 1){
+                      that.CAtegoryId ='最高院案例'
+                  }else if (that.BG6List[i].categoryId == 2) {
+                    that.CAtegoryId ='诉讼案例'
+                  }else if (that.BG6List[i].categoryId == 3) {
+                    that.CAtegoryId ='非诉案例'
+                  }
+                }
+            })
+        }
   }
 };
 </script>
 
-
 <style scoped>
+@import'../assets/css/base.css';
 @import "../assets/css/home.css";
 @import "swiper/dist/css/swiper.css";
 .h5_BG6_p {
@@ -230,7 +175,7 @@ export default {
   height: 56px;
   background: #c50c02;
   color: #fff;
-  margin-top: 7px;
+  margin-top: 11px;
 }
 .h5_BG6 .Cont4_bottm p {
   font-size: 12px;

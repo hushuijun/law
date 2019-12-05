@@ -40,25 +40,6 @@ export default {
             Home3text:''
         }
     },
-    // beforeMount:function(){
-    //     new Swiper('#Home3_swiper', {
-    //         speed:3000,
-    //         loop : true,
-    //         autoplay:true,
-    //         navigation: {
-    //             nextEl: '.swiper-button-next',
-    //             prevEl: '.swiper-button-prev',
-    //         },
-    //         onInit: function(swiper){
-    //             for(var i = 0 ; i<that.mediumlist.length; i++){
-    //                 if(swiper.activeIndex == that.mediumlist[i].id){
-    //                     that.Home3text = that.mediumlist[i].text
-    //                 }
-    //             }
-                
-    //         }
-    //     })
-    // },
     mounted(){
         console.log(this.mediumlist);
         let that = this
@@ -88,6 +69,7 @@ export default {
 }
 </script>
 <style scoped>
+    @import'../assets/css/base.css';
     @import'../assets/css/home.css';
     @import 'swiper/dist/css/swiper.min.css';
 .Home3_swiper{

@@ -65,6 +65,7 @@ export default {
 
 
 <style scoped>
+    @import'../assets/css/base.css';
    @import'../assets/css/home.css';
    @import 'swiper/dist/css/swiper.min.css';
     .h5_BG7 h3{
