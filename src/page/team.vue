@@ -119,7 +119,7 @@ export default {
 }
 .team .hearder_bg {
   width: 100%;
-  height: 500px;
+  height: 620px;
   overflow: hidden;
   position: relative;
   background: url("../assets/team_bg.png") no-repeat;
@@ -133,35 +133,36 @@ export default {
   position: absolute;
   text-align: center;
   color: white;
-  top: 40%;
+  top: 50%;
   left: 50%;
-  margin-left: -112px;
+  margin-left: -155px;
+  margin-top: -47px;
 }
-.team .header_title h1 {
-  font-weight: 500;
+.team .header_title h1{
   font-size: 36px;
+  font-weight: 500;
+  margin: 0;
+  margin-bottom: 10px;
+  letter-spacing: 4px;
 }
-.team .header_title p {
+.team .header_title p{
   font-size: 28px;
 }
 .team .team_content {
   width: 1200px;
   margin: auto;
-  margin-top: -80px;
-  padding-bottom: 20px;
+  margin-top: -95px;
+  padding-bottom: 90px;
   background: white;
   position: relative;
   z-index: 1;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
-}
-.team .team_center {
-  margin-left: 45.5%;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12); */
 }
 .team .top {
   border-bottom: 2px solid #b8131b;
-  width: 90%;
-  height: 50px;
-  margin: 20px auto;
+  width: 1120px;
+  height: 94px;
+  margin: auto;
 }
 .team .text_nav {
   text-align: center;

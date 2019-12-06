@@ -372,7 +372,7 @@ export default {
 }
 .about .hearder_bg {
   width: 100%;
-  height: 500px;
+  height: 620px;
   overflow: hidden;
   position: relative;
   background: url("../assets/baout_bg.png") no-repeat;
@@ -386,15 +386,20 @@ export default {
   position: absolute;
   text-align: center;
   color: white;
-  top: 40%;
+  top: 50%;
   left: 50%;
-  margin-left: -122px;
+  margin-left: -170px;
+  margin-top: -47px;
 }
 .about .header_title h1{
-    font-weight: 500;
+  font-size: 36px;
+  font-weight: 500;
+  margin: 0;
+  margin-bottom: 10px;
+  letter-spacing: 4px;
 }
 .about .header_title p{
-    font-size:28px;
+  font-size: 28px;
 }
 .about .about_content {
   width:100%;
@@ -629,7 +634,7 @@ height:48px;
     font-size: 18px;
   }
   .about .header_title{
-    margin-left: -66px;
+    margin-left: -87px;
   }
   .about .header_title p{
     font-size: 14px;
