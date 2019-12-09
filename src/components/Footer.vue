@@ -70,8 +70,8 @@
       </div>
     </div>
     <div class="footer_bottom">
-      <p v-if="show">Copyright ©2019 京ICP备20191022号-1 版权所有 京师律师事务所</p>
-      <p v-if="show1">Copyright ©2019 京ICP备20191022号-1</p>
+      <!-- <p v-if="show">Copyright ©2019 京ICP备20191022号-1 版权所有 京师律师事务所</p>
+      <p v-if="show1">Copyright ©2019 京ICP备20191022号-1</p> -->
     </div>
   </div>
 </template>

@@ -102,7 +102,7 @@ ul,ol,li{
   .Home-Cont1{
     width:100%;
     background: #fff;
-    height: 635px;
+    height: 637px;
   }
   
   .Home_Top h4{
@@ -120,9 +120,9 @@ ul,ol,li{
     letter-spacing: 3px;
   }
   .Home_Top{
-    padding-top: 115px;
+    padding-top: 120px;
     width: 100%;
-    padding-bottom: 50px;
+    padding-bottom: 77px;
     text-align: center;
   }
   .Cont1_bot p{
@@ -150,7 +150,7 @@ ul,ol,li{
   }
   .Home-Cont2{
     background: #eee;
-    padding-bottom: 115px;
+    padding-bottom: 122px;
   }
   .Home-Cont2 .Home_Top h4{
     color:#dbdada
@@ -354,7 +354,7 @@ ul,ol,li{
     background: #eee;
     width:100%;
     margin: auto;
-    padding-bottom:100px;
+    padding-bottom:120px;
   }
   .Home-Cont4 h4{
     color: #dbdada;
@@ -419,7 +419,7 @@ ul,ol,li{
   .Home-Cont5{
     width:100%;
     background: #fff;
-    padding:115px 0;
+    padding:120px 0;
   }
   .Home-Cont5_top{
     width:1200px;
