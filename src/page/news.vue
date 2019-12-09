@@ -106,6 +106,7 @@ export default {
   padding: 12px 50px;
   font-size: 16px;
   margin-left: 10px;
+  cursor: pointer;
 }
 .news .text_nav a:hover {
   background: #b8131b;

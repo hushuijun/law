@@ -105,20 +105,20 @@
                     </el-form-item>
                   </el-col>
                   <el-col :span="12">
-                    <el-form-item label="电话">
+                    <el-form-item label="电话"  prop="mobile" :rules="[ { required: true, message: '电话不能为空'},{ min: 1, max: 11, message: '请填入正确的电话号码', trigger: 'blur' }]">
                       <el-input v-model="form.mobile" type="number" maxlength="11"></el-input>
                     </el-form-item>
                   </el-col>
                 </el-row>
                 <el-row class="aboutCOnt3_input">
                   <el-col :span="12">
-                    <el-form-item label="城市">
+                    <el-form-item label="城市"  prop="address">
                       <el-input v-model="form.address"></el-input>
                     </el-form-item>
                   </el-col>
                   <el-col :span="12">
                     <el-form-item label="案件类型">
-                      <el-select v-model="form.category" placeholder="请选择">
+                      <el-select v-model="form.category" placeholder="请选择" size='mini'>
                         <el-option label="行政诉讼" value="1"></el-option>
                         <el-option label="劳动争议" value="2"></el-option>
                         <el-option label="职务犯罪" value="3"></el-option>
@@ -143,7 +143,7 @@
                 </div>
                 <div class="aboutCOnt3_input aboutCOnt3_align">
                   <el-form-item>
-                    <el-button type="primary" @click="onSubmit">提交咨询</el-button>
+                    <el-button type="primary" @click="onSubmit('form')">提交咨询</el-button>
                   </el-form-item>
                 </div>
             </el-form>
@@ -194,8 +194,9 @@
             </div>
           </div>
       </div>
-      <div class="mask" v-for="(item,index) in mask">
-          {{item.msg}}
+      <div class="mask" v-if='show'>
+        <span @click='show = false'>X</span>
+          {{mask}}
       </div>
     </div>
 </template>
@@ -220,17 +221,38 @@ export default {
           consultDescribe: ''
         },
         dialog: '9',
-        mask:''
+        mask:'',
+        show:false,
     }
   },
   methods: {
     onSubmit(form) {
+      var that = this;
       console.log(this.form);
-      addConsult(this.form).then(res=>{
-        console.log(this.mask);
-        alert(this.mask)
-        this.mask = res.msg
+      this.$refs[form].validate((valid) => {
+          if (valid) {
+            addConsult(this.form).then(res=>{
+             this.show = true 
+            this.mask = '提交成功！'
+            setTimeout(function(){that.show = false},1500)
+            that.form = {
+              address:'',
+              name: '',
+              mobile:'',
+              category: '',
+              consultDescribe: ''}
+              this.$refs[form].resetFields();
+            console.log(this.mask);
+            // alert(this.mask)
       })
+          } else {
+            console.log('error submit!!');
+            this.show = true 
+            // alert('请完善信息！')
+            this.mask = '请完善信息！'
+            return false;
+          }
+        });
     },
   },
   mounted(){
@@ -577,6 +599,9 @@ height:48px;
   font-size:16px;
   color:#222;
 }
+.aboutCOnt3_input >>> .el-form-item__error{
+  left: 20px;
+}
 .dialog{
   width:100%;
   height: 100%;
@@ -611,14 +636,38 @@ height:48px;
         -webkit-appearance: none;
     }
 .mask{
-  width:300px;
-  height:200px;
-  background: #fff;
-  position: fixed;
-  left:50%;
-  top:50%;
-  margin-left:-150px;
-  margin-top:-100%;
+  width: 150px;
+    height: 100px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-left: -75px;
+    margin-top: -50px;
+    line-height: 100px;
+    text-align: center;
+    z-index: 999;
+    -webkit-box-shadow: 0px 1px 15px #ccc;
+    box-shadow: 0px 1px 15px #ccc;
+}
+.mask span{
+  display: block;
+  width: 20px;
+  height: 20px;
+  color: white;
+  border: 1px solid #fff;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  line-height: 20px;
+  cursor: pointer;
+}
+.about >>> .el-select>.el-input{
+  width: 330px;
+}
+.about >>> .el-select-dropdown{
+  min-width: 330px!important;
 }
 @media screen and (max-width: 1024px) {
   .aboutCOnt2_ul1{
@@ -645,7 +694,6 @@ height:48px;
     margin: 0;
     font-weight: 500;
     padding-top:20px;
-    margin-top: 20px;
   }
   .aboutCOnt1_p2{
     width: calc(100% - 40px);

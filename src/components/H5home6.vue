@@ -128,7 +128,7 @@ export default {
   border: 1px solid #262626;
   display: inline-block;
   padding: 10px 30px;
-  margin-top: 40px;
+  margin-top: 10px;
 }
 .h5_BG6 .el-carousel__container {
   height: 310px !important;

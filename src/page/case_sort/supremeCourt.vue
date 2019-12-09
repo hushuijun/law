@@ -16,8 +16,8 @@
         </router-link>
       </li>
     </ul>
-    <div class="paging" v-if="1<ArticleNum.length">
-      <!-- <span>共88条</span> -->
+    <div class="paging" v-if="show">
+      <span>共{{ArticleNum}}条</span>
       <a  @click="prePage()">上一页</a>
       <ul>
         <li v-for="(item, index) in ArticleNum" :key="index" 
@@ -28,6 +28,11 @@
       </ul>
       <a @click="nextPage()">下一页</a>
     </div>
+    <div class="more" v-if="show1">
+        <p>
+          查看更多>>
+        </p>
+      </div>
   </div>
 </template>
 <script>
@@ -44,10 +49,19 @@ export default {
           },
       supremeCourtList:'',
       currentPage:'',
+      ArticleNum:'',
+      show:true,
+      show1:false,
     };
   },
   created(){
     this.SuperContent();
+      //可用于设置自适应屏幕，根据获得的可视宽度（兼容性）判断是否显示
+      let w = document.documentElement.offsetWidth || document.body.offsetWidth;
+    if (w <= 1024) {
+      this.show = false;
+      this.show1 = true;
+    }
   },
   mounted(){
    
@@ -72,9 +86,11 @@ export default {
     // },
     // 下一页
     nextPage() {
+      if(1<this.currentPage){
         this.pageNo =++this.currentPage;
         if (this.currentPage == this.pageNo - 1) return ;
         this.SuperContent()
+      }
     },
     prevOrNext (index) {
       console.log()
@@ -166,5 +182,21 @@ h4 {
   background: #7C7C7C;
   color: white;
 }
-
+@media screen and (max-width: 1024px) {
+  .supremeCourt {
+    margin-top: 20px;
+  }
+  .supremeCourt .supremeCourt_content {
+    width: 90%;
+  }
+  .supremeCourt .more p{
+    text-align: center;
+    color: #b8131b;
+    margin-top: 20px;
+  }
+  .supremeCourt .article li .supremeCourt_top p{
+    float: left;
+    margin-top: 5px;
+  }
+}
 </style>

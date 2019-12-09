@@ -75,7 +75,7 @@ export default {
 .Home3_swiper{
   height:29px;
   line-height: 29px;
-  margin-top: 100px;
+  margin-top: 60px;
 }
 .swiperBox{
   width: 80%;

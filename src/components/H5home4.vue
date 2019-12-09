@@ -5,7 +5,7 @@
             <span class="line"></span>
         </div>
         <div class="h5_BG4_bottom">
-            <div class="BG4_BG" style="margin-left: 23%;">
+            <div class="BG4_BG" style="margin-left: 25%;">
                 <div class="BG4_div1">
                     <div class="BG4_BG_cont">
                         <img src="../assets/office.png"/>
@@ -104,6 +104,6 @@ export default {
 }
 .h5_BG4_bottom{
     height: 180px;
-    margin-top: 60px;
+    margin-top: 10px;
 }
 </style>

@@ -156,6 +156,10 @@ export default {
   background: #f9f9f9;
   padding-bottom: 80px;
 }
+.major a:hover{
+  color: #b8131b;
+  border-bottom: 1px solid #b8131b;
+}
 .major .hearder_bg {
   width: 100%;
   height: 620px;
@@ -270,16 +274,9 @@ h4 {
   position: absolute;
   top: -4px;
   right: -124px;
-  width: 69px;
-  height: 69px;
-  border-radius: 69px;
-  background: #b8131b;
-  border: 4px solid white;
-  text-align: center;
-  line-height: 63px;
 }
 .major .card_icon img{
-  max-width: 70%;
+  max-width: 100%;
 }
 .major .major_left .major_card:first-child {
   margin-top: 0px;
@@ -298,13 +295,6 @@ h4 {
   position: absolute;
   top: -4px;
   left: -124px;
-  width: 69px;
-  height: 69px;
-  border-radius: 69px;
-  background: #b8131b;
-  border: 4px solid white;
-  text-align: center;
-    line-height: 63px;
 }
 .major .major_right .major_card:first-child {
   margin-top: 215px;
@@ -335,6 +325,9 @@ h4 {
   height: 10px;
   border-radius: 10px;
   background: black;
+}
+.major .major_card .card_content li a:hover span{
+  background: #b8131b;
 }
 @media screen and (max-width: 1024px) {
   .major{
@@ -381,12 +374,14 @@ h4 {
     height: 35px;
     border-radius: 35px;
     left: 5px;
+    top: 5px;
   }
   .major .major_right .major_card .card_icon {
     width: 35px;
     height: 35px;
     border-radius: 35px;
     left: 5px;
+    margin-top: 8px;
   }
   .major .major_left::before {
     height: 0;

@@ -1,4 +1,5 @@
 <template>
+  <div class="header">
   <el-container>
     <el-header class="nav" :class="{ 'navActive': scrollFlag }" v-if="show">
       <el-menu
@@ -51,6 +52,7 @@
       </div>
     </div>
   </el-container>
+</div>
 </template>
 <script>
 export default {
@@ -65,11 +67,14 @@ export default {
     };
   },
   created() {
-    switch (this.$route.name) {
+      switch (this.$route.name) {
       case "Home":
         this.activeIndex = "1";
         break;
       case "Major":
+        this.activeIndex = "2";
+        break;
+        case "majorDetails":
         this.activeIndex = "2";
         break;
       case "Team":
@@ -118,7 +123,70 @@ export default {
         this.activeIndex = "7";
         break;
     }
+    
   },
+  watch:{   //监听路由变化
+    $route( to , from ){   
+        // to , from 分别表示从哪跳转到哪，都是一个对象
+        // to.path  ( 表示的是要跳转到的路由的地址 eg: /home );
+        switch (this.$route.name) {
+      case "Home":
+        this.activeIndex = "1";
+        break;
+      case "Major":
+        this.activeIndex = "2";
+        break;
+        case "majorDetails":
+        this.activeIndex = "2";
+        break;
+      case "Team":
+        this.activeIndex = "3";
+        break;
+        case "Whole":
+        this.activeIndex = "3";
+        break;
+        case "Director":
+        this.activeIndex = "3";
+        break;
+        case "GlobalPartners":
+        this.activeIndex = "3";
+        break;
+        case "PartnerLawyer":
+        this.activeIndex = "3";
+        break;
+        case "PracticingLawyer":
+        this.activeIndex = "3";
+        break;
+      case "SupremeCourt":
+        this.activeIndex = "5";
+        break;
+        case "Litigation":
+        this.activeIndex = "5";
+        break;
+        case "Nolitigation":
+        this.activeIndex = "5";
+        break;
+         case "CaseDetails":
+        this.activeIndex = "5";
+        break;
+      case "Jingshi_news":
+        this.activeIndex = "6";
+        break;
+         case "Jingshi_party":
+        this.activeIndex = "6";
+        break;
+         case "PublicWelfare":
+        this.activeIndex = "6";
+        break;
+        case "NewsDetails":
+        this.activeIndex = "6";
+        break;
+      case "About":
+        this.activeIndex = "7";
+        break;
+    }
+     }
+},
   mounted() {
     window.addEventListener("scroll", this.dataScroll);
     //可用于设置自适应屏幕，根据获得的可视宽度（兼容性）判断是否显示
@@ -169,8 +237,8 @@ export default {
   line-height: 80px;
   transition: all 0.5s ease 0s;
 }
-.el-menu--horizontal > .el-menu-item:hover {
-  background: none;
+.header >>> .el-menu--horizontal .el-menu-item:hover {
+  background: transparent;
 }
 .el-menu--horizontal > .el-menu-item.is-active {
   border-bottom: 2px solid #e60013;
@@ -190,6 +258,7 @@ li {
 }
 li a {
   /* padding: 20px 0; */
+  font-size: 16px;
   text-decoration: none;
   display: inline-block;
   width: 100%;
