@@ -35,7 +35,7 @@
     
 <script>
 // import "swiper/dist/css/swiper.css";
-import Swiper from "swiper";
+import Swiper from "swiper/dist/js/swiper.min.js";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 import {queryCase} from '@/api/api'
 import $ from "jquery";

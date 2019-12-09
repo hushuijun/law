@@ -2,7 +2,7 @@
     <div class="about">
         <div class="hearder_bg">
             <div class="header_title">
-            <h1>ABOUT JINGSHI</h1>
+            <h1>ABOUT JINGSH</h1>
             <p>关于京师</p>
             </div>
         </div>
@@ -202,7 +202,7 @@
 </template>
 <script>
 import {addConsult} from '@/api/api'
-import Swiper from 'swiper';
+import Swiper from 'swiper/dist/js/swiper.min.js';
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
   name: 'about',

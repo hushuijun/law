@@ -24,7 +24,7 @@
     </div>
 </template>
 <script>
-import Swiper from 'swiper';
+import Swiper from 'swiper/dist/js/swiper.min.js';
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
     name: 'H5home3',

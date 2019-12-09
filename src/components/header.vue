@@ -63,7 +63,16 @@ export default {
       scrollFlag: false,
       show: true,
       show1: false,
-      drawer: false
+      drawer: false,
+      list:[
+        {name:'首页',id:'1',path:'/'},
+        {name:'专业领域',id:'1',path:'/'},
+        {name:'团队介绍',id:'1',path:'/'},
+        {name:'首页',id:'1',path:'/'},
+        {name:'经典案例',id:'1',path:'/'},
+        {name:'新闻资讯',id:'1',path:'/'},
+        {name:'首页',id:'1',path:'/'},
+      ]
     };
   },
   created() {
@@ -230,7 +239,7 @@ export default {
   border: none;
 }
 .el-header {
-  height: 80px !important;
+  height: 82px !important;
 }
 .el-menu--horizontal > .el-menu-item {
   height: 80px;
@@ -239,6 +248,14 @@ export default {
 }
 .header >>> .el-menu--horizontal .el-menu-item:hover {
   background: transparent;
+}
+.nav .el-menu--horizontal > .el-menu-item.is-active{
+  border:none;
+  background: none;
+}
+.nav .el-menu--horizontal > .el-menu-item.is-active a{
+  display: inline-table;
+  border-bottom: 2px solid #e60012;
 }
 .el-menu--horizontal > .el-menu-item.is-active {
   border-bottom: 2px solid #e60013;
@@ -261,7 +278,7 @@ li a {
   font-size: 16px;
   text-decoration: none;
   display: inline-block;
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
   color: white !important;
 }

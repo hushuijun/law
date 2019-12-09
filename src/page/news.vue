@@ -2,7 +2,7 @@
   <div class="news">
     <div class="hearder_bg">
       <div class="header_title">
-        <h1>JINGSHI&nbsp;NEWS</h1>
+        <h1>JINGSH&nbsp;NEWS</h1>
         <p>新闻资讯</p>
       </div>
     </div>

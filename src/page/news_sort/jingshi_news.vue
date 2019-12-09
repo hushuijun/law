@@ -160,7 +160,7 @@ h4 {
   font-size: 18px;
 }
 .jingshi_news .jingshi_content .news_text p {
-  color: slategray;
+  color: #808080;
   padding-top: 16px;
   font-size: 14px;
 }
