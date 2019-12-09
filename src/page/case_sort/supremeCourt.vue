@@ -1,69 +1,93 @@
 <template>
   <div class="supremeCourt">
     <ul class="article">
-      <li v-for="(item ,index) in supremeCourtList">
-        <router-link tag="a" target="_blank" to="{path:'/caseDetails',query: {id: item.id}}">
+      <li v-for="(item,index) in supremeCourtList" 
+          :key="index"
+          @click="clickSupre(item.id)">
+          <router-link  target= '_blank'  :to="{ path: 'caseDetails', query: { id: item.id }}">
           <div class="supremeCourt_top">
-            <h4>我是标题{{item.caseTitle}}</h4>
-            <p>我是日期{{item.createTime}}</p>
+            <h4>{{item.caseTitle}}</h4>
+            <p>{{item.createTime}}</p>
             <div class="clearfix"></div>
           </div>
           <div class="supremeCourt_text">
-            <p>我是内容{{item.catDesc}}</p>
+            <p>{{item.caseDepict}}</p>
           </div>
         </router-link>
       </li>
     </ul>
-    <div class="paging">
-      <span>共88条</span>
-      <a>上一页</a>
+    <div class="paging" v-if="1<ArticleNum.length">
+      <!-- <span>共88条</span> -->
+      <a  @click="prePage()">上一页</a>
       <ul>
-        <li>
-          <a>1</a>
-        </li>
-        <li>
-          <a>2</a>
-        </li>
-        <li>
-          <a>3</a>
-        </li>
-        <li>
-          <a>4</a>
-        </li>
-        <li>
-          <a>5</a>
+        <li v-for="(item, index) in ArticleNum" :key="index" 
+            :class="{pagractive:index==currentPage}" 
+            @click="prevOrNext(index)">
+          <a>{{item}}</a>
         </li>
       </ul>
-      <a>下一页</a>
+      <a @click="nextPage()">下一页</a>
     </div>
   </div>
 </template>
 <script>
-import { queryCaseDet } from "@/api/api";
+import { queryCaseList } from "@/api/api";
 export default {
   name: "SupremeCourt",
   props:['SupremeId'],
   data() {
     return {
-      id:'',
-      supremeCourtList:''
+      id:{
+          categoryId:'',
+          pageNo:'1',
+          pageSize:'10'
+          },
+      supremeCourtList:'',
+      currentPage:'',
     };
   },
   created(){
-   
+    this.SuperContent();
   },
   mounted(){
    
-    // this.SuperContent();
   },
   methods:{
     SuperContent(){
-      this.id={id:this.SupremeId}
-      console.log(this.id)
-      queryCaseDet(this.id).then(res=>{
+      var that = this
+      that.id.categoryId=that.SupremeId
+      console.log(that.id)
+      queryCaseList(that.id).then(res=>{
         console.log(res.data)
-        this.supremeCourtList = res.data
+        that.supremeCourtList = res.data.list
+        that.ArticleNum = res.data.count
+        
       })
+    },
+    // clickSupre(id){
+    //   this.$router.push({
+    //       path:'/caseDetails',
+    //       query:{id:id}
+    //   }); 
+    // },
+    // 下一页
+    nextPage() {
+        this.pageNo =++this.currentPage;
+        if (this.currentPage == this.pageNo - 1) return ;
+        this.SuperContent()
+    },
+    prevOrNext (index) {
+      console.log()
+      this.currentPage=index
+      this.pageNum = index + 1
+      this.SuperContent()
+    },
+    // 上一页
+    prePage() {
+        if (this.currentPage == 0) return ;
+        this.pageNo = --this.currentPage;
+        console.log(this.pageNo)
+        this.SuperContent()
     }
   },
   watch: {
@@ -111,10 +135,14 @@ h4 {
   margin-top: 10px;
   font-size: 14px;
   color: slategray;
+  text-align: left;
 }
 .supremeCourt .paging {
   text-align: center;
   padding: 20px;
+}
+.supremeCourt .paging a{
+  cursor: pointer;
 }
 .supremeCourt span {
   margin-right: 20px;
@@ -134,4 +162,9 @@ h4 {
     background: #7C7C7C;
     color: white;
 }
+.pagractive{
+  background: #7C7C7C;
+  color: white;
+}
+
 </style>

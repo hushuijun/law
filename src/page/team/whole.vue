@@ -1,7 +1,7 @@
 <template>
   <div class="whole">
     <ul>
-      <li v-for="(item,index) of wholeList" 
+      <li v-for="(item,index) of wholeList.slice(0,a)" 
         @click = "clickCut(item.id)">
         <div class="whole_item">
           <div class="whole_item_Img">
@@ -15,7 +15,7 @@
         </div>
       </li>
     </ul>
-    <div class="more"  v-if="flag">
+    <div class="more"  v-if="a<wholeList.length" @click='loadMore'>
       <el-button plain>查看更多<i class="el-icon-arrow-down"></i></el-button>
     </div>
     <TeamDialog :DialogID.sync="WholeDialogID" v-if="showPrise"></TeamDialog>
@@ -34,7 +34,8 @@ export default {
       wholeID:'',
       showPrise:false,
       WholeDialogID:'',
-      flag:false
+      flag:true,
+      a:9,
     };
   },
   created(){
@@ -61,7 +62,10 @@ export default {
       this.WholeDialogID = id;
       console.log(this.WholeDialogID)
       this.$emit('func',this.WholeDialogID)
-    }
+    },
+    loadMore:function(){
+          this.a+=9;
+        }
   },
   watch: {
       inputName(){

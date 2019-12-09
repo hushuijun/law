@@ -54,15 +54,15 @@ export default {
       var _this = this;
       _this.isSelect = index;
       this.remeId = id;
-      _this.CaseId = {
-        categoryId:id,
-        pageNo: "1",
-        pageSize: "10"
-      }
-      console.log( _this.CaseId)
-      queryCaseList(_this.CaseId).then(res => {
-        _this.supremeCourtList = res.data.list
-      })
+      // _this.CaseId = {
+      //   categoryId:id,
+      //   pageNo: "1",
+      //   pageSize: "10"
+      // }
+      // console.log( _this.CaseId)
+      // queryCaseList(_this.CaseId).then(res => {
+      //   _this.supremeCourtList = res.data.list
+      // })
     }
   },
   watch: {
@@ -81,7 +81,7 @@ export default {
 }
 .case .hearder_bg {
   width: 100%;
-  height: 500px;
+  height: 620px;
   overflow: hidden;
   position: relative;
   background: url("../assets/case_bg.jpg") no-repeat;
@@ -95,34 +95,36 @@ export default {
   position: absolute;
   text-align: center;
   color: white;
-  top: 40%;
+  top: 50%;
   left: 50%;
-  margin-left: -109px;
+  margin-left: -155px;
+  margin-top: -47px;
 }
-.case .header_title h1 {
+.case .header_title h1{
+  font-size: 36px;
   font-weight: 500;
+  margin: 0;
+  margin-bottom: 10px;
+  letter-spacing: 4px;
 }
-.case .header_title p {
+.case .header_title p{
   font-size: 28px;
 }
 .case .case_content {
   width: 1200px;
   margin: auto;
-  margin-top: -80px;
-  padding-bottom: 20px;
+  margin-top: -95px;
+  padding-bottom: 90px;
   background: white;
   position: relative;
   z-index: 1;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
-}
-.case .case_center {
-  margin-left: 45.5%;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12); */
 }
 .case .top {
   border-bottom: 2px solid #b8131b;
-  width: 90%;
-  height: 50px;
-  margin: 20px auto;
+  width: 1120px;
+  height: 94px;
+  margin: auto;
 }
 .case .text_nav {
   text-align: center;
@@ -131,9 +133,9 @@ export default {
 }
 .case .text_nav a {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 12px 50px;
   cursor: pointer;
-  margin: 5px 10px;
+  margin: 5px;
 }
 .case .text_nav a:hover {
   background: #b8131b;

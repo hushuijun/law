@@ -8,16 +8,13 @@ import News from '@/page/News'
 import About from '@/page/About'
 // 经典案例
 import SupremeCourt from '@/page/case_sort/SupremeCourt'
+import HonorDetails from '@/page/HonorDetails'
 //案例详情
 import CaseDetails from '@/components/CaseDetails'
-// 新闻资讯
-import Jingshi_news from '@/page/news_sort/Jingshi_news'
-import Jingshi_party from '@/page/news_sort/Jingshi_party'
-import PublicWelfare from '@/page/news_sort/PublicWelfare'
 //新闻详情
 import NewsDetails from '@/components/NewsDetails'
 //荣誉详情
-import honorDetails from '@/page/honorDetails'
+import majorDetails from '@/components/majorDetails'
 
 Vue.use(Router)
 
@@ -29,14 +26,15 @@ export default new Router({
       name: 'Home',
       component: Home
     },
-    { path: '/honorDetails',
-      name: 'honorDetails',
-      component: honorDetails
-    },
     {
       path: '/major',
       name: 'Major',
       component: Major
+    },
+    {
+      path: '/honorDetails',
+      name: 'HonorDetails',
+      component: HonorDetails,
     },
     {
       path: '/team',
@@ -63,23 +61,6 @@ export default new Router({
       path: '/news',
       name: 'News',
       component: News,
-      children:[
-        {
-          path:'/',
-          name:'Jingshi_news',
-          component:Jingshi_news,
-        },
-        {
-          path:'/jingshi_party',
-          name:'Jingshi_party',
-          component:Jingshi_party,
-        },
-        {
-          path:'/publicWelfare',
-          name:'PublicWelfare',
-          component:PublicWelfare,
-        }
-      ]
     },
     {
       path:'/newsDetails',
@@ -94,6 +75,11 @@ export default new Router({
     {
       path:'*',
       redirect:'/'
+    },
+    {
+      path: '/majorDetails',
+      name: 'majorDetails',
+      component: majorDetails
     }
   ]
 })

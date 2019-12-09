@@ -10,66 +10,54 @@
       <div class="top"></div>
       <div>
         <div class="text_nav">
-          <router-link 
-          tag="a" 
-          :class="isSelect === 'Jingshi_news' ? 'active' : ''"
-          @click.native="selectNav(title)" 
-          to="/news/"
-          >京师新闻</router-link>
-          <router-link
-            tag="a"
-          :class="isSelect === 'Jingshi_party' ? 'active' : ''"
-            @click.native="selectNav(title)"
-            to="/jingshi_party"
-          >京师党建</router-link>
-          <router-link
-            tag="a"
-             :class="isSelect === 'PublicWelfare' ? 'active' : ''"
-            @click.native="selectNav(title)"
-            to="/publicWelfare"
-          >京师公益</router-link>
+          <a v-for="(item,index) of caseList" :key="index"
+          :class="isSelect === item.id ? 'active' : ''"
+          @click="selectNav(item.id,index)" 
+          >{{item.name}}</a>
         </div>
-        <div>
+        <!-- <div>
           <router-view></router-view>
+        </div> -->
+        <div>
+          <JingNews v-bind:newsList = "NewsId"></JingNews>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import JingNews from '@/page/news_sort/jingshi_news'
 export default {
+  name:'news',
+  components:{JingNews},
   data() {
     return {
-      isSelect:'Jingshi_news',
-      title:''
+      isSelect:'1',
+      title:'',
+      caseList:[{id:'1',name:'京师新闻'},{id:'2',name:'京师党建'},{id:'3',name:'京师公益'}],
+      NewsId:'',
     };
   },
+  created(){
+ 
+  },
   mounted(){
-     this.isSelect = this.$route.name
+    
   },
   methods: {
-    selectNav(title) {
-      this.isSelect = this.$route.name;
-      switch (title) {
-        case "SupremeCourt":
-          this.$router.push("/");
-          break;
-        case "Litigation":
-          this.$router.push("/litigation");
-          break;
-        case "Nolitigation":
-          this.$router.push("/nolitigation");
-          break;
-      }
+    selectNav(id,index){
+      this.NewsId = id
+      this.isSelect = id
+      console.log(this.NewsId)
     }
-  }
+  },
 };
 </script>
 <style scoped>
 @import "../assets/css/base.css";
 .news .hearder_bg {
   width: 100%;
-  height: 500px;
+  height: 620px;
   overflow: hidden;
   position: relative;
   background: url("../assets/news_bg.png") no-repeat;
@@ -83,37 +71,41 @@ export default {
   position: absolute;
   text-align: center;
   color: white;
-  top: 40%;
+  top: 50%;
   left: 50%;
-  margin-left: -109px;
+  margin-left: -155px;
+  margin-top: -47px;
 }
 .news .header_title h1{
+  font-size: 36px;
   font-weight: 500;
+  margin: 0;
+  margin-bottom: 10px;
+  letter-spacing: 4px;
 }
 .news .header_title p{
   font-size: 28px;
 }
 .news .news_content {
-  min-height: 800px;
-  padding-bottom: 120px;
+  /* min-height: 800px; */
+  padding-bottom: 90px;
   background: white;
-}
-.news .news_center {
-  margin-left: 45.5%;
 }
 .news .top {
   border-bottom: 2px solid #b8131b;
-  width: 70%;
-  height: 50px;
-  margin: 20px auto;
+  width: 1118px;
+  height: 90px;
+  margin: auto;
 }
 .news .text_nav {
   text-align: center;
-  margin-top: 70px;
+  margin-top: 90px;
 }
 .news .text_nav a {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 12px 50px;
+  font-size: 16px;
+  margin-left: 10px;
 }
 .news .text_nav a:hover {
   background: #b8131b;
@@ -126,5 +118,35 @@ export default {
 .news .router-link-exact-active .router-link-active {
   background: #b8131b;
   color: white;
+}
+@media screen and (max-width: 1024px) {
+    .news .hearder_bg{
+    height: 250px;
+  }
+  .news .header_title h1{
+    font-size: 18px;
+  }
+  .news .header_title{
+    margin-left: -64.5px;
+    margin-top: -26.5px;
+  }
+  .news .header_title p{
+    font-size: 14px;
+  }
+  .news .top{
+    width: 90%;
+    height: 30px;
+  }
+  .news .text_nav {
+  margin-top: 30px;
+}
+.news .text_nav a {
+  padding: 12px 10px;
+  font-size: 16px;
+  margin-left: 10px;
+}
+.news .news_content{
+  padding-bottom: 30px;
+}
 }
 </style>
