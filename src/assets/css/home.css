@@ -16,35 +16,41 @@ ul,ol,li{
   }
   .Home_banner{
     width:100%;
-    height:850px;
+    height:690px;
     text-align: center;
     color: #fff;
   }
   .Home_banner h3{
     margin: 0;
     margin-top:340px;
-    font-size: 70px;
+    font-size: 74px;
     font-weight: 500;
+    letter-spacing: 14px;
   }
   .Home_banner p{
     margin-top: 15px;
-    font-size: 26px;
+    font-size: 26.92px;
     font-weight: 200;
+    letter-spacing: 5px;
+    margin-left: -10px;
   }
   .Home_banner p span{
     padding:0 10px;
   }
   .Home_bannerA a{
     display: inline-block;
-    width:198px;
-    height:43px;
+    width:200px;
+    height:45px;
     text-align: center;
     line-height: 45px;
     border: 1px solid #fff;
     font-size: 16px;
-    margin: 30px 10px;
+    margin: 32px 10px;
     cursor: pointer;
     color:#fff;
+  }
+  .Home_bannerA a:first-child{
+    margin-left: -5px;
   }
   .Home_bannerA a:hover{
     background: #fff;
@@ -56,6 +62,8 @@ ul,ol,li{
     margin: auto;
     position: absolute;
     bottom:20px;
+    padding-bottom: 90px;
+    padding-top: 296px;
   }
   .Home_bannerBT div{
     width:19px;
@@ -94,14 +102,15 @@ ul,ol,li{
   .Home-Cont1{
     width:100%;
     background: #fff;
-    height: 635px;
+    height: 637px;
   }
   
   .Home_Top h4{
     margin: 0;
     font-size: 74px;
     color:#ececec;
-    letter-spacing: 6px;
+    letter-spacing: 4px;
+    font-family: Arial;
   }
   .Home_Top p{
     margin: 0;
@@ -111,9 +120,9 @@ ul,ol,li{
     letter-spacing: 3px;
   }
   .Home_Top{
-    padding-top: 115px;
+    padding-top: 120px;
     width: 100%;
-    padding-bottom: 50px;
+    padding-bottom: 77px;
     text-align: center;
   }
   .Cont1_bot p{
@@ -141,7 +150,7 @@ ul,ol,li{
   }
   .Home-Cont2{
     background: #eee;
-    padding-bottom: 115px;
+    padding-bottom: 122px;
   }
   .Home-Cont2 .Home_Top h4{
     color:#dbdada
@@ -176,6 +185,8 @@ ul,ol,li{
     cursor: pointer;
     height: 43px;
     line-height: 43px;
+    font-size: 14px;
+    color: #fff;
   }
   .bot_left_bottom p a{
     color:#fff;
@@ -243,11 +254,16 @@ ul,ol,li{
     margin: auto;
     color: #fff;
     text-decoration:none;
+    font-size: 14px;
+    color: #b9b9b9;
   }
   .right_div2_lefc ul li:hover{
     background: #c60716;
     cursor: pointer;
     padding-left: 30px;
+  }
+  .right_div2_lefc ul li:hover a{
+    color: #fff;
   }
   .right_div2_lefc ul .li1:hover{
     padding-left: 0;
@@ -290,6 +306,7 @@ ul,ol,li{
     height:530px;
     margin: auto;
     position: relative;
+    background: #000;
   }
   .Home-Cont3-IMG img{
     width: 100%;
@@ -319,6 +336,9 @@ ul,ol,li{
     cursor: pointer;
     color: #fff;
   }
+  .Home-Cont3-word p>a:hover{
+    text-decoration:underline;
+  }
   .Home-Cont3-word p>a:last-child{
   padding-left:50px;
   }
@@ -334,7 +354,7 @@ ul,ol,li{
     background: #eee;
     width:100%;
     margin: auto;
-    padding-bottom:100px;
+    padding-bottom:120px;
   }
   .Home-Cont4 h4{
     color: #dbdada;
@@ -399,7 +419,7 @@ ul,ol,li{
   .Home-Cont5{
     width:100%;
     background: #fff;
-    padding:115px 0;
+    padding:120px 0;
   }
   .Home-Cont5_top{
     width:1200px;

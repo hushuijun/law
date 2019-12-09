@@ -246,7 +246,7 @@ Main components
   position: absolute;
   top: 0;
   left: 18px;
-  height: 75%;
+  height: 90%;
   width: 4px;
   background: #d7e4ed;
   left: 50%;
@@ -273,7 +273,7 @@ h4 {
 .major .major_left .major_card .card_icon {
   position: absolute;
   top: -4px;
-  right: -124px;
+  right: -127px;
 }
 .major .card_icon img{
   max-width: 100%;
@@ -294,7 +294,7 @@ h4 {
 .major .major_right .major_card .card_icon {
   position: absolute;
   top: -4px;
-  left: -124px;
+  left: -127px;
 }
 .major .major_right .major_card:first-child {
   margin-top: 215px;

@@ -5,7 +5,7 @@
             <div class="Home_banner">
                <img class="mainbox" src="../assets/mainbox.png"/>
                 <h3>京师律师事务所</h3>
-                <p><span>·</span>规模化<span>·</span>专业化<span>·</span>品牌化<span>·</span>国际化<span>·</span>电商化</p>
+                <p>规模化<span>·</span>专业化<span>·</span>品牌化<span>·</span>国际化<span>·</span>电商化</p>
                 <div class="Home_bannerA">
                   <a target="_blank" href="http://p.qiao.baidu.com/cps/chat?siteId=10455521&userId=1886665">在线咨询</a>
                   <router-link to="/about">了解详情</router-link>
@@ -18,11 +18,11 @@
             <div class="Home-Cont1">
                   <div class="Home_Top">
                     <img src="../assets/icon-01.png"/>
-                    <h4>ABOUT INGSHI</h4>
+                    <h4>ABOUT JINGSH</h4>
                     <p>关于律所</p>
                   </div>
                   <div class="Cont1_bot">
-                    <p>北京市京师律师事务所，肇造于1994年，总部设于北京市国贸CBD商圈，是一家传统与新型管理模式相结合的合伙制律师事务所。</p>
+                    <p>京师律师，肇造于1994年，肇造于1994年，总部设于北京市国贸CBD商圈，是一家传统与新型管理模式相结合的合伙制律师事务所。</p>
                     <p> 京师自成立以来，一直朝着规模化、专业化、品牌化、国际化、
                         电商化方向不断改革，并以一流的律师团队、专业的行政服务、
                         坚韧的党建精神为依托，竭力打造一个更具影响力与号召力的律师生态圈。
@@ -155,7 +155,7 @@
                   <p>团队介绍</p>
                 </div>
                 <div class="Home-Cont3-IMG">
-                  <img  src="../assets/about159.jpg" alt="团队图片">
+                  <!-- <img  src="../assets/about159.jpg" alt="团队图片"> -->
                   <div class="Home-Cont3-mask">
                     <div class="Home-Cont3-word">
                         <p>秉承团队合作精神，充分发挥人才优势</p>
@@ -251,7 +251,7 @@
     </div>
 </template>
 <script>
-import Swiper from 'swiper';
+import Swiper from 'swiper/dist/js/swiper.min.js';
 import 'swiper/dist/css/swiper.min.css';
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import {queryCase} from '@/api/api'
@@ -359,7 +359,32 @@ export default {
     width: 100%;
     height: 100%;
   }
-
+  .home>>> .el-collapse-item__header{
+    font-size: 16px;
+    color: #333;
+    padding: 0 20px;
+    background: #eeeeee !important;
+  }
+  .home>>>.is-active .el-collapse-item__header{
+    background: #fff !important;
+    line-height: 30px;
+    height: 30px;
+    padding-top: 13px;
+  }
+  .home >>> .el-collapse-item div
+  .home >>> .el-collapse-item__content{
+    font-size: 14px;
+    color: #606060;
+    padding: 0 20px;
+  }
+  .home>>> .el-collapse-item__content{
+    padding: 0 20px 10px 20px;
+  }
+  .home>>> .el-collapse-item{
+    padding: 0 !important;
+    border: 1px solid #c7c7c7;
+    border-top: 0;
+  }
   @media screen and (max-width: 1024px) {
    .Home-H5 .footer{
       display: none;

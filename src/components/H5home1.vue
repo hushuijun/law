@@ -1,6 +1,6 @@
 <template>
     <div class="h5_BG1">
-        <h3>京师律师事务所</h3>
+        <h3>京师律师</h3>
         <p>规模化 · 专业化 · 品牌化</p>
         <p>国际化 · 电商化</p>
         <a target="_blank" href="http://p.qiao.baidu.com/cps/chat?siteId=10455521&userId=1886665">在线咨询</a>

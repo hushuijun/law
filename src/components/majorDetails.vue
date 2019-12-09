@@ -20,8 +20,8 @@
           </thead>
           <tbody>
             <tr v-for="(item,index) of details.list" :key='index'>
-              <td>
-                 {{item.name}}
+              <td class="td">
+                 <a>{{item.name}}</a>
               </td>
               <td>
                   {{item.email}}
@@ -227,6 +227,9 @@ li {
 .majorDetails .honor_content:last-child .honor_img {
   bottom: 0px;
   top: inherit;
+}
+.td a{
+  text-decoration: underline;
 }
 @media screen and (max-width: 1024px) {
   .majorDetails{

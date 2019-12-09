@@ -2,7 +2,7 @@
   <div class="team">
     <div class="hearder_bg">
       <div class="header_title">
-        <h1>JINGSHI&nbsp;TEAM</h1>
+        <h1>JINGSH&nbsp;TEAM</h1>
         <p>京师团队</p>
       </div>
     </div>
@@ -189,7 +189,7 @@ export default {
   height: 620px;
   overflow: hidden;
   position: relative;
-  background: url("../assets/team_bg.png") no-repeat;
+  background: url(/static/img/team_bg.170d5bf.png) no-repeat center;
   background-size: cover;
   /* background: rgba(0, 0, 0, 0.7); */
 }
@@ -255,6 +255,7 @@ export default {
   line-height: 30px;
   margin-top: 10px;
   text-indent: 2rem;
+  color: #3d3d3d;
 }
 .team .team_title .leader {
   margin-top: 50px;
