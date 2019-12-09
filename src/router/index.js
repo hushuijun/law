@@ -6,8 +6,7 @@ import Team from '@/page/Team'
 import Case from '@/page/Case'
 import News from '@/page/News'
 import About from '@/page/About'
-// 经典案例
-import SupremeCourt from '@/page/case_sort/SupremeCourt'
+
 import HonorDetails from '@/page/HonorDetails'
 //案例详情
 import CaseDetails from '@/components/CaseDetails'
@@ -19,7 +18,7 @@ import majorDetails from '@/components/majorDetails'
 Vue.use(Router)
 
 export default new Router({
-  // model: 'history',
+  // mode: 'history',
   routes: [
     {
       path: '/',
@@ -45,12 +44,6 @@ export default new Router({
       path: '/case',
       name: 'Case',
       component: Case,
-      children:[{
-        path:'/',
-        name: 'SupremeCourt',
-        component: SupremeCourt,
-      }
-    ]
     },
     {
       path:'/caseDetails',

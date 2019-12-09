@@ -75,7 +75,7 @@ export default {
 <style scoped>
 @import "../assets/css/base.css";
 .case {
-  min-height: 1500px;
+  /* min-height: 1500px; */
   background: #f9f9f9;
   padding-bottom: 80px;
 }
@@ -156,17 +156,41 @@ export default {
   text-indent: 2rem;
 }
 @media screen and (max-width: 1024px) {
+  .case{
+    padding-bottom: 0;
+  }
   .case .hearder_bg{
     height: 250px;
   }
-  .about .header_title h1{
+  .case .header_title h1{
     font-size: 18px;
   }
-  .about .header_title p{
+  .case .header_title{
+    margin-left: -84.5px;
+    margin-top: -26.5px;
+  }
+  .case .header_title p{
     font-size: 14px;
   }
   .case .case_content{
     width:100%;
+    margin-top:0;
   }
+  .case .top{
+    width: 90%;
+    height: 30px;
+  }
+  .case .text_nav {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.case .text_nav a {
+  padding: 12px 10px;
+  font-size: 16px;
+  margin-left: 10px;
+}
+.case .case_content{
+  padding-bottom: 30px;
+}
 }
 </style>

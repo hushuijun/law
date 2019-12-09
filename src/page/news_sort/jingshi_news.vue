@@ -82,9 +82,11 @@ export default {
     },
      // 下一页
      nextPage() {
+      if(1<this.currentPage){
         this.pageNo =++this.currentPage;
         if (this.currentPage == this.pageNo - 1) return ;
         this.new()
+      }
     },
     prevOrNext (index) {
       console.log()
@@ -168,6 +170,9 @@ h4 {
   margin-top: 50px;
   /* padding: 25px; */
 }
+.jingshi_news .paging a{
+  cursor: pointer;
+}
 .jingshi_news .paging span {
   margin-right: 20px;
 }
@@ -206,6 +211,7 @@ h4 {
   .jingshi_news .more p{
     text-align: center;
     color: #b8131b;
+    margin-top: 20px;
   }
 }
 </style>

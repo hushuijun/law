@@ -24,7 +24,7 @@
               <p>京师：京师者何？天子之居也。京者何？大也。师者何？众也。天子之居，必以众大之辞言之。京师律师事务所处首善之都，倚知名学府，揽浩瀚资源，汇天下英才。京师人深知，不拒众流，方为江海。京师人深信，立专业之本，承君子之德，笃法律之学，守四海之义，方能使京师人文充溢，厚德载物。</p>
             </div>
             <div class="leader_more">
-              <a @click="DialogID(3)">了解更多></a>
+              <a @click="DialogID2()">了解更多></a>
             </div>
           </div>
         </div>
@@ -40,9 +40,72 @@
           <Whole :inputName.sync="detailsUL" v-if="" @func='DialogID' ></Whole>
       </div>
     </div>
-    <!-- <div>
-
-    </div> -->
+    <el-dialog :visible.sync="Boss" width="100%">
+        <div class="details">
+            <div class="details_img">
+                <img src="../assets/leader.png" alt />
+            </div>
+            <div class="details_text">
+                <ul>
+                    <li>
+                        <h3>林才红 / LIN CAIHONG</h3>
+                        <p class="details_textP1">执业律师</p>
+                    </li>
+                    <li>
+                      <div class="div">
+                        <p>
+                          <span class="span">教育背景</span>
+                          <span>北京大学</span>
+                        </p>
+                        <p>
+                          <span class="span">专业领域</span>
+                         <span>国际法律事务、境外并购M&A、海外上市IPO、外商投资FDI等</span>
+                        </p>
+                        <p>
+                          <span class="span">个人简介</span>
+                          <span>
+                            林才红律师，执业于北京市京师律师事务所，
+                            北京市律师协会优秀党员，北师大经济犯罪研究中心研究员，
+                            十六年房地产、金融资深执业律师经历，房地产、
+                            金融 创新与资产证券化、并购重组、国际综合、
+                            外商投资与境外投资、兼并重组 风险投资及私募股权投资、
+                            证券与资本市场、股权投资领域的金融法律专家。从业近20年，
+                            其经办的众多案件经央视焦点法谈、央视财经频道、央视经济半小时、
+                            浙江卫视、上海卫视、人民日报、新华社、南方周末、中国青年报、
+                             中国经营报、中国企业报、中国工商时报、人民代表报、
+                             华夏时报、钱江晚报、新京报、京华时报、上海第一财经日报、
+                             新浪网、新华网、搜狐网、网易等几乎全国所有媒体广泛报道。
+                             林才红律师现为北京市京师律师事务所创 始合伙人、管委会主任，
+                             创造了两年将一家18人的律所发展成为京城最大律 
+                             所1000多名律师的律界奇迹。
+                              工程类对外投资典型案例
+                              北京首钢建设集团有限公司位于斯里兰卡科伦坡的 
+                              THE ONE项目。项目计划于2019年4月15日开工，
+                              2021年5月1日竣工，A 塔为80层，建筑高度326米，
+                              B塔为77层，建筑高度291米，C塔为92层， 建筑高度为376米。
+                              功能涵盖丽思卡尔顿、JW万豪两大奢华五星级酒店以 及豪华公寓、
+                              奢侈品商铺、高端写字楼。作为顶级酒店品牌的丽思卡尔顿， 
+                              在亚洲仅有新加坡、吉隆坡、曼谷、阿曼推出过四个公寓式酒店项目，
+                              科伦坡THE ONE项目是亚洲第五个，也是南亚第一个，类似于北京的中国尊，
+                              建成后将成为科伦坡地标性建筑，极具影响力。
+                              中国电子系统工程第四建设有限公司位于匈牙利的SK锂电池项目提供前期咨询服务项目。
+                              SK创新公司(SK Innovation)斥资8000 万亿韩元(约合7.34亿美元)，
+                              计划在匈牙利北部科马隆(Komarom)市 建立一家电动车电池生产厂，
+                              该项目将于明年2月破土动动。这座新工厂是继去年初起在匈牙利科马罗姆
+                              (Komarom)市建设中的年产能7.5GWh的电动汽车电池工厂之后，
+                              出于加强欧洲境内优势地位的目的而决定新建的。该工厂总建筑面积达35,432坪(1坪=3.3平方米)。
+                              巴基斯坦Neelum-Jhelum水电项目。
+                              具体为浙江省正邦水电建设有限公司与中国葛洲坝集团股份有限公司、
+                              中国葛洲坝集团国际工程有限公司、葛洲坝新疆工程局(有限公司)工程合同纠纷仲裁案件。
+                              林才红律师团队代理申请人浙江省正邦水电建设有限公司为当事人挽回数千万元的损失。
+                              </span>
+                          </p>
+                      </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </el-dialog>
     <el-dialog :visible.sync="dialogTeamVisible" width="100%">
         <div class="details">
             <div class="details_img">
@@ -79,7 +142,8 @@ export default {
       curT:0,
       dialogTeamVisible: false,
       dialogList:'',
-      id:''
+      id:'',
+      Boss:false
     };
   },
   created(){
@@ -101,6 +165,9 @@ export default {
           this.dialogList = res.data;
           console.log(this.dialogList)
       })
+    },
+    DialogID2(){
+      this.Boss = true
     }
 },
   watch: {
@@ -257,6 +324,7 @@ export default {
 .team .details{
   width: 1200px;
   margin: auto;
+  margin-top: 40px;
 }
 .team .details .details_img{
   display: inline-block;
@@ -270,6 +338,24 @@ export default {
   display: inline-block;
   width: 50%;
   line-height: 30px;
+}
+.details_text h3{
+  font-size:30px;
+  color:#262626;
+  font-weight: 400;
+}
+.details_textP1{
+  font-size: 18px;
+}
+.details_text .div p{
+  margin-top: 25px;
+}
+.details_text .div p .span{
+  font-size: 20px;
+  color: #0b0b0b;
+  font-weight: 400;
+  display:block;
+  padding-bottom: 0;
 }
 .team >>> .el-dialog__headerbtn .el-dialog__close{
   width:40px;
@@ -285,6 +371,7 @@ export default {
 }
 .team .details_text li p span{
   padding-bottom:26px;
+  font-size: 16px;
 }
 @media screen and (min-width: 1025px){
   .team >>> .el-dialog{
@@ -292,13 +379,15 @@ export default {
     margin-top:0!important;
     left: 0;
     top: 0;
-    height: 100%;
+    min-height: 100%;
+    padding-bottom: 10px;
   }
   .team .team_classification a:hover {
     background: #b8131b;
     border: 1px solid #b8131b;
     color: white;
   }
+  
   .team .team_classification .active {
     background: #b8131b;
     border: 1px solid #b8131b;
@@ -316,11 +405,12 @@ export default {
     font-size: 14px;
   }
   .team .header_title{
-    width: 120px;
-    margin-left: -60px;
+    width: 170px;
+    margin-left: -85px;
+    margin-top: -23px;
   }
   .team .team_content{
-    margin-top: 20px;
+    margin-top: 0;
     width:100%;
   }
   .team .team_title .leader .leader_left{
@@ -354,10 +444,13 @@ export default {
     border:none;
     width: 20%;
     margin-right:0;
-    font-size: 15px;
+    font-size: 13px;
   }
   .team{
     padding-bottom: 0;
+  }
+  .team .team_classification a:first-child{
+    width:10%;
   }
   .team .team_classification .active{
     background: none!important;
@@ -385,6 +478,10 @@ export default {
     margin-top:0!important;
     left: 0;
     top: 0;
+  }
+  .team .top{
+    width: 90%;
+    height: 30px;
   }
 }
 </style>

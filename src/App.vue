@@ -3,9 +3,7 @@
     <div>
       <app-header></app-header>
     </div>
-      <div class="content">
-          <router-view></router-view>
-      </div>
+     <router-view></router-view>
      <div>
       <app-footer></app-footer>
     </div>
@@ -27,10 +25,9 @@ export default {
 body,p{
   margin: 0;
 }
+
 #app{
   height: 100%;
 }
-.content{
-  height: 100%;
-}
+
 </style>

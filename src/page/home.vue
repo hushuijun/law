@@ -8,7 +8,7 @@
                 <p><span>·</span>规模化<span>·</span>专业化<span>·</span>品牌化<span>·</span>国际化<span>·</span>电商化</p>
                 <div class="Home_bannerA">
                   <a target="_blank" href="http://p.qiao.baidu.com/cps/chat?siteId=10455521&userId=1886665">在线咨询</a>
-                  <a target="_blank" href="http://p.qiao.baidu.com/cps/chat?siteId=10455521&userId=1886665">了解详情</a>
+                  <router-link to="/about">了解详情</router-link>
                 </div>
                 <div class="Home_bannerBT">
                     <div>|</div>
@@ -19,7 +19,7 @@
                   <div class="Home_Top">
                     <img src="../assets/icon-01.png"/>
                     <h4>ABOUT INGSHI</h4>
-                    <p>关于律师</p>
+                    <p>关于律所</p>
                   </div>
                   <div class="Cont1_bot">
                     <p>北京市京师律师事务所，肇造于1994年，总部设于北京市国贸CBD商圈，是一家传统与新型管理模式相结合的合伙制律师事务所。</p>
@@ -27,7 +27,7 @@
                         电商化方向不断改革，并以一流的律师团队、专业的行政服务、
                         坚韧的党建精神为依托，竭力打造一个更具影响力与号召力的律师生态圈。
                     </p>
-                    <router-link to="/about">了解详情</router-link>
+                    <router-link  to="/about">了解详情</router-link>
                   </div>
               </div>
               <div class="Home-Cont2">
@@ -87,25 +87,37 @@
                                   <img src="../assets/sifa.png">
                                 </li>
                                 <li>
+                                  <router-link  target= '_blank'  :to="{ path: 'majorDetails', query: { id: '1' }}">
                                     诉讼仲裁<img src="../assets/sanjiao.png"/>
+                                  </router-link>
                                 </li>
                                 <li>
+                                    <router-link  target= '_blank'  :to="{ path: 'majorDetails', query: { id: '3' }}">
                                     公司法律<img src="../assets/sanjiao.png"/>
+                                  </router-link>
                                 </li>
                                 <li>
+                                    <router-link  target= '_blank'  :to="{ path: 'majorDetails', query: { id: '4' }}">
                                     金融资本<img src="../assets/sanjiao.png"/>
+                                  </router-link>
                                 </li>
                                 <li>
+                                    <router-link  target= '_blank'  :to="{ path: 'majorDetails', query: { id: '5' }}">
                                     知识产权<img src="../assets/sanjiao.png"/>
+                                  </router-link>
                                 </li>
                                 <li>
+                                    <router-link  target= '_blank'  :to="{ path: 'majorDetails', query: { id: '6' }}">
                                     房产建筑<img src="../assets/sanjiao.png"/>
+                                  </router-link>
                                 </li>
                                 <li>
+                                    <router-link  target= '_blank'  :to="{ path: 'majorDetails', query: { id: '7' }}">
                                     国际法律<img src="../assets/sanjiao.png"/>
+                                  </router-link>
                                 </li>
-                                <li >
-                                    <router-link to="/major">
+                                <li>
+                                    <router-link  target= '_blank' to="/major">
                                     查看更多<img src="../assets/sanjiao.png"/>
                                     </router-link>
                                 </li>
@@ -297,7 +309,6 @@ export default {
             var that = this
             queryCase().then(res=>{ 
                 that.jingDian = res.data
-                console.log(that.jingDian)
                 for( let i= 0;i<that.jingDian.length;i++){
                   if(that.jingDian[i].categoryId == 1){
                       that.CAtegoryId ='最高院案例'
@@ -348,9 +359,11 @@ export default {
     width: 100%;
     height: 100%;
   }
+
   @media screen and (max-width: 1024px) {
    .Home-H5 .footer{
       display: none;
     }
+
   }
 </style>
